@@ -1,3 +1,9 @@
+body, html{
+    background-color: #1A3C39;
+    height: 100%;
+    margin: 0;
+}
+
 .container {
     width: 100vw;
     height: 100vh;
