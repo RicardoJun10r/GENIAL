@@ -43,7 +43,6 @@ function Login() {
                             className='email-input' 
                             type="email"
                             id='email'
-                            value={values.email}
                             onChange={handleChange}
                             />
                             <br />
@@ -55,7 +54,6 @@ function Login() {
                             type="password" 
                             id='senha'
                             autoComplete='off'
-                            value={values.senha}
                             onChange={handleChange}
                             />
                             <br />
