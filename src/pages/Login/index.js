@@ -3,7 +3,6 @@ import './style.css';
 
 function Login() {
 
-    const[cont, setCont] = useState(0);
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
 
@@ -11,10 +10,11 @@ function Login() {
     {
         e.preventDefault();
 
-        setCont(cont+1);
-        console.log(cont);
+        //--APAGAR--
         console.log(email);
         console.log(senha);
+        //--APAGAR--
+
         setEmail('');
         setSenha('');
     }
