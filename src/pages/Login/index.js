@@ -1,28 +1,22 @@
 import { useState } from 'react';
 import './style.css';
 
-const initialValues = {
-    email: '',
-    senha: '',
-}
-
 function Login() {
 
-    const[values, setValues] = useState(initialValues);
     const[cont, setCont] = useState(0);
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
 
-    function handleChange(e){
-        const { name, value } = e.target;
-        setValues({
-            ...values, [name]: value
-        });
-    }
     function onSubmit(e)
     {
         e.preventDefault();
 
         setCont(cont+1);
         console.log(cont);
+        console.log(email);
+        console.log(senha);
+        setEmail('');
+        setSenha('');
     }
 
     return(
@@ -41,9 +35,10 @@ function Login() {
                             <br />
                             <input 
                             className='email-input' 
-                            type="email"
+                            type='email'
                             id='email'
-                            onChange={handleChange}
+                            value={email}
+                            onChange={e => setEmail(e.target.value)}
                             />
                             <br />
                             <br />
@@ -51,10 +46,11 @@ function Login() {
                             <br />
                             <input 
                             className='senha-input' 
-                            type="password" 
+                            type='password' 
                             id='senha'
                             autoComplete='off'
-                            onChange={handleChange}
+                            value={senha}
+                            onChange={e => setSenha(e.target.value)}
                             />
                             <br />
                             <br />
