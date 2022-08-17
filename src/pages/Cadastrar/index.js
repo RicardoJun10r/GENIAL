@@ -10,5 +10,4 @@ const Cadastrar = () => {
         </div>
     )
 }
-
 export default Cadastrar;
