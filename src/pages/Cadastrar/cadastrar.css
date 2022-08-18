@@ -16,27 +16,31 @@ body, html{
     color: white;
 }
 
-.container_inner {
-    background-color:white ;
+.container_innerCadastro {
+    background-color: #32726E ;
     width: 900px;
     height: 550px;
+    margin-top: -80px;
 
     display: flex;
     flex-direction: column;
     position: relative;
 }
 
-.esquerda{
-    position: absolute;
-    margin-left: 550px;
-    margin-top: 100px;
+.esquerda{ 
+    width: 42%;
+    height: 100%;
+    background-color: white;
     color: black;
+    padding-top: 50px;
+    padding-left: 80px;
 }
 
 .direita{
-    width: 50%;
-    height: 100%;
-    background-color: #32726E;
+    position: absolute;
+    margin-left: 450px;
+    margin-top: 3px;
+    color: white;
 }
 
 .email-label{

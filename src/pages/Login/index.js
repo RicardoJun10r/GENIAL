@@ -67,9 +67,9 @@ function Login() {
                                 </form>
                                 <br />
                                 <div className='link'>
-                                    <b>Não tem uma conta?     
-                                    <Link exact to="/cadastrar" >
-                                        <strong>Registre-se</strong>
+                                    <b>Não tem uma conta?      
+                                    <Link exact to="/cadastrar" className='link'>
+                                        <strong> Registre-se</strong>
                                     </Link></b>
                                 </div>
                         </div>

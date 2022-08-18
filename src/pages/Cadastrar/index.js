@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import './style.css';
+import './cadastrar.css';
 import armazenLogo from "../../assets/warehouse.png";
 import Container from 'react-bootstrap/esm/Container';
 
@@ -52,7 +52,7 @@ const Cadastrar = () => {
                 </div>
                 
                 <div className='container'>
-                    <div className='container_inner'>
+                    <div className='container_innerCadastro'>
                         <div className='esquerda'>
                             {/*Lado esquerdo*/}
                             <h1>Cadastre-se</h1>
@@ -97,7 +97,7 @@ const Cadastrar = () => {
                             </form> 
                         </div>
                         
-                        <div className='direita'>
+                        <div className='direita'> 
                             {/*Lado direito*/}
                             <h1 className='main_title'>Armazenar é <br></br> bom,<br></br> organizar é <br></br> <strong><em>genial</em></strong></h1>
                         </div>
