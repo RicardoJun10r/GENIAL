@@ -3,11 +3,18 @@ import './style.css';
 import armazenLogo from "../../assets/warehouse.png";
 import Container from 'react-bootstrap/esm/Container';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
 
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+
+    const navigate = useNavigate();
+
+    function goToHome(e){
+        navigate('/home');  // Tela despesas
+    } 
 
     function onSubmit(e)
     {
@@ -20,6 +27,7 @@ function Login() {
 
         setEmail('');
         setSenha('');
+        goToHome();
     }
 
     return(
@@ -62,7 +70,7 @@ function Login() {
                                             onChange={e => setSenha(e.target.value)}
                                         />
                                         <br />
-                                        <br />
+                                        <br />                    
                                     <button className='entrar-button' type='submit' onClick={onSubmit}>ENTRAR</button>
                                 </form>
                                 <br />
