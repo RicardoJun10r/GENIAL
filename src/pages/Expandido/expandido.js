@@ -17,7 +17,7 @@ function Expandido() {
 
                 <div className='container'>
                     <div className='container_branco'>
-                        <h1>Armazém Genial</h1>
+                        <h3>Armazém Genial</h3>
                 
                     </div>
                 </div>
