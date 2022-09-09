@@ -8,7 +8,7 @@ import BgColorExample from '../../components/BgColorExample';
 class Home extends Component {
     render () {
       return (
-        <div>
+        <div className='color'>
             <TitlePhoto /> 
             <PrimeiroModal />
             <BgColorExample />
