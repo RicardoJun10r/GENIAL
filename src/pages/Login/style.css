@@ -1,7 +1,22 @@
 body, html{
     background-color: #1A3C39;
-    height: 100%;
-    margin: 0;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.ArmazenLogo{
+    position: absolute;
+    margin-top: 10px;
+}
+
+.img-logo{
+    margin-bottom: 20px;
+    padding-right: 20px;
+}
+
+.main_title{
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
 }
 
 .container {
@@ -20,7 +35,6 @@ body, html{
     background-color:white ;
     width: 900px;
     height: 550px;
-    margin-top: -80px;
 
     display: flex;
     flex-direction: column;
@@ -45,11 +59,18 @@ body, html{
 }
 
 .email-input{
+    background-image: url('../../assets/account_circle.png');
+    background-repeat: no-repeat;
     width: 260px;
-    height: 30px;
+    height: 180px;
     border-radius: 8px;
     background-color: #D9D9D9;
     border: none;
+    text-align: center;
+}
+
+.email-input:focus{
+    background-image: none;
 }
 
 .senha-label{
@@ -57,11 +78,18 @@ body, html{
 }
 
 .senha-input{
+    background-image: url('../../assets/lock.png');
+    background-repeat: no-repeat;
     width: 260px;
     height: 30px;
     border-radius: 8px;
     background-color: #D9D9D9;
     border: none;
+    text-align: center;
+}
+
+.senha-input:focus{
+    background-image: none;
 }
 
 .entrar-button{
@@ -77,18 +105,7 @@ body, html{
     background-color: #32726e81;
 }
 
-.ArmazenLogo{
-    padding-top: 20px;
-    margin-left: 15px;
-    margin-top: 15px;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
 
-.main_title{
-    padding-left: 55px;
-    padding-top: 25px;
-    font-size: 45px;
-}
 
 .link{
     text-decoration: none;

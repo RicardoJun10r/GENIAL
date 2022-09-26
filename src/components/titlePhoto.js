@@ -1,10 +1,11 @@
 import React from 'react';
 import armazenLogo from "../assets/warehouse.png";
+import './titlePhoto.css';
 
 function TitlePhoto(){
     return (
-        <div>
-            <h2><img src={armazenLogo} alt='ArmazenLogo' className='ArmazenPhoto' /> Genial</h2>
+        <div className='ArmazenPhoto'>
+            <h2><img src={armazenLogo} alt='ArmazenLogo'/> Genial</h2>
         </div>
     )
 }

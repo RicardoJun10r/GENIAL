@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom';
 
 const Cadastrar = () => {
 
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet"/>
+
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [confirmar, setConfirmar] = useState('');
@@ -49,8 +51,8 @@ const Cadastrar = () => {
     return(
         <Container>
             <div>
-                <div>
-                    <h2><img src={armazenLogo} alt='ArmazenLogo' className='ArmazenLogo' /> Genial</h2>
+                <div  className='ArmazenLogo'>
+                    <h2><img src={armazenLogo} alt='ArmazenLogo' /> Genial</h2>
                 </div>
                 
                 <div className='container'>
@@ -61,7 +63,7 @@ const Cadastrar = () => {
                             <br />
                             <form onSubmit={onSubmit}>
                                 <label className='email-label'>
-                                <p>USUÁRIO</p>
+                                <p>Usuáro</p>
                                 <input 
                                     className='email-input' 
                                     type='email'
@@ -73,7 +75,7 @@ const Cadastrar = () => {
                                 <br />
                                 <br />
                                 <label className='senha-label'>
-                                <p>SENHA</p>
+                                <p>Senha</p>
                                 <input 
                                     className='senha-input' 
                                     type='password' 
@@ -87,7 +89,7 @@ const Cadastrar = () => {
                                 <br />
 
                                 <label className='senha-label'>
-                                <p>CONFIRMAR SENHA</p>
+                                <p>Confirmar senha</p>
                                 <input 
                                     className='senha-input' 
                                     type='password' 
@@ -111,7 +113,7 @@ const Cadastrar = () => {
                         
                         <div className='direita'> 
                             {/*Lado direito*/}
-                            <h1 className='main_title'>Armazenar é <br></br> bom,<br></br> organizar é <br></br> <strong><em>genial</em></strong></h1>
+                            <h1 className='main_title' style={{fontWeight:"350"}}>Armazenar é <br></br> bom,<br></br> organizar é <br></br> <strong><em>genial</em></strong></h1>
                         </div>
                     </div>
                 </div>
