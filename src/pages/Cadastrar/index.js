@@ -3,6 +3,8 @@ import { useState } from "react";
 import './cadastrar.css';
 import armazenLogo from "../../assets/warehouse.png";
 import Container from 'react-bootstrap/esm/Container';
+import { Link } from 'react-router-dom';
+
 
 const Cadastrar = () => {
 
@@ -56,9 +58,10 @@ const Cadastrar = () => {
                         <div className='esquerda'>
                             {/*Lado esquerdo*/}
                             <h1>Cadastre-se</h1>
-                            <form>
-                                <label className='email-label'>USUÁRIO</label>
-                                <br />
+                            <br />
+                            <form onSubmit={onSubmit}>
+                                <label className='email-label'>
+                                <p>USUÁRIO</p>
                                 <input 
                                     className='email-input' 
                                     type='email'
@@ -66,10 +69,11 @@ const Cadastrar = () => {
                                     value={email}
                                     onChange={e => setEmail(e.target.value)}
                                 />
+                                </label>
                                 <br />
                                 <br />
-                                <label className='senha-label'>SENHA</label>
-                                <br />
+                                <label className='senha-label'>
+                                <p>SENHA</p>
                                 <input 
                                     className='senha-input' 
                                     type='password' 
@@ -78,11 +82,12 @@ const Cadastrar = () => {
                                     value={senha}
                                     onChange={e => setSenha(e.target.value)}
                                 />
+                                </label>
                                 <br />
                                 <br />
 
-                                <label className='senha-label'>CONFIRMAR SENHA</label>
-                                <br />
+                                <label className='senha-label'>
+                                <p>CONFIRMAR SENHA</p>
                                 <input 
                                     className='senha-input' 
                                     type='password' 
@@ -91,10 +96,17 @@ const Cadastrar = () => {
                                     value={confirmar}
                                     onChange={e => setConfirmar(e.target.value)}
                                 />
+                                </label>
                                 <br />
                                 <br />
-                                <button className='entrar-button' type='submit' onClick={onSubmit}>CADASTRAR</button>
+                                <button className='entrar-button' type='submit'>CADASTRAR</button>
                             </form> 
+                            <div className="voltar">
+                                    <b>      
+                                    <Link exact to="/" className='link'>
+                                        <strong> Voltar</strong>
+                                    </Link></b>
+                                </div>
                         </div>
                         
                         <div className='direita'> 

@@ -46,9 +46,9 @@ function Login() {
                         <div className='container-form'>
                             {/*Lado direito*/}
                             <h1>Log in</h1>
-                                <form>
-                                    <label className='email-label'>USUÁRIO</label>
-                                        <br />
+                                <form onSubmit={onSubmit}>
+                                    <label className='email-label'>
+                                        <p>USUÁRIO</p>
                                         <input 
                                             className='email-input' 
                                             type='email'
@@ -56,11 +56,11 @@ function Login() {
                                             value={email}
                                             onChange={e => setEmail(e.target.value)}
                                         />
+                                        </label>
                                         <br />
                                         <br />
-                                        <label className='senha-label'>SENHA</label>
-                                        <br />
-                                        
+                                        <label className='senha-label'>
+                                        <p>SENHA</p>
                                         <input 
                                             className='senha-input' 
                                             type='password' 
@@ -69,12 +69,13 @@ function Login() {
                                             value={senha}
                                             onChange={e => setSenha(e.target.value)}
                                         />
+                                        </label>
                                         <br />
                                         <br />                    
-                                    <button className='entrar-button' type='submit' onClick={onSubmit}>ENTRAR</button>
+                                    <button className='entrar-button' type='submit'>ENTRAR</button>
                                 </form>
                                 <br />
-                                <div className='link'>
+                                <div>
                                     <b>Não tem uma conta?      
                                     <Link exact to="/cadastrar" className='link'>
                                         <strong> Registre-se</strong>

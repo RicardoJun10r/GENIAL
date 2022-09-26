@@ -94,8 +94,12 @@ body, html{
     font-size: 45px;
 }
 
-.link{
+.voltar{
     text-decoration: none;
     color: inherit;
+    text-align: center;
+    margin-top: 20px;
+    margin-right: 40px;
 }
+
 
