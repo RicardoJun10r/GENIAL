@@ -10,7 +10,6 @@ class Home extends Component {
       return (
         <div className='color'>
             <TitlePhoto /> 
-            <PrimeiroModal />
             <BgColorExample />
         </div>
       );

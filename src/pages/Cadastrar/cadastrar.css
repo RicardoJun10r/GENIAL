@@ -82,13 +82,6 @@ body, html{
     background-color: #32726e81;
 }
 
-.ArmazenLogo{
-    padding-right: 5px;
-    padding-left: 15px;
-    font-family: 'Fira Sans', sans-serif;
-
-}
-
 .main_title{
     padding-left: 55px;
     padding-top: 25px;
@@ -101,4 +94,14 @@ body, html{
     text-align: center;
     margin-top: 20px;
     margin-right: 40px;
+}
+
+h2{
+    padding-top: 35px;
+    margin-top: 30px;
+}
+
+.ArmaLogoCad{
+    margin-top: -15px;
+    margin-left: -250px;
 }

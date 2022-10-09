@@ -4,6 +4,7 @@ import armazenLogo from "../../assets/warehouse.png";
 import Container from 'react-bootstrap/esm/Container';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { Col, Row } from 'react-bootstrap';
 
 function Login() {
 
@@ -34,13 +35,16 @@ function Login() {
 
     return(
         <Container>
-            <div>
-                <div className='ArmazenLogo'>
-                    <h2>
-                        <img src={armazenLogo} alt='ArmazenLogo' className='img-logo'/>
-                        Genial
-                    </h2>
-                </div>
+        <div>
+         {/* pulando linhas com br para texto com icone genial poder aparecer na tela */}
+        <br></br>
+        <br></br>
+        <br></br>
+                <Row>
+                    <Col xs={12} md={8}>
+                        <h2><img src={armazenLogo} alt='ArmazenLogo' className='ArmaLogo' /> Genial</h2>
+                    </Col>
+                </Row>
                 <div className='container'>
                     <div className='container_inner'>
                         <div className='sloga'>
