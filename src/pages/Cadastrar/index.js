@@ -55,15 +55,13 @@ const Cadastrar = () => {
             {/* pulando linhas com br para texto com icone genial poder aparecer na tela */}
             <br></br>
             <br></br>
-        <   br></br>
+            <br></br>
                 <Row>
                     <Col xs={12} md={8}>
                         <h2><img src={armazenLogo} alt='ArmazenLogo' className='ArmaLogoCad' /> Genial</h2>
                     </Col>
                 </Row>
-        
-          
-                
+              
                 <div className='container'>
                     <div className='container_innerCadastro'>
                         <div className='esquerda'>

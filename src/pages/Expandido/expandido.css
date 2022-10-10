@@ -5,9 +5,8 @@ body, html{
 }
 
 .ArmazenLogo{
-    padding-top: 40px;
-    margin-left: 15px;
-    margin-top: 15px;
+  margin-top: -15px;
+    margin-left: -250px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -30,4 +29,14 @@ body, html{
 
 h3{
     color: #32726E;
+   padding-left: 5px;
+}
+
+h2{
+    padding-top: 75px;
+    margin-top: 30px;
+}
+
+.blackText{
+    color: black;
 }
