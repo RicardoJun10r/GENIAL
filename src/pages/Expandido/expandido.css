@@ -16,8 +16,14 @@ body, html{
     font-size: 45px;
 }
 
+.color_Card{
+    background: -webkit-linear-gradient(to right, #219ad1, #32726E);
+    background: linear-gradient(to right, #219ad1, #32726E);
+}
+
 .container_branco {
-    background-color:white ;
+    background: -webkit-linear-gradient(to right, #219ad1, #32726E);
+    background: linear-gradient(to right, #219ad1, #32726E);
     width: 900px;
     height: 550px;
     margin-top: -80px;
