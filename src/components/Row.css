@@ -1,16 +1,16 @@
-.container {
+.containerRow {
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.container .card {
+.containerRow .cardRow {
     position: relative;
     border-radius: 10px;
 }
 
-.container .card .icon {
+.containerRow .cardRow .icon {
     position: absolute;
     top: 0;
     left: 0;
@@ -21,12 +21,12 @@
     z-index: 1;
 }
 
-.container .card:nth-child(1) .icon {
+.containerRow .cardRow:nth-child(1) .icon {
     background: #33736F;
 }
 
 
-.container .card .icon .fa {
+.containerRow .cardRow .icon .fa {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -46,13 +46,13 @@ i {
     color: #fff;
 }
 
-.container .card .face {
+.containerRow .cardRow .face {
     width: 300px;
     height: 200px;
     transition: 0.5s;
 }
 
-.container .card .face.face1 {
+.containerRow .cardRow .face.face1 {
     position: relative;
     background: #333;
     display: flex;
@@ -62,25 +62,25 @@ i {
     transform: translateY(100px);
 }
 
-.container .card:hover .face.face1{
+.containerRow .cardRow:hover .face.face1{
     background: #ff0057;
     transform: translateY(0px);
 }
 
-.container .card .face.face1 .content {
+.containerRow .cardRow .face.face1 .contentRow {
     opacity: 1;
     transition: 0.5s;
 }
 
-.container .card:hover .face.face1 .content {
+.containerRow .cardRow:hover .face.face1 .contentRow {
     opacity: 1;
 }
 
-.container .card .face.face1 .content i{
+.containerRow .cardRow .face.face1 .contentRow i{
     max-width: 100px;
 }
 
-.container .card .face.face2 {
+.containerRow .cardRow .face.face2 {
     position: relative;
     background: #fff;
     display: flex;
@@ -92,18 +92,18 @@ i {
     transform: translateY(-100px);
 }
 
-.container .card:hover .face.face2{
+.containerRow .cardRow:hover .face.face2{
     transform: translateY(0);
 }
 
-.container .card .face.face2 .content p {
+.containerRow .cardRow .face.face2 .contentRow p {
     margin: 0;
     padding: 0;
     text-align: center;
     color: #414141;
 }
 
-.container .card .face.face2 .content h3 {
+.containerRow .cardRow .face.face2 .contentRow h3 {
     margin: 0 0 10px 0;
     padding: 0;
     color: #fff;
@@ -112,7 +112,7 @@ i {
     color: #414141;
 } 
 
-.container a {
+.containerRow a {
     text-decoration: none;
     color: #414141;
 }

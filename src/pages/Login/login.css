@@ -1,24 +1,18 @@
 body, html{
     background-color: #1A3C39;
     font-family: 'Fira Sans', sans-serif;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
 }
 
-.main_title{
-    display: block;
-    margin-left: auto;
-    margin-right: auto 
-}
-
-
-.container {
-    width: 100vw;
-    height: 100vh;
-    margin-top: 0px;
-
-    display: flex;
-    flex-direction: row;
+.containerAll{
+    display: grid;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+
+.containerLogin {
     color: white;
 }
 
@@ -26,12 +20,7 @@ body, html{
     background-color:white ;
     width: 900px;
     height: 550px;
-
-    margin-top: -80px;
-    
     display: flex;
-    flex-direction: column;
-    position: relative;
 }
 
 .sloga{
@@ -40,74 +29,61 @@ body, html{
     background-color: #32726E;
 }
 
-.container-form{
+.container-form-login{
     position: absolute;
     margin-left: 550px;
-    margin-top: 100px;
+    margin-top: 70px;
     color: black;
 }
 
-.email-label{
-    font-weight: bold;
-}
-
-.email-input{
+.email-input-login{
     background-image: url('../../assets/account_circle.png');
     background-repeat: no-repeat;
     width: 260px;
-    height: 180px;
+    height: 40px;
     border-radius: 8px;
     background-color: #D9D9D9;
     border: none;
     text-align: center;
 }
 
-.email-input:focus{
+.email-input-login:focus{
     background-image: none;
 }
 
-.senha-label{
-    font-weight: bold;
-}
-
-.senha-input{
+.senha-input-login{
     background-image: url('../../assets/lock.png');
     background-repeat: no-repeat;
     width: 260px;
-    height: 30px;
+    height: 40px;
     border-radius: 8px;
     background-color: #D9D9D9;
     border: none;
     text-align: center;
 }
 
-.senha-input:focus{
+.senha-input-login:focus{
     background-image: none;
 }
 
-.entrar-button{
+.entrar-button-login{
     height: 50px;
     width: 260px;
     background-color: #32726E;
     color: white;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 
-.entrar-button:hover{
-    background-color: #32726e81;
+.entrar-button-login:hover{
+    background-color: #32726ed3;
 }
 
-.link{
+.linkLogin{
     text-decoration: none;
-    color: inherit;
 }
 
-.link:hover{
+.linkLogin:hover{
     color: #32726E;
-}
-
-.ArmaLogo{
-    margin-top: -15px;
-    margin-left: -250px;
 }

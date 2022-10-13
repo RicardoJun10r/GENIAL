@@ -1,10 +1,8 @@
 import { useState } from 'react';
-import './style.css';
+import './login.css';
 import armazenLogo from "../../assets/warehouse.png";
-import Container from 'react-bootstrap/esm/Container';
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { Col, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function Login() {
 
@@ -17,7 +15,7 @@ function Login() {
 
     function goToHome(e){
         navigate('/home');  // Tela despesas
-    } 
+    }
 
     function onSubmit(e)
     {
@@ -34,18 +32,9 @@ function Login() {
     }
 
     return(
-        <Container>
-        <div>
-         {/* pulando linhas com br para texto com icone genial poder aparecer na tela */}
-        <br></br>
-        <br></br>
-        <br></br>
-                <Row>
-                    <Col xs={12} md={8}>
-                        <h2><img src={armazenLogo} alt='ArmazenLogo' className='ArmaLogo' /> Genial</h2>
-                    </Col>
-                </Row>
-                <div className='container'>
+        <div className='containerAll'>
+            <h2 style={{color: 'white', fontWeight:'bolder', fontSize:'2em'}}><img src={armazenLogo} alt='ArmazenLogo' className='ArmaLogo' /> GENIAL</h2>
+                <div className='containerLogin'>
                     <div className='container_inner'>
                         <div className='sloga'>
                             {/*Lado esquerdo*/}
@@ -55,15 +44,15 @@ function Login() {
                             </h1>
                         </div>
 
-                        <div className='container-form'>
+                        <div className='container-form-login'>
                             {/*Lado direito*/}
                             <h1>Log in</h1>
                             <br />
                                 <form onSubmit={onSubmit}>
-                                    <label className='email-label'>
-                                        <p>Usuário</p>
+                                    <label className='email-label-login'>
+                                        <p style={{fontWeight:'bolder'}}>Usuário</p>
                                         <input 
-                                            className='email-input' 
+                                            className='email-input-login' 
                                             type='email'
                                             id='email'
                                             value={email}
@@ -72,10 +61,10 @@ function Login() {
                                         </label>
                                         <br />
                                         <br />
-                                        <label className='senha-label'>
-                                        <p>Senha</p>
+                                        <label className='senha-label-login'>
+                                        <p style={{fontWeight:'bolder'}}>Senha</p>
                                         <input 
-                                            className='senha-input' 
+                                            className='senha-input-login' 
                                             type='password' 
                                             id='senha'
                                             autoComplete='off'
@@ -85,20 +74,19 @@ function Login() {
                                         </label>
                                         <br />
                                         <br />                    
-                                    <button className='entrar-button' type='submit'>ENTRAR</button>
+                                    <button className='entrar-button-login' type='submit'>ENTRAR</button>
                                 </form>
                                 <br />
                                 <div>
-                                    <p>Não tem uma conta?      
-                                    <Link exact to="/cadastrar" className='link'>
-                                        <strong> Registre-se</strong>
+                                    <p>Não tem uma conta?     
+                                    <Link to="/cadastrar" className='linkLogin' style={{color: '#165551', fontWeight: 'bolder'}}>
+                                        Registre-se
                                     </Link></p>
                                 </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </Container>
     )
 }
 

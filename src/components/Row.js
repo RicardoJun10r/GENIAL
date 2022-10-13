@@ -2,26 +2,26 @@ import React from "react";
 import './Row.css';
 import imagemLogo from "../assets/warehouse.png";
 
-function Row({nome, setor, imagem, data, descricao, produtos})
+function Row({nome, setor, data, descricao, produtos})
 {
     return(
-        <div className="container">
-            <div className="card">
+        <div className="containerRow">
+            <div className="cardRow">
                 <div className="face face1">
-                    <div className="content">
+                    <div className="contentRow">
                     <div className="icon">
-                        <i className="fa fa-linkedin-square" aria-hidden="true"> <img src={imagemLogo}/> </i>
+                        <i className="fa fa-linkedin-square" aria-hidden="true" style={{fontSize:"1.0em", textAlign:'center'}}> {nome} </i>
                     </div>
                     </div>
                 </div>
                 <div className="face face2">
-                    <div className="content">
-                    <h3>
-                        <a href="#0" target="_blank" style={{color:"#44bba7c2"}}>{nome}</a>
-                    </h3>
-                    <p style={{color:"#f5ab35", fontWeight: "bolder"}}>Descrição: {descricao}</p>
-                    <p style={{color:"#f5ab35"}}>Data de criação: {data}</p>
-                    <p style={{color:"#f5ab35"}}>Setor: {setor}</p>
+                    <div className="contentRow">
+                        <h3>
+                            <a href="#0" target="_blank" style={{color:"#44bba7c2"}}>{nome}</a>
+                        </h3>
+                        <p style={{color:"#f5ab35", fontWeight: "bolder"}}>Descrição: {descricao}</p>
+                        <p style={{color:"#f5ab35"}}>Data de criação: {data}</p>
+                        <p style={{color:"#f5ab35"}}>Setor: {setor}</p>
                     </div>
                 </div>
             </div>

@@ -1,55 +1,38 @@
 body, html{
     background-color: #1A3C39;
-    height: 100%;
-    margin: 0;
     font-family: 'Fira Sans', sans-serif;
-
 }
 
-.container {
-    width: 100vw;
-    height: 100vh;
-    margin-top: -10px;
-
-    display: flex;
+.container-cadastro-all{
+    display: grid;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    color: white;
 }
 
 .container_innerCadastro {
     background-color: #32726E ;
     width: 900px;
     height: 550px;
-    margin-top: -80px;
-
     display: flex;
-    flex-direction: column;
-    position: relative;
 }
 
 .esquerda{ 
-    width: 42%;
+    width: 50%;
     height: 100%;
     background-color: white;
     color: black;
-    padding-top: 50px;
+    padding-top: 30px;
     padding-left: 80px;
 }
 
 .direita{
     position: absolute;
     margin-left: 450px;
-    margin-top: 3px;
     color: white;
 }
 
-.email-label{
-    font-weight: bold;
-}
-
-.email-input{
+.email-input-cadastro{
     width: 260px;
     height: 30px;
     border-radius: 8px;
@@ -57,11 +40,7 @@ body, html{
     border: none;
 }
 
-.senha-label{
-    font-weight: bold;
-}
-
-.senha-input{
+.senha-input-cadastro{
     width: 260px;
     height: 30px;
     border-radius: 8px;
@@ -69,22 +48,22 @@ body, html{
     border: none;
 }
 
-.entrar-button{
+.entrar-button-cadastro{
     height: 50px;
     width: 260px;
     background-color: #32726E;
     color: white;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 
-.entrar-button:hover{
+.entrar-button-cadastro:hover{
     background-color: #32726e81;
 }
 
 .main_title{
     padding-left: 55px;
-    padding-top: 25px;
     font-size: 45px;
 }
 
@@ -92,16 +71,5 @@ body, html{
     text-decoration: none;
     color: inherit;
     text-align: center;
-    margin-top: 20px;
-    margin-right: 40px;
 }
 
-h2{
-    padding-top: 35px;
-    margin-top: 30px;
-}
-
-.ArmaLogoCad{
-    margin-top: -15px;
-    margin-left: -250px;
-}
