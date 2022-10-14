@@ -2,19 +2,16 @@ import { useState } from 'react';
 import './login.css';
 import armazenLogo from "../../assets/warehouse.png";
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
 function Login() {
 
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet"/>
-
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
-
     const navigate = useNavigate();
 
+
     function goToHome(e){
-        navigate('/home');  // Tela despesas
+        navigate('/home'); 
     }
 
     function onSubmit(e)
@@ -48,41 +45,39 @@ function Login() {
                             {/*Lado direito*/}
                             <h1>Log in</h1>
                             <br />
-                                <form onSubmit={onSubmit}>
-                                    <label className='email-label-login'>
-                                        <p style={{fontWeight:'bolder'}}>Usuário</p>
-                                        <input 
-                                            className='email-input-login' 
-                                            type='email'
-                                            id='email'
-                                            value={email}
-                                            onChange={e => setEmail(e.target.value)}
-                                        />
-                                        </label>
-                                        <br />
-                                        <br />
-                                        <label className='senha-label-login'>
-                                        <p style={{fontWeight:'bolder'}}>Senha</p>
-                                        <input 
-                                            className='senha-input-login' 
-                                            type='password' 
-                                            id='senha'
-                                            autoComplete='off'
-                                            value={senha}
-                                            onChange={e => setSenha(e.target.value)}
-                                        />
-                                        </label>
-                                        <br />
-                                        <br />                    
-                                    <button className='entrar-button-login' type='submit'>ENTRAR</button>
-                                </form>
-                                <br />
-                                <div>
-                                    <p>Não tem uma conta?     
-                                    <Link to="/cadastrar" className='linkLogin' style={{color: '#165551', fontWeight: 'bolder'}}>
-                                        Registre-se
-                                    </Link></p>
-                                </div>
+                            <form onSubmit={onSubmit}>
+                                <label className='email-label-login'>
+                                    <p style={{fontWeight:'bolder'}}>Usuário</p>
+                                    <input 
+                                        className='email-input-login' 
+                                        type='email'
+                                        id='emailLogin'
+                                        value={email}
+                                        onChange={e => setEmail(e.target.value)}
+                                    />
+                                    </label>
+                                    <br />
+                                    <br />
+                                    <label className='senha-label-login'>
+                                    <p style={{fontWeight:'bolder'}}>Senha</p>
+                                    <input 
+                                        className='senha-input-login' 
+                                        type='password' 
+                                        id='senhaLogin'
+                                        autoComplete='off'
+                                        value={senha}
+                                        onChange={e => setSenha(e.target.value)}
+                                    />
+                                    </label>
+                                    <br />
+                                    <br />                    
+                                <button className='entrar-button-login' type='submit'>ENTRAR</button>
+                            </form>
+                            <br />
+                            <div>
+                                <p>Não tem uma conta?</p>
+                                <button type='submit' onClick={() => {navigate('/cadastrar')}}>Registre-se</button>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,8 +1,9 @@
 .containerRow {
-    position: relative;
+    position: absolute;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 }
 
 .containerRow .cardRow {
@@ -97,15 +98,12 @@ i {
 }
 
 .containerRow .cardRow .face.face2 .contentRow p {
-    margin: 0;
-    padding: 0;
     text-align: center;
     color: #414141;
 }
 
 .containerRow .cardRow .face.face2 .contentRow h3 {
     margin: 0 0 10px 0;
-    padding: 0;
     color: #fff;
     font-size: 24px;
     text-align: center;

@@ -2,16 +2,14 @@ import React from "react";
 import { useState } from "react";
 import './cadastrar.css';
 import armazenLogo from "../../assets/warehouse.png";
-import { useNavigate } from "react-router-dom";
 
-
-function Cadastrar(){
+const Cadastrar = () => {
 
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [confirmar, setConfirmar] = useState('');
-    const navigate = useNavigate();
 
+    console.log("alo")
 
     function onSubmit(e)
     {
@@ -20,12 +18,11 @@ function Cadastrar(){
         setEmail('');
         setSenha('');
         setConfirmar('');
-        navigate('/')
     }
 
     return(
             <div className="container-cadastro-all">
-                <h2 style={{color:'white', fontSize:'2em'}}><img src={armazenLogo} alt='ArmazenLogo' className='ArmaLogoCad'/> Genial</h2>
+                <h2 style={{color:'white', fontSize:'2em'}}><img src={armazenLogo} alt='ArmazenLogo' className='ArmaLogoCad'/> GENIAL</h2>
                 <div className='containerCadastro'>
                     <div className='container_innerCadastro'>
                         <div className='esquerda'>
@@ -37,8 +34,8 @@ function Cadastrar(){
                                     <input 
                                         className='email-input-cadastro' 
                                         type='email'
-                                        value={email}
-                                        onChange={e => setEmail(e.target.value)}
+                                        defaultValue={email}
+                                        onChange={(e) => setEmail(e.target.value)}
                                     />
                                 </label>
                                 <br />
@@ -47,9 +44,9 @@ function Cadastrar(){
                                     <input 
                                         className='senha-input-cadastro' 
                                         type='password'
-                                        value={senha} 
+                                        defaultValue={senha} 
                                         autoComplete='off'
-                                        onChange={e => setSenha(e.target.value)}
+                                        onChange={(e) => setSenha(e.target.value)}
                                     />
                                     </label>
                                 <br />
@@ -59,9 +56,9 @@ function Cadastrar(){
                                     <input 
                                         className='senha-input-cadastro' 
                                         type='password' 
-                                        value={confirmar}
+                                        defaultValue={confirmar}
                                         autoComplete='off'
-                                        onChange={e => setConfirmar(e.target.value)}
+                                        onChange={(e) => setConfirmar(e.target.value)}
                                     />
                                 </label>
                                 <br />

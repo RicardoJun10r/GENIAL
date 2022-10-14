@@ -1,6 +1,5 @@
 import React from "react";
 import './Row.css';
-import imagemLogo from "../assets/warehouse.png";
 
 function Row({nome, setor, data, descricao, produtos})
 {

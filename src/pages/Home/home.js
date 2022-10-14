@@ -1,9 +1,9 @@
 import './home.css';
 import React, { useState, useCallback } from 'react';
-import Row from '../../components/Row';
+import Row from '../../components/Cards/Armazem';
 import database from '../../services/api';
-import NavBar from '../../components/Navbar';
-import ModalSimples from '../../components/ModalSimples';
+import NavBar from '../../components/Navbar/Navbar';
+import ModalSimples from '../../components/Modal/ModalSimples';
 
 function Home()
 {
@@ -15,7 +15,7 @@ function Home()
       <div className="header">
         <NavBar />
       </div>
-      <div className="main">
+      <div className="wrapper">
         {database.map((inventario) => {
           return(
           <Row 
@@ -29,7 +29,7 @@ function Home()
           />)
         })}
         </div>
-        <div className="footer">
+        {/* <div className="footer">
           <label>
             <h1>Modal Simples (teste)</h1>
             <input type="submit" value='abrir' onClick={() => { setVisibilidade(true) }} />
@@ -37,7 +37,7 @@ function Home()
             <ModalSimples onClose={ () => { setVisibilidade(false) } } >
               <h1>Ola</h1></ModalSimples> : null}
           </label>
-        </div>
+        </div> */}
     </div>
   )
 }

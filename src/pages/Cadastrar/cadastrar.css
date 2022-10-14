@@ -1,11 +1,9 @@
 body, html{
     background-color: #1A3C39;
-    font-family: 'Fira Sans', sans-serif;
 }
 
 .container-cadastro-all{
     display: grid;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
@@ -65,11 +63,5 @@ body, html{
 .main_title{
     padding-left: 55px;
     font-size: 45px;
-}
-
-.voltar{
-    text-decoration: none;
-    color: inherit;
-    text-align: center;
 }
 
