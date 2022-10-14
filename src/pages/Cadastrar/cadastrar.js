@@ -25,7 +25,7 @@ const Cadastrar = () => {
     }
     return(
             <div className="container-cadastro-all">
-                <h2 style={{color:'white', fontSize:'2em'}}><img src={armazenLogo} alt='ArmazenLogo' className='ArmaLogoCad'/> GENIAL</h2>
+                <h2 style={{color:'white', fontSize:'2em'}}><img src={armazenLogo} alt='ArmazenLogo' className='ArmaLogoCad'/>GENIAL</h2>
                 <div className='containerCadastro'>
                     <div className='container_innerCadastro'>
                         <div className='formulario-cad'>
