@@ -1,7 +1,8 @@
 body, html{
-    background-color: #1A3C39;
+    background-color: hsl(175, 40%, 17%);
     margin: 0 0 0 0;
     padding: 0 0 0 0;
+    font-family: "JetBrains Mono",monospace;
 }
 
 .containerAll{
@@ -76,13 +77,27 @@ body, html{
 }
 
 .entrar-button-login:hover{
-    background-color: #32726ed3;
+    background-color: #32726ee0;
+    transform: translateY(-1px);
+    box-shadow: rgba(45, 35, 66, 0.4);
 }
 
-.linkLogin{
-    text-decoration: none;
+.footer-login{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
 }
 
-.linkLogin:hover{
+.button-registrar{
+  background-color: #FCFCFD;
+  border-width: 0;
+  cursor: pointer;
+  font-family: "JetBrains Mono",monospace;
+  font-weight: bolder;
+  height: 48px;
+  font-size: 18px;
+}
+
+.button-registrar:hover{
     color: #32726E;
 }
