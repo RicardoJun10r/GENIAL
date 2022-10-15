@@ -2,14 +2,17 @@
 .containerHome{
     color: #33736F;
     background-color: #DBDBDB;
-    margin: 0;
+    margin: 0 0 0 0;
 }
 
 .wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
-  gap: 2rem;
-  justify-content: center;  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;  
+  align-items: center;
+  height: 80vh;
+  background-color: hsl(175, 40%, 17%);
+
 }
 
 .header{

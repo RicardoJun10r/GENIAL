@@ -54,7 +54,7 @@ const database = [
                 quantidade:'30'
             }
         ]
-    } 
+    }
 ]
 
 export default database;

@@ -1,6 +1,6 @@
 import './home.css';
-import React, { useState, useCallback } from 'react';
-import Row from '../../components/Cards/Armazem';
+import React, { useState } from 'react';
+import Row from '../../components/Cards/Row';
 import database from '../../services/api';
 import NavBar from '../../components/Navbar/Navbar';
 import ModalSimples from '../../components/Modal/ModalSimples';
@@ -20,12 +20,7 @@ function Home()
           return(
           <Row 
             key={inventario.id}
-            nome={inventario.nome}
-            setor={inventario.setor}
-            imagem={inventario.imagem}
-            data={inventario.data}
-            descricao={inventario.descricao}
-            produtos={inventario.produtos}
+            inventario={inventario}
           />)
         })}
         </div>
