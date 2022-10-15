@@ -41,29 +41,25 @@ function Login() {
                             <h1>Log in</h1>
                             <br />
                             <form onSubmit={onSubmit}>
-                                <label className='email-label-login'>
-                                    <p style={{fontWeight:'bolder'}}>Usuário</p>
+                                <div className="floating-label-group-login">
                                     <input 
-                                        className='email-input-login' 
-                                        type='email'
-                                        id='emailLogin'
+                                        type="text" 
+                                        id="username" 
+                                        className="form-control-login" 
                                         ref={emailRef}
-                                    />
-                                    </label>
-                                    <br />
-                                    <br />
-                                    <label className='senha-label-login'>
-                                    <p style={{fontWeight:'bolder'}}>Senha</p>
+                                        autoFocus required />
+                                    <label className="floating-label-login">Email</label>
+                                </div>
+                                <div className="floating-label-group-login">
                                     <input 
-                                        className='senha-input-login' 
-                                        type='password' 
-                                        id='senhaLogin'
-                                        autoComplete='off'
+                                        type="password" 
+                                        id="password" 
+                                        className="form-control-login" 
                                         ref={passwordRef}
-                                    />
-                                    </label>
-                                    <br />
-                                    <br />                    
+                                        autoComplete="off" 
+                                        required />
+                                    <label className="floating-label-login">Password</label>
+                                </div>
                                 <button className='entrar-button-login' type='submit'>ENTRAR</button>
                             </form>
                             <br />

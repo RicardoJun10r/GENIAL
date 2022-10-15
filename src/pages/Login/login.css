@@ -32,38 +32,8 @@ body, html{
 .container-form-login{
     position: absolute;
     margin-left: 550px;
-    margin-top: 70px;
+    margin-top: 100px;
     color: black;
-}
-
-.email-input-login{
-    background-image: url('../../assets/account_circle.png');
-    background-repeat: no-repeat;
-    width: 260px;
-    height: 40px;
-    border-radius: 8px;
-    background-color: #D9D9D9;
-    border: none;
-    text-align: center;
-}
-
-.email-input-login:focus{
-    background-image: none;
-}
-
-.senha-input-login{
-    background-image: url('../../assets/lock.png');
-    background-repeat: no-repeat;
-    width: 260px;
-    height: 40px;
-    border-radius: 8px;
-    background-color: #D9D9D9;
-    border: none;
-    text-align: center;
-}
-
-.senha-input-login:focus{
-    background-image: none;
 }
 
 .entrar-button-login{
@@ -100,4 +70,31 @@ body, html{
 
 .button-registrar:hover{
     color: #32726E;
+}
+.floating-label-group-login {
+    position: relative;
+    margin-bottom: 25px;
+  }
+
+.floating-label-group-login .floating-label-login {
+    font-size: 13px;
+    color: #32726E;
+    position: absolute;
+    pointer-events: none;
+    top: 9px;
+    left: 12px;
+    transition: all 0.1s ease;
+}
+.floating-label-group-login input:focus ~ .floating-label-login,
+.floating-label-group-login input:not(:focus):valid ~ .floating-label-login {
+    top: -15px;
+    bottom: 0px;
+    left: 0px;
+    font-size: 11px;
+    opacity: 1;
+    color: #404040;
+}
+.form-control-login{
+    width: 250px;
+    height: 30px;
 }

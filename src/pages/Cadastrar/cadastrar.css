@@ -20,22 +20,6 @@
     text-align: center;
 }
 
-.email-input-cadastro{
-    width: 260px;
-    height: 30px;
-    border-radius: 8px;
-    background-color: #D9D9D9;
-    border: none;
-}
-
-.senha-input-cadastro{
-    width: 260px;
-    height: 30px;
-    border-radius: 8px;
-    background-color: #D9D9D9;
-    border: none;
-}
-
 .entrar-button-cadastro{
     height: 50px;
     width: 260px;
@@ -50,12 +34,6 @@
     background-color: #32726ee0;
     transform: translateY(-1px);
     box-shadow: rgba(45, 35, 66, 0.4);
-}
-
-.main_title{
-}
-
-.footer-cadastro{
 }
 
 .button-voltar{
@@ -74,4 +52,32 @@
 
 .button-voltar:hover{
     color: white;
+}
+
+.floating-label-group-cadastro {
+    position: relative;
+    margin-bottom: 25px;
+  }
+
+.floating-label-group-cadastro .floating-label-cadastro {
+    font-size: 13px;
+    color: #32726E;
+    position: absolute;
+    pointer-events: none;
+    top: 9px;
+    left: 12px;
+    transition: all 0.1s ease;
+}
+.floating-label-group-cadastro input:focus ~ .floating-label-cadastro,
+.floating-label-group-cadastro input:not(:focus):valid ~ .floating-label-cadastro {
+    top: -15px;
+    bottom: 0px;
+    left: 0px;
+    font-size: 11px;
+    opacity: 1;
+    color: #404040;
+}
+.form-control-cadastro{
+    width: 250px;
+    height: 30px;
 }

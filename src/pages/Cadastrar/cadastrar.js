@@ -15,7 +15,6 @@ const Cadastrar = () => {
     function onSubmit(e)
     {
         e.preventDefault();
-
         console.log({
             email: emailRef.current.value,
             senha: passwordRef.current.value,
@@ -31,41 +30,44 @@ const Cadastrar = () => {
                         <div className='formulario-cad'>
                             <h1>Cadastre-se</h1>
                             <form onSubmit={onSubmit}>
-                                <label className='email-label-cadastro'>
-                                    <p style={{fontWeight: 'bolder'}}>Usuáro</p>
+
+                                <div className="floating-label-group-cadastro">
                                     <input 
-                                        className='email-input-cadastro' 
-                                        type='email'
+                                        type="text" 
+                                        id="username" 
+                                        className="form-control-cadastro" 
                                         ref={emailRef}
-                                    />
-                                </label>
-                                <label className='senha-label-cadastro'>
-                                    <p style={{fontWeight: 'bolder'}}>Senha</p>
+                                        autoFocus required />
+                                    <label className="floating-label-cadastro">Email</label>
+                                </div>
+
+                                <div className="floating-label-group-cadastro">
                                     <input 
-                                        className='senha-input-cadastro' 
-                                        type='password'
-                                        autoComplete='off'
+                                        type="text" 
+                                        id="username" 
+                                        className="form-control-cadastro" 
                                         ref={passwordRef}
-                                    />
-                                </label>
-                                <label className='senha-label-cadastro'>
-                                    <p style={{fontWeight: 'bolder'}}>Confirmar senha</p>
+                                        autoFocus required />
+                                    <label className="floating-label-cadastro">Senha</label>
+                                </div>
+
+                                <div className="floating-label-group-cadastro">
                                     <input 
-                                        className='senha-input-cadastro' 
-                                        type='password' 
-                                        autoComplete='off'
+                                        type="text" 
+                                        id="username" 
+                                        className="form-control-cadastro" 
                                         ref={confirmarRef}
-                                    />
-                                </label>
-                                <br />
-                                <br />
+                                        autoFocus required />
+                                    <label className="floating-label-cadastro">Confirmar Senha</label>
+                                </div>
+
                                 <button className='entrar-button-cadastro' type='submit'>CADASTRAR</button>
+                            
                             </form> 
                             <div className='footer-cadastro'>
                                 <button className='button-voltar' type='submit' onClick={() => {navigate('/')}}>Voltar</button>
                             </div>
                         </div>
-                        
                         <div className='direita'> 
                             <h1 className='main_title' style={{paddingLeft: '55px', fontWeight:"350", color: 'white', fontSize:'45px'}}>Armazenar é <br></br> bom,<br></br> organizar é <br></br> <strong><em>genial</em></strong></h1>
                         </div>
