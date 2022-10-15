@@ -3,7 +3,7 @@ const database = [
         id: 0,
         nome:'Mecanica',
         setor:'Varejo',
-        data: '01/05/2022',
+        data: '07/06/2013',
         descricao: 'A mecanica serve para concertar automóveis',
         produtos:[
             {
@@ -17,7 +17,7 @@ const database = [
         id: 1,
         nome:'Supermecado',
         setor:'Varejo',
-        data: '01/05/2022',
+        data: '25/01/2022',
         descricao: 'O supermercado mais completo e bla bla bla',
         produtos:[
             {
@@ -31,7 +31,7 @@ const database = [
         id: 2,
         nome:'Galpão Mecânica',
         setor:'Varejo-mecânica',
-        data: '01/05/2022',
+        data: '27/05/1971',
         descricao: 'Galpão que guarda os itens da loja mecanica',
         produtos:[
             {
@@ -45,7 +45,7 @@ const database = [
         id: 3,
         nome:'Galpão Supermercado',
         setor:'Varejo-supermercado',
-        data: '01/05/2022',
+        data: '31/12/2022',
         descricao: 'Galpão que guarda os itens do supermercado e bla bla bla',
         produtos:[
             {

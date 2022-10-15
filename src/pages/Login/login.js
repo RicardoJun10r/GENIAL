@@ -33,7 +33,7 @@ function Login() {
                         <div className='sloga'>
                             <h1 className='main_title' style={{fontWeight:"350", paddingLeft: '55px', fontSize: '45px'}}>
                                 Armazenar é 
-                                <br></br> bom,<br></br> organizar é <br></br> <strong><em>genial</em></strong>
+                                <br></br> Bom,<br></br> Organizar é <br></br> <strong><em>Genial</em></strong>
                             </h1>
                         </div>
 

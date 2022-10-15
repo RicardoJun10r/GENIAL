@@ -69,7 +69,7 @@ const Cadastrar = () => {
                             </div>
                         </div>
                         <div className='direita'> 
-                            <h1 className='main_title' style={{paddingLeft: '55px', fontWeight:"350", color: 'white', fontSize:'45px'}}>Armazenar é <br></br> bom,<br></br> organizar é <br></br> <strong><em>genial</em></strong></h1>
+                            <h1 className='main_title' style={{paddingLeft: '55px', fontWeight:"350", color: 'white', fontSize:'45px'}}>Armazenar é <br></br> Bom,<br></br> Organizar é <br></br> <strong><em>Genial</em></strong></h1>
                         </div>
                     </div>
                 </div>

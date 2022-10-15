@@ -1,19 +1,23 @@
 import './home.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Row from '../../components/Cards/Row';
 import database from '../../services/api';
 import NavBar from '../../components/Navbar/Navbar';
-import ModalSimples from '../../components/Modal/ModalSimples';
+import ModalSimples from '../../components/Modal/ModalSimples/ModalSimples';
 
 function Home()
 {
 
-  const [visibilidade, setVisibilidade] = useState(false);
+  const [modal, setModal] = useState(false);
+
+  useEffect(()=>{
+    console.log(modal)
+  }, [modal])
 
   return(
     <div className="containerHome">
       <div className="header">
-        <NavBar />
+        <NavBar setModal={setModal} modal={modal}/>
       </div>
       <div className="wrapper">
         {database.map((inventario) => {
@@ -24,15 +28,7 @@ function Home()
           />)
         })}
         </div>
-        {/* <div className="footer">
-          <label>
-            <h1>Modal Simples (teste)</h1>
-            <input type="submit" value='abrir' onClick={() => { setVisibilidade(true) }} />
-            {visibilidade ? 
-            <ModalSimples onClose={ () => { setVisibilidade(false) } } >
-              <h1>Ola</h1></ModalSimples> : null}
-          </label>
-        </div> */}
+        {modal === true ? 'true' : 'false'}
     </div>
   )
 }

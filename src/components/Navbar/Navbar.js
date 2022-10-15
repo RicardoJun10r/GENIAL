@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import './Navbar.css';
 import armazenLogo from "../../assets/warehouse.png";
-import ModalSimples from "../Modal/ModalSimples";
+import ModalSimples from "../Modal/ModalSimples/ModalSimples";
 import { useNavigate } from 'react-router-dom';
 
-const NavBar = () => {
+const NavBar = ({ setModal, modal }) => {
 
     const [count, setCount] = useState(0);
     const navigate = useNavigate();
+
 
     const sterEgg = () => {
         setCount( currentCount => {
@@ -33,7 +34,7 @@ const NavBar = () => {
             <h1 className="logo-genial"><img src={armazenLogo}/>GENIAL</h1>
             <nav>
                 <ul>
-                    <li><button className="button-30" role="button">Criar Armazém</button></li>
+                    <li><button onClick={() => {setModal(!modal)}} className="button-30" role="button">Criar Armazém</button></li>
                     <li><button className="button-30" role="button">Editar Armazém</button></li>
                     <li><button className="button-30" role="button">Deletar Armazém</button></li>
                     <li className="dropdown">
