@@ -9,7 +9,6 @@ const NavBar = ({ setModal, modal }) => {
     const [count, setCount] = useState(0);
     const navigate = useNavigate();
 
-
     const sterEgg = () => {
         setCount( currentCount => {
             return currentCount + 1;

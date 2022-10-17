@@ -10,6 +10,8 @@ function Home()
 
   const [modal, setModal] = useState(false);
 
+  const opcao = 'armazem';
+
   useEffect(()=>{
     console.log(modal)
   }, [modal])
@@ -20,6 +22,9 @@ function Home()
         <NavBar setModal={setModal} modal={modal}/>
       </div>
       <div className="wrapper">
+        <div className='wrapper-modal'>
+          {modal === true ? <ModalSimples setModal={setModal} opcao={opcao}/> : null}
+        </div>
         {database.map((inventario) => {
           return(
           <Row 
@@ -27,8 +32,7 @@ function Home()
             inventario={inventario}
           />)
         })}
-        </div>
-        {modal === true ? 'true' : 'false'}
+      </div>
     </div>
   )
 }

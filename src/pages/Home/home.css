@@ -6,13 +6,20 @@
 }
 
 .wrapper {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;  
   align-items: center;
   height: 80vh;
   background-color: hsl(175, 40%, 17%);
+}
 
+.wrapper-modal{
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
 }
 
 .header{
