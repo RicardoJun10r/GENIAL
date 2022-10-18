@@ -16,10 +16,16 @@
 }
 
 .wrapper-modal{
-  position: fixed;
+  position: absolute;
+  display: flex;
+  top: 0;
+  left: 0;
+  z-index: 10;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  height: 80vh;
+  margin-left: 35%;
+  background-color: rgba(26, 61, 58, 1.0);
 }
 
 .header{

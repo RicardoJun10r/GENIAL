@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import './ModalSimples.css';
 
-const ModalSimples = ({ setModal, opcao }) => {
+const ModalSimples = ({ setModal, opcao, formulario }) => {
 
     if(opcao === 'armazem') // MODAL ( SIMPLES ) PARA ARMAZÉNS
     {
@@ -17,11 +17,11 @@ const ModalSimples = ({ setModal, opcao }) => {
                     </button>
                 </div>
                 <div className="title">
-                    <h1>Are You Sure You Want to Continue?</h1>
+                    <h1 style={{color: 'white', fontSize: '1.5em'}}>Preencha os valores abaixo:</h1>
                 </div>
 
                 <div className="body">
-                    <p>The next page looks amazing. Hope you want to go there!</p>
+                    {formulario}
                 </div>
                 
                 <div className="footer">
@@ -31,9 +31,9 @@ const ModalSimples = ({ setModal, opcao }) => {
                         }}
                         id="cancelBtn"
                     >
-                        Cancel
+                        Cancelar
                     </button>
-                    <button>Continue</button>
+                    <button>Criar</button>
                 </div>
             </div>
         )

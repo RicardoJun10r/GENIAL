@@ -1,0 +1,19 @@
+.form-armazem-container{
+    bottom: 20px;
+    position: relative;
+}
+
+.floating-label-group-formulario{
+    text-align: center;
+}
+
+.floating-label-formulario{
+    font-size: 13px;
+}
+
+.form-control-formulario{
+    width: 250px;
+    height: 20px;
+    border-style: solid;
+    border-color: black;
+}

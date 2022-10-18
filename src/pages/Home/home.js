@@ -4,27 +4,27 @@ import Row from '../../components/Cards/Row';
 import database from '../../services/api';
 import NavBar from '../../components/Navbar/Navbar';
 import ModalSimples from '../../components/Modal/ModalSimples/ModalSimples';
+import Forms from '../../components/Formularios/Forms';
 
 function Home()
 {
 
   const [modal, setModal] = useState(false);
+  const [index, setIndex] = useState(0);
 
-  const opcao = 'armazem';
+  const OPCAO = 'armazem';
 
   useEffect(()=>{
     console.log(modal)
-  }, [modal])
+  }, [modal], [index])
 
   return(
     <div className="containerHome">
       <div className="header">
-        <NavBar setModal={setModal} modal={modal}/>
+        <NavBar setModal={setModal} modal={modal} setIndex={setIndex}/>
       </div>
       <div className="wrapper">
-        <div className='wrapper-modal'>
-          {modal === true ? <ModalSimples setModal={setModal} opcao={opcao}/> : null}
-        </div>
+        {modal === true ? <div className='wrapper-modal'><ModalSimples setModal={setModal} opcao={OPCAO} formulario={<Forms index={index}/>} /></div> : null}
         {database.map((inventario) => {
           return(
           <Row 
