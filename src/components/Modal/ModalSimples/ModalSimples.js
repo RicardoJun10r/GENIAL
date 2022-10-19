@@ -23,18 +23,6 @@ const ModalSimples = ({ setModal, opcao, formulario }) => {
                 <div className="body">
                     {formulario}
                 </div>
-                
-                <div className="footer">
-                    <button
-                        onClick={() => {
-                        setModal(false);
-                        }}
-                        id="cancelBtn"
-                    >
-                        Cancelar
-                    </button>
-                    <button>Criar</button>
-                </div>
             </div>
         )
     }

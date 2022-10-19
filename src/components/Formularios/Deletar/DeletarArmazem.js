@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
 import '../FormStyle.css';
+import Button from "../../Button/Button";
 
-const DeletarArmazem = () => {
+const DeletarArmazem = ({ setModal, modal }) => {
 
     const deletar = useRef();
 
@@ -24,6 +25,10 @@ const DeletarArmazem = () => {
                     </label>
                 </div>
             </form>
+            <div className="footer-buttons" style={{marginTop: '100px', marginLeft: '5px'}}>
+                <Button id="cancelBtn" handleClick={setModal} label={'Cancelar'} style={'crimson'} />
+                <Button handleClick={null} label={'Deletar'} style={null} />
+            </div>
         </div>
     )
 }

@@ -24,7 +24,7 @@ function Home()
         <NavBar setModal={setModal} modal={modal} setIndex={setIndex}/>
       </div>
       <div className="wrapper">
-        {modal === true ? <div className='wrapper-modal'><ModalSimples setModal={setModal} opcao={OPCAO} formulario={<Forms index={index}/>} /></div> : null}
+        {modal === true ? <div className='wrapper-modal'><ModalSimples setModal={setModal} opcao={OPCAO} formulario={<Forms setModal={setModal} modal={modal} index={index}/>} /></div> : null}
         {database.map((inventario) => {
           return(
           <Row 

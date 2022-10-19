@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
 import '../FormStyle.css';
+import Button from "../../Button/Button";
 
-const CriarArmazem = () => {
+const CriarArmazem = ({ setModal }) => {
     
     const nome_armazem = useRef();
     const setor_armazem = useRef();
@@ -60,8 +61,11 @@ const CriarArmazem = () => {
                         />
                     </label>
                 </div>
-
             </form>
+            <div className="footer-buttons">
+                <Button id="cancelBtn" handleClick={setModal} label={'Cancelar'} style={'crimson'} />
+                <Button handleClick={null} label={'Criar'} style={null} />
+            </div>
         </div>
     )
 }
