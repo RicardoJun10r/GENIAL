@@ -10,6 +10,11 @@ const database = [
                 id:'0',
                 nome:'lata de tomate',
                 quantidade:'30'
+            },
+            {
+                id:'1',
+                nome:'Salmão',
+                quantidade:'25'
             }
         ]
     },
@@ -22,8 +27,8 @@ const database = [
         produtos:[
             {
                 id:'1',
-                nome:'lata de tomate',
-                quantidade:'30'
+                nome:'Morango',
+                quantidade:'8'
             }
         ]
     },
@@ -36,8 +41,13 @@ const database = [
         produtos:[
             {
                 id:'2',
-                nome:'lata de tomate',
+                nome:'Desinfetante',
                 quantidade:'30'
+            },
+            {
+                id:'2',
+                nome:'Álcool em gel',
+                quantidade:'10'
             }
         ]
     },
@@ -50,8 +60,8 @@ const database = [
         produtos:[
             {
                 id:'3',
-                nome:'lata de tomate',
-                quantidade:'30'
+                nome:'Castanha',
+                quantidade:'45'
             }
         ]
     }
