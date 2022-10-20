@@ -1,0 +1,3 @@
+Pagina produtos --> Fazer uma tabela
+
+Pagina armazem --> Usuario poder estilizar os proprios cards
