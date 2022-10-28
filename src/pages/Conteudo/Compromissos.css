@@ -1,0 +1,32 @@
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+    display: flex;
+}
+
+.fundo {
+    color: white;
+    background: #599fd9;
+    background: -webkit-linear-gradient(to right, #599fd9, #c2e59c);
+    background: linear-gradient(to right, #599fd9, #c2e59c);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.espacamento {
+    padding: 15px;
+    margin: 10px;
+}
+
+.section {
+    padding: 25px;
+}
+
+.position {
+    padding-right: 30px;
+    padding-left: 30px;
+}
