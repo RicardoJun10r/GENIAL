@@ -6,13 +6,12 @@ function Conteudo() {
 
     return (
         <div className="fullscreen fundo">
-            <NavBar/>
             <div className="container-fluid">
                 <div>
                     <h1 className="espacamento float-start">Compromissos</h1>
                 </div>
                 <div className="section">
-                    <TableConteudo/> 
+                    <TableConteudo/>
                 </div>
                 <footer className="position">
                     <h5>

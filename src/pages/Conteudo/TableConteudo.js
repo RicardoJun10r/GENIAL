@@ -1,176 +1,119 @@
-import { useEffect, useState } from 'react'
-import { Button, Spinner, Table, TableProps } from 'react-bootstrap'
-import { useNavigate } from 'react-router-dom'
-//import supabase from '../../services/api';
-import 'bootstrap-icons/font/bootstrap-icons.css'
+import { useState, useEffect } from 'react';
+import { Button, Spinner, Table } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import "bootstrap-icons/font/bootstrap-icons.css";
 
-//import { api, getPlayers } from '../../services/api'
+import { api, getCompromissos } from '../../services/api'
 
-//const url = "http://165.227.103.201:8100";
+const url = "https://genial-back.herokuapp.com/";
 
 function TableConteudo() {
-  
-  /*
-  const navigate = useNavigate()
-  const [players, setPlayers] = useState([])
-  const [loading, setLoading] = useState(false)
 
-  
-  useEffect(() => {
-    ;(async () => {
-      //const response = await getPlayers()
-      //setPlayers(response.data)
-      setLoading(false)
-    })()
-  }, [])
+    const navigate = useNavigate();
+    const [compromissos, setCompromissos] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-  /*
     useEffect(() => {
-        fetchJogadores()
+        (async () => {
+            const response = await getCompromissos();
+            setCompromissos(response.data);
+            setLoading(false);
+        })();
+    }, []);
+    
+    /*
+    useEffect(() => {
+        fetchCompromissos()
     }, []);
 
-    
-    async function fetchJogadores() {
+    async function fetchCompromissos() {
         setIsLoading(true);
         const { data } = await supabase
-            .from('Jogadores')
+            .from('Compromissos')
             .select()
-        setJogadores(data)
+        setCompromissos(data)
         setIsLoading(false)
         console.log("data: ", data)
+    }*/
+
+    function handleRegistrarCompromissos(e){
+        navigate('/registro-compromisso');
+    }
+    function handleEditarCompromissos(uuid){
+        navigate(`/editar-compromisso/${uuid}`);
     }
 
-  function handleRegistrarJogadores(e) {
-    navigate('/registro-atleta')
-  }
-  function handleEditarJogadores(nome) {
-    navigate(`/editar-atleta/${nome}`)
-  }
-
-  function remove(nome) {
-    console.log(nome);
-    if (window.confirm("Tem certeza de que deseja excluir este jogador?")) {
-      api
-        .delete(url + "/players/" + nome)
-        .then((res) => {
-          console.log(res.data);
-          const myalldata = players.filter((item) => item.nome !== nome);
-          setPlayers(myalldata);
-        })
-        .catch((err) => console.error(err));
-    }
-  }
-
-  /*
-    async function deleteJogador(id) {
-        if (window.confirm("Tem certeza de que deseja excluir este jogador?")) {
+    function remove(uuid) {
+        console.log(uuid);
+        if (window.confirm("Tem certeza de que deseja excluir este compromisso?")) {
+          api
+            .delete(url + "/compromissos/" + uuid)
+            .then((res) => {
+              console.log(res.data);
+              const myalldata = compromissos.filter((item) => item.uuid !== uuid);
+              setCompromissos(myalldata);
+            })
+            .catch((err) => console.error(err));
+        }
+      }
+    
+    /*
+    async function deleteCompromisso(id) {
+        if (window.confirm("Tem certeza de que deseja excluir este compromisso?")) {
             try {
                 const { error } = await supabase
-                .from('Jogadores')
+                .from('Compromissos')
                 .delete()
                 .eq("id", id)
                 if (error) throw error
-                fetchJogadores()
+                fetchCompromissos()
             } catch (error) {
                 console.error(error)
             }
         }
-    }
-    */
+    }*/
 
-    /*
-    inside table body
-    
-     {loading ?
-            <Spinner animation="border" role="status">
-              <span className="visually-hidden">Loading...</span>
-            </Spinner>
-            : players
-              .sort((a, b) => a.nome > b.nome ? 1 : -1)
-              .map(player => (
-                <tr key={player.id}>
-                  <td className="text-center">{player.camisa}</td>
-                  <td>{player.nome}</td>
-                  <td>{player.posicao}</td>
-                  <td>{player.idade}</td>
-                  <td>
-                    {new Date(player.termino_contrato).toLocaleDateString()}
-                  </td>
-                  <td>{player.vinculo}</td>
-                  <td>{player.salario}</td>
-                  <td className="text-center">
-                    <Button
-                      variant="warning"
-                      onClick={() => {
-                        //handleEditarJogadores(player.nome)
-                      }}
-                    >
-                      <i className="bi bi-pencil-square"></i>
-                    </Button>
-                    &nbsp;&nbsp;
-                    <Button
-                      variant="danger" //onClick={() => remove(player.nome)}
-                    >
-                      <i className="bi bi-trash-fill"></i>
-                    </Button>
-                  </td>
-                </tr>
-              ))
-          }
-    */
-
-  return (
-    <div>
-        <Table
-        striped
-        bordered
-        hover
-        style={{ backgroundColor: 'white', color: 'black' }}
-      >
-        <thead>
-          <tr className="text-center">
-            <th>Camisa</th>
-            <th>Nome</th>
-            <th>Posição</th>
-            <th>Idade</th>
-            <th>Término de contrato</th>
-            <th>Vínculo</th>
-            <th>Salário (R$)</th>
-            <th>Editar/Excluir</th>
-          </tr>
-        </thead>
-        <tbody>
-                <tr>
-                  <td className="text-center"></td>
-                  <td>oi</td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    {new Date().toLocaleDateString}
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td className="text-center">
-                    <Button
-                      variant="warning"
-                      onClick={() => {
-                        //handleEditarJogadores(player.nome)
-                      }}
-                    >
-                      <i className="bi bi-pencil-square"></i>
-                    </Button>
-                    &nbsp;&nbsp;
-                    <Button
-                      variant="danger" //onClick={() => remove(player.nome)}
-                    >
-                      <i className="bi bi-trash-fill"></i>
-                    </Button>
-                  </td>
-                </tr>
-        </tbody>
-      </Table>
-    </div>
-  )
-}
+    return (
+        <div >
+            <Table striped bordered hover style={{ backgroundColor:'white', color:'black' }}>
+                <thead>
+                    <tr className="text-center">
+                        <th>Data</th>
+                        <th>Horário</th>
+                        <th>Anfitrião</th>
+                        <th>Visitante</th>
+                        <th>Local</th>
+                        <th>Torneio</th>
+                        <th>Editar/Excluir</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {loading ? 
+                    <Spinner animation="border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </Spinner>
+                    : compromissos
+                    .sort((a, b) => new Date(a.data) - new Date(b.data))
+                    .map(compromisso => (
+                                <tr key={compromisso.id}>
+                                    <td>{(new Date (compromisso.data)).toLocaleDateString()}</td>
+                                    <td>{(new Date (compromisso.horario)).toLocaleTimeString()}</td>
+                                    <td>{compromisso.anfitriao}</td>
+                                    <td>{compromisso.visitante}</td>
+                                    <td>{compromisso.local}</td>
+                                    <td>{compromisso.torneio}</td>
+                                    <td className="text-center">
+                                        <Button variant="warning" onClick={() => {handleEditarCompromissos(compromisso.uuid)}}><i className="bi bi-pencil-square"></i></Button>
+                                        &nbsp;&nbsp;
+                                        <Button variant="danger" onClick={() => remove(compromisso.uuid)}><i className="bi bi-trash-fill"></i></Button>
+                                    </td>
+                                </tr>
+                            ))
+                        }
+                </tbody>
+            </Table>
+        </div>
+    );
+};
 
 export default TableConteudo;
