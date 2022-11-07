@@ -1,6 +1,6 @@
 //import { createClient } from '@supabase/supabase-js'
 import axios from 'axios'
-import { Compromisso, Treino, Financa, Funcionario, Player } from '../util/types'
+import { User, Storage, Product} from '../util/types'
 
 export const api = axios.create({
   baseURL: 'https://genial-back.herokuapp.com/'
@@ -14,70 +14,24 @@ export const findUser = async () => {
   return api.get('/users/search/byEmail?email=' + localStorage.getItem('email'))
 }
 
-export const getPlayers = async () => {
-  return api.get('/players')
+export const createUser = async (user: User) => {
+  return api.post('user', user)
 }
 
-export const createPlayer = async (player: Player) => {
-  return api.post('/players', player)
+export const getStorage = async () => {
+  return api.get('/storage')
 }
 
-export const editPlayer = async (player: Player, nome: string) => {
-  return api.put(`/players/${nome}`, player)
+export const createStorage = async (storage: Storage) => {
+  return api.post('/storage', storage)
 }
 
-export const getCompromissos = async () => {
-  return api.get('/compromissos')
+export const getProducts = async () => {
+  return api.get('/products')
 }
 
-export const createCompromissos = async (compromisso: Compromisso) => {
-  return api.post('/compromissos', compromisso)
-}
-
-export const editCompromissos = async (
-  compromisso: Compromisso,
-  uuid: string,
-) => {
-  return api.put(`/compromissos/${uuid}`, compromisso)
-}
-
-export const getTreinos = async () => {
-  return api.get('/treinos')
-}
-
-export const createTreinos = async (treino: Treino) => {
-  return api.post('/treinos', treino)
-}
-
-export const editTreinos = async (
-  treino: Treino,
-  uuid: string,
-) => {
-  return api.put(`/treinos/${uuid}`, treino)
-}
-
-export const getFinancas = async () => {
-  return api.get('/financas')
-}
-
-export const createFinancas = async (financa: Financa) => {
-  return api.post('/financas', financa)
-}
-
-export const editFinancas = async (financa: Financa, nome: string) => {
-  return api.put(`/financas/${nome}`, financa)
-}
-
-export const getEmployee = async () => {
-  return api.get('/employees')
-}
-
-export const createEmployee = async (funcionario: Funcionario) => {
-  return api.post('/employees', funcionario)
-}
-
-export const editEmployee = async (funcionario: Funcionario, nome: string) => {
-  return api.put(`/employees/${nome}`, funcionario)
+export const createProducts = async (product: Product) => {
+  return api.post('/product', product)
 }
 
 /*
