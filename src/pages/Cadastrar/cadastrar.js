@@ -3,24 +3,39 @@ import { useRef } from 'react';
 import './cadastrar.css';
 import armazenLogo from "../../assets/warehouse.png";
 import { useNavigate } from 'react-router-dom';
+import { signUp } from "../../services/api";
 
 const Cadastrar = () => {
 
+    const nomeRef = useRef();
     const emailRef = useRef();
     const passwordRef = useRef();
     const confirmarRef = useRef();
 
     const navigate = useNavigate();
 
+    const validate = (pass, confirm) => {
+        if(pass === confirm) return true;
+        else return false;
+    }
+
     function onSubmit(e)
     {
         e.preventDefault();
         console.log({
+            nome: nomeRef.current.value,
             email: emailRef.current.value,
             senha: passwordRef.current.value,
             SenhaConfirmada: confirmarRef.current.value 
         })
-        navigate('/'); 
+
+        if(validate(passwordRef, confirmarRef))
+        {
+            console.log('deu')
+            signUp(nomeRef, emailRef, passwordRef)
+            navigate('/'); 
+        }
+
     }
     return(
             <div className="container-cadastro-all">
@@ -36,6 +51,16 @@ const Cadastrar = () => {
                                         type="text" 
                                         id="username" 
                                         className="form-control-cadastro" 
+                                        ref={nomeRef}
+                                        autoFocus required />
+                                    <label className="floating-label-cadastro">Nome</label>
+                                </div>
+
+                                <div className="floating-label-group-cadastro">
+                                    <input 
+                                        type="email" 
+                                        id="username" 
+                                        className="form-control-cadastro" 
                                         ref={emailRef}
                                         autoFocus required />
                                     <label className="floating-label-cadastro">Email</label>
@@ -43,7 +68,7 @@ const Cadastrar = () => {
 
                                 <div className="floating-label-group-cadastro">
                                     <input 
-                                        type="text" 
+                                        type="password" 
                                         id="username" 
                                         className="form-control-cadastro" 
                                         ref={passwordRef}
@@ -53,7 +78,7 @@ const Cadastrar = () => {
 
                                 <div className="floating-label-group-cadastro">
                                     <input 
-                                        type="text" 
+                                        type="password" 
                                         id="username" 
                                         className="form-control-cadastro" 
                                         ref={confirmarRef}
