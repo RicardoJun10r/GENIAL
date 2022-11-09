@@ -29,10 +29,13 @@ const Cadastrar = () => {
             SenhaConfirmada: confirmarRef.current.value 
         })
 
-        if(validate(passwordRef, confirmarRef))
+        if(validate(passwordRef.current.value, confirmarRef.current.value))
         {
-            console.log('deu')
-            signUp(nomeRef, emailRef, passwordRef)
+            signUp(
+                nomeRef.current.value, 
+                emailRef.current.value, 
+                passwordRef.current.value
+                )
             navigate('/'); 
         }
 

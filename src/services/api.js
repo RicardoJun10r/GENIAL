@@ -73,14 +73,32 @@ const database = [
     }
 ]
 
-export const getLogin = async(email, password) => 
+export const authenticate = async( email, password ) => 
 {
-    return api.post('/login', { email, password })
+    await api.post('/login', 
+    { 
+        email: email, 
+        password: password
+    })
+    .then(response => {
+        console.log(response.data + ' ' + response.status)
+        let headerToken = response.headers.authorization;
+        const token = headerToken.split(' ');
+        localStorage.setItem('token', token[1]);
+    })
+    .catch(error => console.log(error.message))
 }
 
 export const signUp = async( nome, email, password ) => 
 {
-    return api.post('/users/', { nome, email, password })
+    return await api.post('/users', 
+    { 
+        name: nome, 
+        email: email, 
+        password: password 
+    })
+    .then(response => console.log(response.data))
+    .catch(error => console.log(error.message))
 }
 
 export default database;

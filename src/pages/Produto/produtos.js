@@ -23,7 +23,7 @@ const Produtos = () => {
         <div>
             <h1>Ola</h1>
             <div>
-                {products.map((produto) => {
+                {products?.map((produto) => {
                     return(
                         <p key={produto.id}>{produto.nome} + {}</p>
                     )

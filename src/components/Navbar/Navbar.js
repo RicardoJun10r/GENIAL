@@ -25,6 +25,11 @@ const NavBar = ({ setModal, modal, setIndex, opcao }) => {
         }
     }
 
+    const logOut = () => {
+        localStorage.clear();
+        navigate('/')
+    }
+
     useEffect(() => {
         aviso(count)
     }, [count])
@@ -88,7 +93,7 @@ const NavBar = ({ setModal, modal, setIndex, opcao }) => {
                         <button className="button-30">Configurações</button>
                         <div className="dropdown-content">
                             <button className="button-15">Configurar Conta</button>
-                            <button onClick={()=>{navigate('/')}} className="button-15">Log out</button>
+                            <button onClick={logOut} className="button-15">Log out</button>
                         </div>
                     </li>
                 </ul>

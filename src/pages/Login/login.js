@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import './login.css';
 import armazenLogo from "../../assets/warehouse.png";
 import { useNavigate } from 'react-router-dom';
+import { authenticate } from '../../services/api';
 
 function Login() {
 
@@ -10,11 +11,6 @@ function Login() {
 
     const navigate = useNavigate();
 
-
-    function goToHome(e){
-        navigate('/home'); 
-    }
-
     function onSubmit(e)
     {
         e.preventDefault();
@@ -22,7 +18,8 @@ function Login() {
             email: emailRef.current.value,
             password: passwordRef.current.value
         });
-        goToHome();
+        if(authenticate(emailRef.current.value, passwordRef.current.value)) return navigate('/home');
+        else return navigate('/')
     }
 
     return(
