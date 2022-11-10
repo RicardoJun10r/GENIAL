@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import '../FormStyle.css';
 import Button from "../../Button/Button";
-import { deleteStorage } from "../../../services/api";
+import { deleteProduct } from "../../../services/api";
 
 const DeletarProduto = ({ setModal, modal }) => {
 
@@ -11,9 +11,9 @@ const DeletarProduto = ({ setModal, modal }) => {
         e.preventDefault();
     }
 
-    const deletarArmazem = () => 
+    const DeletarProduto = () => 
     {
-        deleteStorage(deletar.current.value);
+        deleteProduct(deletar.current.value);
         setModal(false)
     }
     
@@ -34,7 +34,7 @@ const DeletarProduto = ({ setModal, modal }) => {
             </form>
             <div className="footer-buttons" style={{marginTop: '100px', marginLeft: '5px'}}>
                 <Button id="cancelBtn" handleClick={setModal} label={'Cancelar'} style={'crimson'} />
-                <button className="button-component" onClick={deletarArmazem}>Deletar</button>
+                <button className="button-component" onClick={DeletarProduto}>Deletar</button>
             </div>
         </div>
     )

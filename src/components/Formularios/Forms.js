@@ -3,6 +3,7 @@ import EditarArmazem from "./Editar/EditarArmazem.js";
 import DeletarArmazem from "./Deletar/DeletarArmazem.js";
 import CriarProduto from "./Criar/CriarProduto.js";
 import EditarProduto from "./Editar/EditarProduto.js";
+import DeletarProduto from "./Deletar/DeletarProduto.js";
 
 const Forms = ({ opcao , index, setModal, modal }) => {
 
@@ -55,7 +56,7 @@ const Forms = ({ opcao , index, setModal, modal }) => {
         {
             return(
                 <div>
-                    <DeletarArmazem setModal={setModal} modal={modal} />
+                    <DeletarProduto setModal={setModal} modal={modal} />
                 </div>
             )
         }

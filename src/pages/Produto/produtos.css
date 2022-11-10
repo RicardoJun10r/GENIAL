@@ -11,16 +11,15 @@
 }
 
 .tableT {
-    display: table;
     width: 100%;
-    border: 1px solid;
+    border: 2px solid;
     text-align: center;
+    border-collapse: separate;
+    border-spacing: 0 8px;
 }
 
 th, td{
-    border: 1px, solid black
 }
 
 thead th {
-    width: 25%;
 }

@@ -22,12 +22,6 @@ const Produtos = () => {
     let tmp = localStorage.getItem('storage');
     let nome = JSON.parse(tmp)
     
-    const getStorageName = () => {
-        nome = localStorage.getItem('storage')
-        return JSON.parse(nome)
-    }
-
-    
     const OPCAO = 'produto';
 
     const fetchData = useCallback(async () => {
@@ -51,7 +45,7 @@ const Produtos = () => {
 
     useEffect(()=>{
         fetchData()
-    },[])
+    },[products])
 
     return(
         <div>
