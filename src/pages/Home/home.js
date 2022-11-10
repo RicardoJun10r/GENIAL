@@ -6,6 +6,8 @@ import NavBar from '../../components/Navbar/Navbar';
 import ModalSimples from '../../components/Modal/ModalSimples/ModalSimples';
 import Forms from '../../components/Formularios/Forms';
 import { listStorage } from '../../services/api';
+import { useCallback } from 'react';
+import axios from 'axios';
 
 function Home()
 {
@@ -19,11 +21,24 @@ function Home()
   useEffect( () => {
     console.log(modal + ' ' + storage)
 
-    let temp = listStorage()
-
-    console.log(temp.map((i) => {console.log(i.name)}))
+    fetchData()
 
   }, [modal], [index], [storage] )
+
+  const fetchData = useCallback(async () => {
+    try {
+        //fetch and set users or axios.get
+        const result = await axios.get(
+          'http://localhost:8080/storage',
+          {
+              headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}
+          }
+      )
+        setStorage(result.data);
+    } catch (err) {
+      console.log(err.message);
+    }
+});
 
   return(
     <div className="containerHome">
