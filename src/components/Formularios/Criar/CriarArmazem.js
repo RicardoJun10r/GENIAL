@@ -7,13 +7,14 @@ const CriarArmazem = ({ setModal }) => {
     
     const nome_armazem = useRef();
     const descricao_armazem = useRef();
+    const imagem_armazem = useRef();
 
     const onSubmit = (e) => {
         e.preventDefault();
     }
 
     const criarArmazem = () => {
-        createStorage(nome_armazem.current.value, descricao_armazem.current.value);      
+        createStorage(nome_armazem.current.value, descricao_armazem.current.value, imagem_armazem.current.value);      
         setModal(false)  
     }
     
@@ -41,6 +42,17 @@ const CriarArmazem = ({ setModal }) => {
                         type="text" 
                         className="form-control-formulario" 
                         ref={descricao_armazem}
+                        />
+                </div>
+
+                <div className="floating-label-group-formulario">
+                    <label className="floating-label-formulario">
+                        <p>Imagem</p>
+                    </label>
+                    <input 
+                        type="text" 
+                        className="form-control-formulario" 
+                        ref={imagem_armazem}
                         />
                 </div>
             </form>
