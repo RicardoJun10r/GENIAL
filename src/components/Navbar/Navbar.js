@@ -23,7 +23,6 @@ const NavBar = ({ setModal, modal, setIndex, opcao }) => {
                 <nav>
                     <ul>
                         <li><button onClick={() => {setModal(!modal); setIndex(0);}} className="button-30" role="button">Criar Armazém</button></li>
-                        <li><button onClick={() => {setModal(!modal); setIndex(1);}} className="button-30" role="button">Editar Armazém</button></li>
                         <li><button onClick={() => {setModal(!modal); setIndex(2);}} className="button-30" role="button">Deletar Armazém</button></li>
                         <li className="dropdown">
                             <button className="button-30" role="button">Configurações</button>
