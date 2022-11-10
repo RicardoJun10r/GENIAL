@@ -15,6 +15,7 @@ function Rotas() {
                 <Route element={<Cadastrar />} path='/cadastrar'/>
                 <Route element={<Home />} path='/home' exact />
                 <Route element={<Produtos />} path='/produtos' exact />
+                <Route element={<Conteudo />} path='/conteudo' exact />
             </Routes>
         </BrowserRouter>
     )

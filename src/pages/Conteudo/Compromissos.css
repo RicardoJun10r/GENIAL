@@ -1,5 +1,5 @@
 .fullscreen {
-    position: fixed;
+    position:relative;
     top: 0;
     left: 0;
     bottom: 0;
@@ -23,10 +23,21 @@
 }
 
 .section {
-    padding: 25px;
+    padding: 35px;
 }
 
 .position {
-    padding-right: 30px;
+    padding-right: 50px;
     padding-left: 30px;
+}
+
+table {
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 5px;
+    column-width: 200px;
+    column-gap: 50px;
+    border-color: grey;
 }

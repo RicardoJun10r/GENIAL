@@ -10,7 +10,7 @@ function Conteudo() {
                 <div>
                     <h1 className="espacamento float-start">Compromissos</h1>
                 </div>
-                <div className="section">
+                <div className="">
                     <TableConteudo/>
                 </div>
                 <footer className="position">
