@@ -1,0 +1,19 @@
+.conteiner-produtos{
+    display: flex;
+    margin-top: 10px;
+}
+
+.tableT {
+    display: table;
+    width: 100%;
+    border: 1px solid;
+    text-align: center;
+}
+
+th, td{
+    border: 1px, solid black
+}
+
+thead th {
+    width: 25%;
+}

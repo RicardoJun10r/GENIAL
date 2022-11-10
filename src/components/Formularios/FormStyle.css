@@ -1,5 +1,4 @@
 .form-armazem-container{
-    bottom: 20px;
     position: relative;
 }
 
@@ -8,7 +7,7 @@
 }
 
 .floating-label-formulario{
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .form-control-formulario{
@@ -16,6 +15,10 @@
     height: 20px;
     border-style: solid;
     border-color: black;
+}
+
+.footer-buttons{
+    margin-top: 50px;
 }
 
 #cancelBtn{

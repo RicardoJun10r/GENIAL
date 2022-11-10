@@ -3,7 +3,7 @@ import '../FormStyle.css';
 import Button from "../../Button/Button";
 import { deleteStorage } from "../../../services/api";
 
-const DeletarArmazem = ({ setModal, modal }) => {
+const DeletarProduto = ({ setModal, modal }) => {
 
     const deletar = useRef();
 
@@ -40,4 +40,4 @@ const DeletarArmazem = ({ setModal, modal }) => {
     )
 }
 
-export default DeletarArmazem;
+export default DeletarProduto;

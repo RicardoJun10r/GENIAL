@@ -11,16 +11,16 @@ function Row({ inventario })
 
     const navigate = useNavigate();
 
-    const saveStorageIndex = (storageID) => {
-        localStorage.setItem('storage', JSON.stringify(storageID))
+    const saveStorage = (storageNAME, storageID) => {
+        localStorage.setItem('storageNome', JSON.stringify(storageNAME))
+        localStorage.setItem('storageId', JSON.stringify(storageID))
         navigate('/produtos')
     }
 
     return(
-        <div className="card green"  onClick={() => {saveStorageIndex(inventario.id)}}>
+        <div className="card green"  onClick={() => {saveStorage(inventario.name, inventario.id)}}>
             <h2>{inventario.name}</h2>
             <p style={{color: `${colors[index]}`}}>Descrição: {inventario.description}</p>
-            <p>Data: {inventario.date}</p>
         </div>
     )
 }

@@ -11,7 +11,6 @@ function Conteudo() {
     return (
             <div className="containerHomeConteudo">
                 <div className="headerConteudo">
-                    <NavBar setModal={setModal} modal={modal} setIndex={setIndex}/>
                 </div>
                 <div className="wrapperTabela">
                     <TableConteudo/>

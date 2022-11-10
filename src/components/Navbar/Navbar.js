@@ -16,7 +16,6 @@ const NavBar = ({ setModal, modal, setIndex, opcao }) => {
     useEffect(() => {
     }, [])
 
-    /*
     if(opcao === 'armazem'){
         return (
             <div className="container-navbar">
@@ -30,7 +29,7 @@ const NavBar = ({ setModal, modal, setIndex, opcao }) => {
                             <button className="button-30" role="button">Configurações</button>
                             <div className="dropdown-content">
                                 <button className="button-15">Configurar Conta</button>
-                                <button onClick={()=>{navigate('/')}} className="button-15">Log out</button>
+                                <button onClick={logOut} className="button-15">Log out</button>
                             </div>
                         </li>
                     </ul>
@@ -52,7 +51,7 @@ const NavBar = ({ setModal, modal, setIndex, opcao }) => {
                             <button className="button-30" role="button">Configurações</button>
                             <div className="dropdown-content">
                                 <button className="button-15">Configurar Conta</button>
-                                <button onClick={()=>{navigate('/')}} className="button-15">Log out</button>
+                                <button onClick={logOut} className="button-15">Log out</button>
                             </div>
                         </li>
                     </ul>
@@ -60,28 +59,6 @@ const NavBar = ({ setModal, modal, setIndex, opcao }) => {
             </div>
         )
     }
-   
-}
-*/
-    return (
-        <div className="container-navbar">
-            <h1 className="logo-genial"><img alt="logo-genial-casa" src={armazenLogo}/>GENIAL</h1>
-            <nav>
-                <ul>
-                    <li><button onClick={() => {setModal(!modal); setIndex(0);}} className="button-30">Criar Armazém</button></li>
-                    <li><button onClick={() => {setModal(!modal); setIndex(1);}} className="button-30">Editar Armazém</button></li>
-                    <li><button onClick={() => {setModal(!modal); setIndex(2);}} className="button-30">Deletar Armazém</button></li>
-                    <li className="dropdown">
-                        <button className="button-30">Configurações</button>
-                        <div className="dropdown-content">
-                            <button className="button-15">Configurar Conta</button>
-                            <button onClick={logOut} className="button-15">Log out</button>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    )
 }
 
 export default NavBar;

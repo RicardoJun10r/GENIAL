@@ -29,32 +29,12 @@ const EditarArmazem = ({ setModal, modal }) => {
                 </div>
                 <div className="floating-label-group-formulario">
                     <label className="floating-label-formulario">
-                        <p>Setor</p>
-                        <input 
-                        type="text" 
-                        className="form-control-formulario" 
-                        ref={setor_armazem}
-                        />
-                    </label>
-                </div>
-                <div className="floating-label-group-formulario">
-                    <label className="floating-label-formulario">
                         <p>Descrição</p>
                         <input 
                         type="text" 
                         className="form-control-formulario" 
                         ref={descricao_armazem}
                         />                    
-                    </label>
-                </div>
-                <div className="floating-label-group-formulario">
-                    <label className="floating-label-formulario">
-                        <p>Data de criação</p>
-                        <input 
-                        type="text" 
-                        className="form-control-formulario" 
-                        ref={data_armazem}
-                        />
                     </label>
                 </div>
             </form>

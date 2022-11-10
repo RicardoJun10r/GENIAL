@@ -46,7 +46,7 @@ const CriarArmazem = ({ setModal }) => {
             </form>
             <div className="footer-buttons">
                 <Button id="cancelBtn" handleClick={setModal} label={'Cancelar'} style={'crimson'} />
-                <button onClick={criarArmazem} >Criar</button>
+                <button className="button-component" onClick={criarArmazem} >Criar</button>
             </div>
         </div>
     )

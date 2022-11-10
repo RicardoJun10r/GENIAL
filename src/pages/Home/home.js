@@ -19,11 +19,10 @@ function Home()
   const OPCAO = 'armazem';
 
   useEffect( () => {
-    console.log(modal + ' ' + storage)
 
     fetchData()
 
-  }, [modal], [index], [storage] )
+  }, [storage] )
 
   const fetchData = useCallback(async () => {
     try {
@@ -43,10 +42,10 @@ function Home()
   return(
     <div className="containerHome">
       <div className="header">
-        <NavBar setModal={setModal} modal={modal} setIndex={setIndex}/>
+        <NavBar setModal={setModal} modal={modal} setIndex={setIndex} opcao={OPCAO}/>
       </div>
       <div className="wrapper">
-        {modal === true ? <div className='wrapper-modal'><ModalSimples setModal={setModal} opcao={OPCAO} formulario={<Forms setModal={setModal} modal={modal} index={index}/>} /></div> : null}
+        {modal === true ? <div className='wrapper-modal'><ModalSimples setModal={setModal} opcao={OPCAO} formulario={<Forms opcao={OPCAO} setModal={setModal} modal={modal} index={index}/>} /></div> : null}
         {storage?.map((inventario) => {
           return(
           <Row 

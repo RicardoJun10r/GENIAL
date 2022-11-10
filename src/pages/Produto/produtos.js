@@ -1,33 +1,93 @@
 import React from "react";
-import { useEffect, useState } from "react";
-import database from '../../services/api';
+import { useState, useEffect, useCallback } from 'react';
+import { Button, Spinner, Table } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import "bootstrap-icons/font/bootstrap-icons.css";
+import NavBar from '../../components/Navbar/Navbar';
+import ModalSimples from '../../components/Modal/ModalSimples/ModalSimples';
+import Forms from '../../components/Formularios/Forms';
+import axios from 'axios';
+import Row from '../../components/Cards/Row';
+import './produtos.css'
 
 const Produtos = () => {
 
     const [storageIndex, setStorageIndex] = useState(null)
     const [products, setProducts] = useState([]);
+    const [product, setProduct] = useState('');
+    const [modal, setModal] = useState(false);
+    const [index, setIndex] = useState(0);
 
-    const getProducts = () => {
-        let index = localStorage.getItem('storage')
-        return JSON.parse(index)
+    let tmp = localStorage.getItem('storage');
+    let nome = JSON.parse(tmp)
+    
+    const getStorageName = () => {
+        nome = localStorage.getItem('storage')
+        return JSON.parse(nome)
     }
 
-    const storage = database.filter(storage => storage.id == storageIndex);
+    
+    const OPCAO = 'produto';
+
+    const fetchData = useCallback(async () => {
+        try {
+            //fetch and set users or axios.get
+            const result = await axios.get(
+              `http://localhost:8080/product/${nome}`,
+              {
+                  headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}
+              }
+          )
+            setProducts(result.data);
+        } catch (err) {
+          console.log(err.message);
+        }
+    });
+
+    const select = (name) => {
+        console.log(name)
+    }
 
     useEffect(()=>{
-        setStorageIndex(getProducts())
-        setProducts(storage.produtos)
-    },[storageIndex, products])
+        fetchData()
+    },[])
 
     return(
         <div>
-            <h1>Ola</h1>
-            <div>
-                {products?.map((produto) => {
-                    return(
-                        <p key={produto.id}>{produto.nome} + {}</p>
-                    )
-                })}
+            <div className="header">
+                <NavBar setModal={setModal} modal={modal} setIndex={setIndex} opcao={OPCAO}/>
+            </div>
+            <div className="conteiner-produtos">
+                {modal === true ? <div className='wrapper-modal'><ModalSimples setModal={setModal} opcao={OPCAO} formulario={<Forms opcao={OPCAO} setModal={setModal} modal={modal} index={index}/>} /></div> : null}
+                <Table className="tableT" striped bordered hover style={{ backgroundColor:'white', color:'black' }}>
+                    <thead>
+                            <tr className="text-center">
+                                <th>Descrição</th>
+                                <th>Nome</th>
+                                <th>Setor</th>
+                                <th>Valor</th>
+                                <th>Data</th>
+                                <th>Quantidade</th>
+                                <th>Selecionar</th>
+                            </tr>
+                        </thead>
+                    <tbody>
+                        {products.map( product => (
+                            <tr key={product.id}>
+                                <td>{product.description}</td>
+                                <td>{product.name}</td>
+                                <td>{product.sector}</td>
+                                <td>{product.value}</td>
+                                <td>{(new Date (product.date)).toLocaleDateString()}</td>
+                                <td>{product.quantidade}</td>
+                                <td className="text-center">
+                                    <Button onClick={select(product.name)}><i className="bi bi-check2-square"></i></Button>
+                                </td>
+                            </tr>
+                            )
+                        )}
+                    </tbody>
+                </Table>
             </div>
         </div>
     )
