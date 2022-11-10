@@ -61,8 +61,8 @@ function TableConteudo() {
     function handleRegistrarCompromissos(e){
         navigate('/registro-compromisso');
     }
-    function handleEditarCompromissos(uuid){
-        navigate(`/editar-compromisso/${uuid}`);
+    function handleEditarProduto(name){
+        navigate(`/editar-produto/${name}`);
     }
 
     function remove(uuid) {
@@ -125,7 +125,7 @@ function TableConteudo() {
                                     <td>{(new Date (product2.date)).toLocaleDateString()}</td>
                                     <td>{product2.quantidade}</td>
                                     <td className="text-center">
-                                        <Button variant="warning" onClick={() => {handleEditarCompromissos(product2.uuid)}}><i className="bi bi-pencil-square"></i></Button>
+                                        <Button variant="warning" onClick={() => {handleEditarProduto(product2.name)}}><i className="bi bi-pencil-square"></i></Button>
                                         &nbsp;&nbsp;
                                         <Button variant="danger" onClick={() => remove(product2.uuid)}><i className="bi bi-trash-fill"></i></Button>
                                     </td>
