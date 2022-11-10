@@ -9,6 +9,7 @@ import Forms from '../../components/Formularios/Forms';
 import axios from 'axios';
 import Row from '../../components/Cards/Row';
 import './produtos.css'
+import PegarNameTable from "../../components/PegarNameTable";
 
 const Produtos = () => {
 
@@ -39,9 +40,19 @@ const Produtos = () => {
         }
     });
 
-    const select = () => {
-        setSelected(!selected)
-    }
+    const select =useCallback(async () => {
+        try {
+            //fetch and set users or axios.get
+            const result = await axios.get(
+              `http://localhost:8080/product/search/byName?name=${nome}`,
+              {
+                  headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}
+              }
+          )
+        } catch (err) {
+          console.log(err.message);
+        }
+    });
 
     useEffect(()=>{
         fetchData()
@@ -76,7 +87,8 @@ const Produtos = () => {
                                 <td>{(new Date (product.date)).toLocaleDateString()}</td>
                                 <td>{product.quantidade}</td>
                                 <td className="text-center" >
-                                    <Button onClick={select}><i className="bi bi-check2-square"></i></Button>
+                                <PegarNameTable product={product} /> 
+                                <Button onClick={select}><i className="bi bi-check2-square"></i></Button>
                                 </td>
                             </tr>
                             )

@@ -8,6 +8,7 @@ import Forms from '../../components/Formularios/Forms';
 import { listStorage } from '../../services/api';
 import { useCallback } from 'react';
 import axios from 'axios';
+import { wait } from '@testing-library/user-event/dist/utils';
 
 function Home()
 {
@@ -39,8 +40,13 @@ function Home()
     }
 });
 
+function refreshPage() {
+  setTimeout(() => { window.location.reload(false); }, 50000);
+
+}
+
   return(
-    <div className="containerHome">
+    <div className="containerHome" onLoad={refreshPage}>
       <div className="header">
         <NavBar setModal={setModal} modal={modal} setIndex={setIndex} opcao={OPCAO}/>
       </div>
