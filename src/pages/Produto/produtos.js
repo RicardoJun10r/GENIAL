@@ -19,7 +19,7 @@ const Produtos = () => {
     const [index, setIndex] = useState(0);
     const [selected, setSelected] = useState(false);
 
-    let tmp = localStorage.getItem('storage');
+    let tmp = localStorage.getItem('storageNome');
     let nome = JSON.parse(tmp)
     
     const OPCAO = 'produto';
