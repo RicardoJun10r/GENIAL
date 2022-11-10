@@ -1,4 +1,3 @@
-import React from "react";
 import CriarArmazem from "./Criar/CriarArmazem.js";
 import EditarArmazem from "./Editar/EditarArmazem.js";
 import DeletarArmazem from "./Deletar/DeletarArmazem.js";

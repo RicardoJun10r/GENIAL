@@ -17,6 +17,7 @@ const Produtos = () => {
     const [product, setProduct] = useState('');
     const [modal, setModal] = useState(false);
     const [index, setIndex] = useState(0);
+    const [selected, setSelected] = useState(false);
 
     let tmp = localStorage.getItem('storage');
     let nome = JSON.parse(tmp)
@@ -44,8 +45,8 @@ const Produtos = () => {
         }
     });
 
-    const select = (name) => {
-        console.log(name)
+    const select = () => {
+        setSelected(!selected)
     }
 
     useEffect(()=>{
@@ -80,8 +81,8 @@ const Produtos = () => {
                                 <td>{product.value}</td>
                                 <td>{(new Date (product.date)).toLocaleDateString()}</td>
                                 <td>{product.quantidade}</td>
-                                <td className="text-center">
-                                    <Button onClick={select(product.name)}><i className="bi bi-check2-square"></i></Button>
+                                <td className="text-center" >
+                                    <Button onClick={select}><i className="bi bi-check2-square"></i></Button>
                                 </td>
                             </tr>
                             )

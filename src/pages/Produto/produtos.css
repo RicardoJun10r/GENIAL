@@ -1,6 +1,13 @@
 .conteiner-produtos{
+    position: relative;
     display: flex;
-    margin-top: 10px;
+    flex-wrap: wrap;
+    justify-content: space-between;  
+    align-items: center;
+    height: 50vh;
+    background-color: hsl(175, 40%, 17%);
+    font-size: 1.5em;
+    column-width: 5px;
 }
 
 .tableT {

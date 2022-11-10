@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import '../FormStyle.css';
 import Button from "../../Button/Button";
 import { createProduct } from "../../../services/api";
@@ -24,7 +24,7 @@ const CriarProduto = ({ setModal }) => {
     
     return(
         <div className='form-armazem-container'>
-            <h1>Criar Armazém</h1>
+            <h1>Criar Produto</h1>
             <form onSubmit={onSubmit}>
 
                 <div className="floating-label-group-formulario">

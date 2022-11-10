@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import '../FormStyle.css';
 import Button from "../../Button/Button";
 import { deleteStorage } from "../../../services/api";
@@ -19,7 +19,7 @@ const DeletarProduto = ({ setModal, modal }) => {
     
     return(
         <div className='form-armazem-container'>
-            <h1>Deletar Armazém</h1>
+            <h1>Deletar Produto</h1>
             <form onSubmit={onSubmit}>
                 <div className="floating-label-group-formulario">
                     <label className="floating-label-formulario">
