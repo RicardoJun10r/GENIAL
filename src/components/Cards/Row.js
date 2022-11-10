@@ -18,10 +18,9 @@ function Row({ inventario })
 
     return(
         <div className="card green"  onClick={() => {saveStorageIndex(inventario.id)}}>
-            <h2>{inventario.nome}</h2>
-            <p>Setor: {inventario.setor}</p>
-            <p style={{color: `${colors[index]}`}}>Descrição: {inventario.descricao}</p>
-            <p>Data: {inventario.data}</p>
+            <h2>{inventario.name}</h2>
+            <p style={{color: `${colors[index]}`}}>Descrição: {inventario.description}</p>
+            <p>Data: {inventario.date}</p>
         </div>
     )
 }

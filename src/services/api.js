@@ -132,7 +132,11 @@ export const listStorage = async() =>
             headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}
         }
     )
-    .then(response => {console.log(response.data)})
+    .then(response => 
+        {
+            // console.log(response.data)
+            return response.data
+        })
     .catch(error => {console.log(error.message)})
 }
 

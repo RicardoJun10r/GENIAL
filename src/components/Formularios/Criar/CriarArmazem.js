@@ -3,7 +3,7 @@ import '../FormStyle.css';
 import Button from "../../Button/Button";
 import { createStorage } from "../../../services/api";
 
-const CriarArmazem = ({ setModal, setStorage }) => {
+const CriarArmazem = ({ setModal }) => {
     
     const nome_armazem = useRef();
     const descricao_armazem = useRef();
@@ -13,7 +13,7 @@ const CriarArmazem = ({ setModal, setStorage }) => {
     }
 
     const criarArmazem = () => {
-        setStorage( createStorage(nome_armazem.current.value, descricao_armazem.current.value) );      
+        createStorage(nome_armazem.current.value, descricao_armazem.current.value);      
         setModal(false)  
     }
     

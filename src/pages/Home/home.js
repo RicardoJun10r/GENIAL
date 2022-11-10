@@ -5,6 +5,7 @@ import database from '../../services/api';
 import NavBar from '../../components/Navbar/Navbar';
 import ModalSimples from '../../components/Modal/ModalSimples/ModalSimples';
 import Forms from '../../components/Formularios/Forms';
+import { listStorage } from '../../services/api';
 
 function Home()
 {
@@ -15,13 +16,14 @@ function Home()
 
   const OPCAO = 'armazem';
 
-  const handleStorage = () => {
-    
-  }
+  useEffect( () => {
+    console.log(modal + ' ' + storage)
 
-  useEffect(()=>{
-    console.log(modal)
-  }, [modal], [index], [storage])
+    let temp = listStorage()
+
+    console.log(temp.map((i) => {console.log(i.name)}))
+
+  }, [modal], [index], [storage] )
 
   return(
     <div className="containerHome">
@@ -29,8 +31,8 @@ function Home()
         <NavBar setModal={setModal} modal={modal} setIndex={setIndex}/>
       </div>
       <div className="wrapper">
-        {modal === true ? <div className='wrapper-modal'><ModalSimples setModal={setModal} opcao={OPCAO} formulario={<Forms setModal={setModal} setStorage={setStorage} modal={modal} index={index}/>} /></div> : null}
-        {database.map((inventario) => {
+        {modal === true ? <div className='wrapper-modal'><ModalSimples setModal={setModal} opcao={OPCAO} formulario={<Forms setModal={setModal} modal={modal} index={index}/>} /></div> : null}
+        {storage?.map((inventario) => {
           return(
           <Row 
             key={inventario.id}
