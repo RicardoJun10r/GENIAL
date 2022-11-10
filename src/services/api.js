@@ -39,13 +39,14 @@ export const signUp = async( nome, email, password ) =>
 
 /* ARMAZEM */
 
-export const createStorage = async( nome, description ) => 
+export const createStorage = async( nome, description, image ) => 
 {
     return await api.post(
         '/storage', 
         {
             name: nome, 
-            description: description
+            description: description,
+            image: image
         }, 
         {
             headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}

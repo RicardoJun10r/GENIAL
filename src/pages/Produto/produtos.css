@@ -4,7 +4,7 @@
     flex-wrap: wrap;
     justify-content: space-between;  
     align-items: center;
-    height: 50vh;
+    height: 10vh;
     background-color: hsl(175, 40%, 17%);
     font-size: 1em;
     column-width: 5px;
@@ -16,10 +16,4 @@
     text-align: center;
     border-collapse: separate;
     border-spacing: 0 8px;
-}
-
-th, td{
-}
-
-thead th {
 }
