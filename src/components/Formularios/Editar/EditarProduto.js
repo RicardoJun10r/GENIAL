@@ -1,7 +1,8 @@
-import { useRef } from "react";
+import { useCallback, useRef, useState, useEffect } from "react";
 import '../FormStyle.css';
 import Button from "../../Button/Button";
-import { createStorage } from "../../../services/api";
+import axios from "axios";
+import { editProduct } from "../../../services/api";
 
 const EditarProduto = ({ setModal }) => {
     
@@ -11,11 +12,36 @@ const EditarProduto = ({ setModal }) => {
     const valor_produto = useRef();
     const quantidade_produto = useRef();
 
+    const [produto, setProduto] = useState({});
+
     const onSubmit = (e) => {
         e.preventDefault();
     }
 
-    const criarProd = () => {
+    let tmp = localStorage.getItem('productName');
+    let nome = JSON.parse(tmp)
+
+    const fetchData = useCallback(async () => {
+        try {
+            //fetch and set users or axios.get
+            const result = await axios.get(
+                `http://localhost:8080/product/search/byName?name=${nome}`,
+              {
+                  headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}
+              }
+          )
+            setProduto(result.data);
+        } catch (err) {
+          console.log(err.message);
+        }
+    });
+
+    useEffect(() => {
+        fetchData();
+    },[produto])
+
+    const editProduto = () => {
+        editProduct(nome, nome_produto.current.value, descricao_produto.current.value, setor_produto.current.value, valor_produto.current.value, quantidade_produto.current.value);
         setModal(false)  
     }
     
@@ -30,6 +56,7 @@ const EditarProduto = ({ setModal }) => {
                         <input 
                         type="text" 
                         className="form-control-formulario" 
+                        placeholder={produto.name}
                         ref={nome_produto}
                         />    
                     </label>
@@ -42,6 +69,7 @@ const EditarProduto = ({ setModal }) => {
                     <input 
                         type="text" 
                         className="form-control-formulario" 
+                        placeholder={produto.description}
                         ref={descricao_produto}
                         />
                 </div>
@@ -51,6 +79,7 @@ const EditarProduto = ({ setModal }) => {
                         <input 
                         type="text" 
                         className="form-control-formulario" 
+                        placeholder={produto.sector}
                         ref={setor_produto}
                         />    
                     </label>
@@ -61,6 +90,7 @@ const EditarProduto = ({ setModal }) => {
                         <input 
                         type="text" 
                         className="form-control-formulario" 
+                        placeholder={produto.value}
                         ref={valor_produto}
                         />    
                     </label>
@@ -71,6 +101,7 @@ const EditarProduto = ({ setModal }) => {
                         <input 
                         type="text" 
                         className="form-control-formulario" 
+                        placeholder={produto.quantidade}
                         ref={quantidade_produto}
                         />    
                     </label>
@@ -78,7 +109,7 @@ const EditarProduto = ({ setModal }) => {
             </form>
             <div className="footer-buttons">
                 <Button id="cancelBtn" handleClick={setModal} label={'Cancelar'} style={'crimson'} />
-                <button className="button-component" onClick={criarProd} >Editar</button>
+                <button className="button-component" onClick={editProduto} >Editar</button>
             </div>
         </div>
     )

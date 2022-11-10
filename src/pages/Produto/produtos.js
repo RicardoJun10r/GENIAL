@@ -1,6 +1,5 @@
-import React from "react";
 import { useState, useEffect, useCallback } from 'react';
-import { Button, Spinner, Table } from 'react-bootstrap';
+import { Button, Table } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import NavBar from '../../components/Navbar/Navbar';
@@ -40,22 +39,8 @@ const Produtos = () => {
         }
     });
 
-    const select =useCallback(async () => {
-        try {
-            //fetch and set users or axios.get
-            const result = await axios.get(
-              `http://localhost:8080/product/search/byName?name=${nome}`,
-              {
-                  headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}
-              }
-          )
-        } catch (err) {
-          console.log(err.message);
-        }
-    });
-
-    useEffect(()=>{
-        fetchData()
+    useEffect(() => {
+        fetchData();
     },[products])
 
     return(
@@ -87,8 +72,7 @@ const Produtos = () => {
                                 <td>{(new Date (product.date)).toLocaleDateString()}</td>
                                 <td>{product.quantidade}</td>
                                 <td className="text-center" >
-                                <PegarNameTable product={product} /> 
-                                <Button onClick={select}><i className="bi bi-check2-square"></i></Button>
+                                    <Button onClick={() => {localStorage.setItem('productName', JSON.stringify(product.name))}}><i className="bi bi-check2-square"></i></Button>
                                 </td>
                             </tr>
                             )

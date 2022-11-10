@@ -120,6 +120,37 @@ export const listProduct = async (storage) =>
     .catch(error => {console.log(error.message)})
 }
 
+export const listProductByName = async (name) =>
+{
+    return await api.get(
+        `/product/search/byName?name=${name}`,
+        {
+            headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}
+        }
+    )
+    .then(response => {console.log(response.data)})
+    .catch(error => {console.log(error.message)})
+}
+
+export const editProduct = async ( nameProduct, name, description, sector, value, quantidade ) =>
+{
+    return await api.put(
+        `/product/${nameProduct}`,
+        {
+            name: name,
+            description: description,
+            sector: sector,
+            value: value,
+            quantidade: quantidade
+        },
+        {
+            headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}
+        }
+    )
+    .then(response => {console.log(response.data)})
+    .catch(error => {console.log(error.message)})
+}
+
 export const deleteProduct = async (storage) =>
 {
     return await api.delete(
