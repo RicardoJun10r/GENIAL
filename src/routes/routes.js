@@ -18,7 +18,6 @@ function Rotas() {
                 <Route element={<Produtos />} path='/produtos' exact />
                 <Route element={<Conteudo />} path='/conteudo' exact />
                 <Route element={<App />} path='/app' exact />
-                
             </Routes>
         </BrowserRouter>
     )
