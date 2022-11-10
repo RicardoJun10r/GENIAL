@@ -3,36 +3,18 @@ import './Navbar.css';
 import armazenLogo from "../../assets/warehouse.png";
 import { useNavigate } from 'react-router-dom';
 
+
 const NavBar = ({ setModal, modal, setIndex, opcao }) => {
 
-    const [count, setCount] = useState(0);
     const navigate = useNavigate();
 
-    /*
-    const sterEgg = () => {
-        setCount( currentCount => {
-            return currentCount + 1;
-        })
-    }
-    */
-   
-    const aviso = (count) =>{
-        if(count === 10) 
-        {
-            alert("PARA DE APERTAR")
-            setCount(0)
-            console.clear()
-        }
-    }
-
-    const logOut = () => {
+    function logOut(){
         localStorage.clear();
         navigate('/')
     }
 
     useEffect(() => {
-        aviso(count)
-    }, [count])
+    }, [])
 
     /*
     if(opcao === 'armazem'){

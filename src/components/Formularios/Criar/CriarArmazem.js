@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import '../FormStyle.css';
 import Button from "../../Button/Button";
+import { createStorage } from "../../../services/api";
 
 const CriarArmazem = ({ setModal }) => {
     
@@ -49,17 +50,6 @@ const CriarArmazem = ({ setModal }) => {
                         className="form-control-formulario" 
                         ref={descricao_armazem}
                         />
-                </div>
-
-                <div className="floating-label-group-formulario">
-                    <label className="floating-label-formulario">
-                        <p>Data de criação</p>
-                        <input 
-                        type="text" 
-                        className="form-control-formulario" 
-                        ref={data_armazem}
-                        />
-                    </label>
                 </div>
             </form>
             <div className="footer-buttons">
