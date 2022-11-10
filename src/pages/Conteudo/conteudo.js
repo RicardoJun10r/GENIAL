@@ -1,7 +1,7 @@
 import NavBar from '../../components/Navbar/Navbar';
 import TableConteudo from "./TableConteudo";
 import React, { useState, useEffect } from 'react';
-import "./conteudo.css";
+import "./Conteudo.css";
 
 function Conteudo() {
 

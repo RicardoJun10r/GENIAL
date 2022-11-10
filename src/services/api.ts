@@ -6,6 +6,23 @@ export const api = axios.create({
   baseURL: 'http://localhost:8080'
 })
 
+/*
+const accessToken =
+'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2aXRvckBnbWFpbC5jb20iLCJleHAiOjE2NjgxMjcxMDd9.yXqtF8gwJhjalqJ-DIHwYsKSYmMaQReoCJhgYSeJXJ0c1OJ8P-8R0Rff8OHeBg1MQZKxIqviZATRZOGGlnf5dw';
+
+const apiUrl = 'http://localhost:8080';
+
+axios.interceptors.request.use(
+  config => {
+      config?.headers?.authorization = `Bearer ${accessToken}`;
+      return config;
+  },
+  error =>{
+      return Promise.reject(error);
+  }
+);
+
+
 //const token = JSON.parse(localStorage.getItem("token"));
 
 // export const createSession = async (email: string, senha: string) => {
@@ -26,6 +43,13 @@ export const getStorage = async () => {
 
 export const createStorage = async (storage: Storage) => {
   return api.post('/storage', storage)
+}
+
+export const editCompromissos = async (
+  product: Product,
+  name: string,
+) => {
+  return api.put(`/compromissos/${name}`, product)
 }
 
 /*

@@ -116,18 +116,18 @@ function TableConteudo() {
                         <span className="visually-hidden">Loading...</span>
                     </Spinner>
                     : products
-                        .map( product2 => (
-                                <tr key={product2.id}>
-                                    <td>{product2.description}</td>
-                                    <td>{product2.name}</td>
-                                    <td>{product2.sector}</td>
-                                    <td>{product2.value}</td>
-                                    <td>{(new Date (product2.date)).toLocaleDateString()}</td>
-                                    <td>{product2.quantidade}</td>
+                        .map( product => (
+                                <tr key={product.id}>
+                                    <td>{product.description}</td>
+                                    <td>{product.name}</td>
+                                    <td>{product.sector}</td>
+                                    <td>{product.value}</td>
+                                    <td>{(new Date (product.date)).toLocaleDateString()}</td>
+                                    <td>{product.quantidade}</td>
                                     <td className="text-center">
-                                        <Button variant="warning" onClick={() => {handleEditarProduto(product2.name)}}><i className="bi bi-pencil-square"></i></Button>
+                                        <Button variant="warning" onClick={() => {handleEditarProduto(product.name)}}><i className="bi bi-pencil-square"></i></Button>
                                         &nbsp;&nbsp;
-                                        <Button variant="danger" onClick={() => remove(product2.uuid)}><i className="bi bi-trash-fill"></i></Button>
+                                        <Button variant="danger" onClick={() => remove(product.uuid)}><i className="bi bi-trash-fill"></i></Button>
                                     </td>
                                 </tr>
                             )
