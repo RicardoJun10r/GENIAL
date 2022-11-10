@@ -1,11 +1,9 @@
-import React from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 import Login from "../pages/Login/login";
 import Cadastrar from "../pages/Cadastrar/cadastrar";
 import Home from "../pages/Home/home";
 import Produtos from "../pages/Produto/produtos";
-import Conteudo from "../pages/Conteudo/conteudo";
 
 function Rotas() {
     return(

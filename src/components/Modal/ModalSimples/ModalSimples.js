@@ -1,4 +1,3 @@
-import React from "react";
 import './ModalSimples.css';
 
 const ModalSimples = ({ setModal, opcao, formulario }) => {

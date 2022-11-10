@@ -1,14 +1,11 @@
 import './home.css';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Row from '../../components/Cards/Row';
-import database from '../../services/api';
 import NavBar from '../../components/Navbar/Navbar';
 import ModalSimples from '../../components/Modal/ModalSimples/ModalSimples';
 import Forms from '../../components/Formularios/Forms';
-import { listStorage } from '../../services/api';
 import { useCallback } from 'react';
 import axios from 'axios';
-import { wait } from '@testing-library/user-event/dist/utils';
 
 function Home()
 {

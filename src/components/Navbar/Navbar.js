@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useEffect } from "react";
 import './Navbar.css';
 import armazenLogo from "../../assets/warehouse.png";
 import { useNavigate } from 'react-router-dom';

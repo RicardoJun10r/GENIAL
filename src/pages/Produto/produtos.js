@@ -1,23 +1,17 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Button, Table } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import NavBar from '../../components/Navbar/Navbar';
 import ModalSimples from '../../components/Modal/ModalSimples/ModalSimples';
 import Forms from '../../components/Formularios/Forms';
 import axios from 'axios';
-import Row from '../../components/Cards/Row';
 import './produtos.css'
-import PegarNameTable from "../../components/PegarNameTable";
 
 const Produtos = () => {
 
-    const [storageIndex, setStorageIndex] = useState(null)
     const [products, setProducts] = useState([]);
-    const [product, setProduct] = useState('');
     const [modal, setModal] = useState(false);
     const [index, setIndex] = useState(0);
-    const [selected, setSelected] = useState(false);
 
     let tmp = localStorage.getItem('storageNome');
     let nome = JSON.parse(tmp)

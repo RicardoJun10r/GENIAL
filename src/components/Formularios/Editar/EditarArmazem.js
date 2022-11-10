@@ -5,9 +5,7 @@ import Button from "../../Button/Button";
 const EditarArmazem = ({ setModal, modal }) => {
 
     const nome_armazem = useRef();
-    const setor_armazem = useRef();
     const descricao_armazem = useRef();
-    const data_armazem = useRef();
 
     const onSubmit = (e) => {
         e.preventDefault();

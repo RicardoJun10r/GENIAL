@@ -1,4 +1,3 @@
-import React from "react";
 import { useRef } from 'react';
 import './cadastrar.css';
 import armazenLogo from "../../assets/warehouse.png";
