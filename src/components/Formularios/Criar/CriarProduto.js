@@ -60,7 +60,7 @@ const CriarProduto = ({ setModal }) => {
                 </div>
                 <div className="floating-label-group-formulario">
                     <label className="floating-label-formulario">
-                        <p>Valor</p>
+                        <p>Quantidade</p>
                         <input 
                         type="text" 
                         className="form-control-formulario" 
@@ -70,7 +70,7 @@ const CriarProduto = ({ setModal }) => {
                 </div>
                 <div className="floating-label-group-formulario">
                     <label className="floating-label-formulario">
-                        <p>Quantidade</p>
+                        <p>Valor</p>
                         <input 
                         type="text" 
                         className="form-control-formulario" 

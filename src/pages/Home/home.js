@@ -41,7 +41,7 @@ function Home()
 });
 
 function refreshPage() {
-  setTimeout(() => { window.location.reload(false); }, 50000);
+  setTimeout(() => { window.location.reload(false); }, 150000);
 
 }
 
