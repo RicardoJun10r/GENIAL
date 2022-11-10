@@ -98,7 +98,7 @@ function TableConteudo() {
     return (
         <div >
         <button onClick={fetchData}></button>
-            <Table striped bordered hover style={{ backgroundColor:'white', color:'black' }}>
+            <Table className='tableT overflow-x:auto' striped bordered hover style={{ backgroundColor:'white', color:'black' }}>
                 <thead>
                     <tr className="text-center">
                         <th>Descrição</th>

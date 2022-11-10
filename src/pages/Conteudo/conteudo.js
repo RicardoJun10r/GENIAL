@@ -1,20 +1,23 @@
 import NavBar from '../../components/Navbar/Navbar';
 import TableConteudo from "./TableConteudo";
-import "./Compromissos.css";
+import React, { useState, useEffect } from 'react';
+import "./Conteudo.css";
 
 function Conteudo() {
 
+  const [modal, setModal] = useState(false);
+  const [index, setIndex] = useState(0);
+
     return (
-        <div className="fullscreen fundo">
-            <div className="container-fluid">
-                <div>
-                    <h1 className="espacamento float-start">Compromissos</h1>
+            <div className="containerHome">
+                <div className="header">
+                    <NavBar setModal={setModal} modal={modal} setIndex={setIndex}/>
                 </div>
-                <div className="">
+                <div className="wrapperTabela">
                     <TableConteudo/>
                 </div>
                 <footer className="position">
-                    <h5>
+                    <h5 className="color">
                         <a 
                             style={{ color:'black', textDecoration: 'none' }} 
                             href="/" className="float-start">
@@ -30,7 +33,6 @@ function Conteudo() {
                     </h5>
                 </footer>
             </div>
-        </div>
     )
 }
 export default Conteudo;
