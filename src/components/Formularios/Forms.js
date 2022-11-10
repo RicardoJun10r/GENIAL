@@ -3,13 +3,13 @@ import CriarArmazem from "./Criar/CriarArmazem.js";
 import EditarArmazem from "./Editar/EditarArmazem.js";
 import DeletarArmazem from "./Deletar/DeletarArmazem.js";
 
-const Forms = ({ index, setModal, modal }) => {
+const Forms = ({ index, setModal, setStorage, modal }) => {
 
     if(index === 0)
     {
         return(
             <div>
-                <CriarArmazem setModal={setModal} modal={modal} />
+                <CriarArmazem setModal={setModal} setStorage={setStorage} modal={modal} />
             </div>
         )
     }

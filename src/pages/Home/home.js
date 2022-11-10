@@ -11,12 +11,17 @@ function Home()
 
   const [modal, setModal] = useState(false);
   const [index, setIndex] = useState(0);
+  const [storage, setStorage] = useState([]);
 
   const OPCAO = 'armazem';
 
+  const handleStorage = () => {
+    
+  }
+
   useEffect(()=>{
     console.log(modal)
-  }, [modal], [index])
+  }, [modal], [index], [storage])
 
   return(
     <div className="containerHome">
@@ -24,7 +29,7 @@ function Home()
         <NavBar setModal={setModal} modal={modal} setIndex={setIndex}/>
       </div>
       <div className="wrapper">
-        {modal === true ? <div className='wrapper-modal'><ModalSimples setModal={setModal} opcao={OPCAO} formulario={<Forms setModal={setModal} modal={modal} index={index}/>} /></div> : null}
+        {modal === true ? <div className='wrapper-modal'><ModalSimples setModal={setModal} opcao={OPCAO} formulario={<Forms setModal={setModal} setStorage={setStorage} modal={modal} index={index}/>} /></div> : null}
         {database.map((inventario) => {
           return(
           <Row 

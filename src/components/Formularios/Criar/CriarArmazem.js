@@ -3,15 +3,18 @@ import '../FormStyle.css';
 import Button from "../../Button/Button";
 import { createStorage } from "../../../services/api";
 
-const CriarArmazem = ({ setModal }) => {
+const CriarArmazem = ({ setModal, setStorage }) => {
     
     const nome_armazem = useRef();
-    const setor_armazem = useRef();
     const descricao_armazem = useRef();
-    const data_armazem = useRef();
 
     const onSubmit = (e) => {
         e.preventDefault();
+    }
+
+    const criarArmazem = () => {
+        setStorage( createStorage(nome_armazem.current.value, descricao_armazem.current.value) );      
+        setModal(false)  
     }
     
     return(
@@ -32,17 +35,6 @@ const CriarArmazem = ({ setModal }) => {
 
                 <div className="floating-label-group-formulario">
                     <label className="floating-label-formulario">
-                        <p>Setor</p>
-                        <input 
-                        type="text" 
-                        className="form-control-formulario" 
-                        ref={setor_armazem}
-                        />
-                    </label>
-                </div>
-
-                <div className="floating-label-group-formulario">
-                    <label className="floating-label-formulario">
                         <p>Descrição</p>
                     </label>
                     <input 
@@ -54,7 +46,7 @@ const CriarArmazem = ({ setModal }) => {
             </form>
             <div className="footer-buttons">
                 <Button id="cancelBtn" handleClick={setModal} label={'Cancelar'} style={'crimson'} />
-                <Button handleClick={null} label={'Criar'} style={null} />
+                <button onClick={criarArmazem} >Criar</button>
             </div>
         </div>
     )
