@@ -50,17 +50,17 @@
     margin-left: 55px;
 }
 
-.header{
+.headerConteudo{
     background-color: #33736F;
 }
   
-.header::after{
+.headerConteudo::after{
     content: '';
     display: table;
     clear: both;
 }
 
-.containerHome{
+.containerHomeConteudo{
     color: #33736F;
     background-color: hsl(175, 40%, 17%);
     margin: 0 0 0 0;

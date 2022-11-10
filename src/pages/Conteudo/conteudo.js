@@ -9,8 +9,8 @@ function Conteudo() {
   const [index, setIndex] = useState(0);
 
     return (
-            <div className="containerHome">
-                <div className="header">
+            <div className="containerHomeConteudo">
+                <div className="headerConteudo">
                     <NavBar setModal={setModal} modal={modal} setIndex={setIndex}/>
                 </div>
                 <div className="wrapperTabela">
@@ -20,7 +20,7 @@ function Conteudo() {
                     <h5 className="color">
                         <a 
                             style={{ color:'black', textDecoration: 'none' }} 
-                            href="/" className="float-start">
+                            href="/home" className="float-start">
                                 <i class="bi bi-arrow-left-circle-fill"></i>
                                 &nbsp;Voltar&nbsp;&nbsp;
                         </a>
