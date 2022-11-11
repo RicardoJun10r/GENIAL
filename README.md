@@ -1,4 +1,9 @@
-# GENIAL
+# GENIAL - Warehouse and product management system
+* Home Screen 
+
+![image](https://user-images.githubusercontent.com/65680799/201256160-5f327f72-55bd-4b89-9a15-fc0cb04a3e35.png)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
