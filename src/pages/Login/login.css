@@ -1,100 +1,90 @@
-body, html{
+body,
+html {
     background-color: hsl(175, 40%, 17%);
     margin: 0 0 0 0;
     padding: 0 0 0 0;
-    font-family: "JetBrains Mono",monospace;
+    font-family: "JetBrains Mono", monospace;
 }
 
-.containerAll{
-    display: grid;
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
-}
-
-.containerLogin {
-    color: white;
 }
 
 .container_inner {
-    background-color:white ;
+    background-color: white;
     width: 900px;
     height: 550px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
-.sloga{
-    width: 50%;
-    height: 100%;
-    background-color: #32726E;
+.slogan {
+    background-color: #32726e;
 }
 
-.container-form-login{
-    position: absolute;
-    margin-left: 550px;
-    margin-top: 100px;
+.container-form-login {
     color: black;
+    display: flex;
+    flex-direction: column;
 }
 
-.entrar-button-login{
+.entrar-button-login {
     height: 50px;
     width: 260px;
-    background-color: #32726E;
+    background-color: #32726e;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-.entrar-button-login:hover{
+.entrar-button-login:hover {
     background-color: #32726ee0;
     transform: translateY(-1px);
     box-shadow: rgba(45, 35, 66, 0.4);
 }
 
-.footer-login{
-    position: relative;
+.footer-login {
     display: flex;
     justify-content: space-between;
 }
 
-.button-registrar{
-  background-color: #FCFCFD;
-  border-width: 0;
-  cursor: pointer;
-  font-family: "JetBrains Mono",monospace;
-  font-weight: bolder;
-  height: 48px;
-  font-size: 18px;
+.button-registrar {
+    background-color: #fcfcfd;
+    border-width: 0;
+    cursor: pointer;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: bolder;
+    font-size: 18px;
 }
 
-.button-registrar:hover{
-    color: #32726E;
+.button-registrar:hover {
+    color: #32726e;
 }
+
 .floating-label-group-login {
-    position: relative;
     margin-bottom: 25px;
-  }
+}
 
 .floating-label-group-login .floating-label-login {
     font-size: 13px;
-    color: #32726E;
-    position: absolute;
+    color: #32726e;
     pointer-events: none;
-    top: 9px;
-    left: 12px;
     transition: all 0.1s ease;
 }
+
 .floating-label-group-login input:focus ~ .floating-label-login,
 .floating-label-group-login input:not(:focus):valid ~ .floating-label-login {
-    top: -15px;
-    bottom: 0px;
-    left: 0px;
     font-size: 11px;
     opacity: 1;
     color: #404040;
 }
-.form-control-login{
+
+.form-control-login {
     width: 250px;
     height: 30px;
 }

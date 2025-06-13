@@ -1,16 +1,16 @@
-.container-cadastro-all{
+.container-cadastro-all {
     display: grid;
     justify-content: center;
 }
 
 .container_innerCadastro {
-    background-color: #32726E ;
+    background-color: #32726e;
     width: 900px;
     height: 550px;
     display: flex;
 }
 
-.formulario-cad{ 
+.formulario-cad {
     width: 50%;
     background-color: white;
     color: black;
@@ -20,48 +20,48 @@
     text-align: center;
 }
 
-.entrar-button-cadastro{
+.entrar-button-cadastro {
     height: 50px;
     width: 260px;
-    background-color: #32726E;
+    background-color: #32726e;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-.entrar-button-cadastro:hover{
+.entrar-button-cadastro:hover {
     background-color: #32726ee0;
     transform: translateY(-1px);
     box-shadow: rgba(45, 35, 66, 0.4);
 }
 
-.button-voltar{
+.button-voltar {
     align-items: center;
     font-weight: bolder;
-    background-color: #32726E;
+    background-color: #32726e;
     border-radius: 4px;
     border-width: 0;
     cursor: pointer;
-    font-family: "JetBrains Mono",monospace;
+    font-family: "JetBrains Mono", monospace;
     height: 40px;
     padding-left: 16px;
     padding-right: 16px;
     font-size: 18px;
 }
 
-.button-voltar:hover{
+.button-voltar:hover {
     color: white;
 }
 
 .floating-label-group-cadastro {
     position: relative;
     margin-bottom: 25px;
-  }
+}
 
 .floating-label-group-cadastro .floating-label-cadastro {
     font-size: 13px;
-    color: #32726E;
+    color: #32726e;
     position: absolute;
     pointer-events: none;
     top: 9px;
@@ -69,7 +69,9 @@
     transition: all 0.1s ease;
 }
 .floating-label-group-cadastro input:focus ~ .floating-label-cadastro,
-.floating-label-group-cadastro input:not(:focus):valid ~ .floating-label-cadastro {
+.floating-label-group-cadastro
+    input:not(:focus):valid
+    ~ .floating-label-cadastro {
     top: -15px;
     bottom: 0px;
     left: 0px;
@@ -77,7 +79,7 @@
     opacity: 1;
     color: #404040;
 }
-.form-control-cadastro{
+.form-control-cadastro {
     width: 250px;
     height: 30px;
 }

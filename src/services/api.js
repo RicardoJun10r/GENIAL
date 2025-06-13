@@ -1,139 +1,123 @@
 import axios from "axios";
 
-// const api = axios.create({
-//     baseURL: 'https://genial-back.herokuapp.com'
-// })
-
 const api = axios.create({
     baseURL: 'http://localhost:8080'
 })
 
 /* USUARIO */
-export const authenticate = async( email, password ) => 
-{
-    await api.post('/login', 
-    { 
-        email: email, 
+
+export async function login({ email, password }) {
+    await api.post('/usuarios/login', {
+        email: email,
         password: password
-    })
-    .then(response => {
-        console.log(response.data + ' ' + response.status)
-        let headerToken = response.headers.authorization;
-        const token = headerToken.split(' ');
-        localStorage.setItem('token', token[1]);
-    })
-    .catch(error => console.log(error.message))
+    }).then(res => {
+        return res.data
+    }).catch(err => console.log(err))
 }
 
-export const signUp = async( nome, email, password ) => 
-{
-    return await api.post('/users', 
-    { 
-        name: nome, 
-        email: email, 
-        password: password 
-    })
-    .then(response => console.log(response.data))
-    .catch(error => console.log(error.message))
+export async function registrar({ name, email, password, confirmedPassword }) {
+    if (password === confirmedPassword) {
+        await api.post('/usuarios/resgistrar', {
+            email: email,
+            name: name,
+            password: password
+        }).then(res => {
+            return res.data
+        }).catch(err => console.log(err))
+    } else {
+        console.log("Erro: Senhas devem ser iguais");
+    }
 }
 
 /* ARMAZEM */
 
-export const createStorage = async( nome, description, image ) => 
-{
+export const createStorage = async (nome, description, image) => {
     return await api.post(
-        '/storage', 
+        '/storage',
         {
-            name: nome, 
+            name: nome,
             description: description,
             image: image
-        }, 
+        },
         {
-            headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}
+            headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
         }
     )
-    .then(response => {console.log(response.data)})
-    .catch(error => {console.log(error.message)})
+        .then(response => { console.log(response.data) })
+        .catch(error => { console.log(error.message) })
 }
 
-export const listStorage = async() => 
-{
+export const listStorage = async () => {
     return await api.get(
         '/storage',
         {
-            headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}
+            headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
         }
     )
-    .then(response => 
-        {
+        .then(response => {
             // console.log(response.data)
             return response.data
         })
-    .catch(error => {console.log(error.message)})
+        .catch(error => { console.log(error.message) })
 }
 
-export const deleteStorage = async( nome ) => 
-{
+export const deleteStorage = async (nome) => {
     return await api.delete(
         `/storage/${nome}`,
         {
-            headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}
+            headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
         }
     )
-    .then(response => {console.log(response.data)})
-    .catch(error => {console.log(error.message)})
+        .then(response => { console.log(response.data) })
+        .catch(error => { console.log(error.message) })
 }
 
 /* PRODUTO */
 
-export const createProduct = async ( id , name, description, sector, value, quantidade ) =>
-{
+export const createProduct = async (id, name, description, sector, value, quantidade) => {
     await api.post(
-        '/product', 
+        '/product',
         {
             storage: {
                 id: id,
             },
-            name: name, 
+            name: name,
             description: description,
             sector: sector,
             value: value,
             quantidade: quantidade
-        }, 
+        },
         {
-            headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}
+            headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
         }
     )
-    .then(response => {console.log(response.data)})
-    .catch(error => {console.log(error.message)})
+        .then(response => { console.log(response.data) })
+        .catch(error => { console.log(error.message) })
 }
 
-export const listProduct = async (storage) =>
-{
+export const listProduct = async (storage) => {
     return await api.get(
         `/product/${storage}`,
         {
-            headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}
+            headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
         }
     )
-    .then(response => {console.log(response.data)})
-    .catch(error => {console.log(error.message)})
+        .then(response => { console.log(response.data) })
+        .catch(error => { console.log(error.message) })
 }
 
-export const listProductByName = async (name) =>
-{
+export const listProductByName = async (name) => {
     return await api.get(
         `/product/search/byName?name=${name}`,
         {
-            headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}
+            headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
         }
     )
-    .then(response => {console.log(response.data)})
-    .catch(error => {console.log(error.message)})
+        .then(response => { console.log(response.data) })
+        .catch(error => { console.log(error.message) })
 }
 
-export const editProduct = async ( nameProduct, name, description, sector, value, quantidade ) =>
-{
+export const editProduct = async (nameProduct, name, description, sector, value, quantidade) => {
     return await api.put(
         `/product/${nameProduct}`,
         {
@@ -144,21 +128,20 @@ export const editProduct = async ( nameProduct, name, description, sector, value
             quantidade: quantidade
         },
         {
-            headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}
+            headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
         }
     )
-    .then(response => {console.log(response.data)})
-    .catch(error => {console.log(error.message)})
+        .then(response => { console.log(response.data) })
+        .catch(error => { console.log(error.message) })
 }
 
-export const deleteProduct = async (storage) =>
-{
+export const deleteProduct = async (storage) => {
     return await api.delete(
         `/product/${storage}`,
         {
-            headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}
+            headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
         }
     )
-    .then(response => {console.log(response.data)})
-    .catch(error => {console.log(error.message)})
+        .then(response => { console.log(response.data) })
+        .catch(error => { console.log(error.message) })
 }

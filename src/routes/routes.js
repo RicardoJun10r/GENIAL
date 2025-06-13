@@ -6,14 +6,13 @@ import Home from "../pages/Home/home";
 import Produtos from "../pages/Produto/produtos";
 
 function Rotas() {
-    return(
+    return (
         <BrowserRouter>
             <Routes>
                 <Route element={<Login />} path='/' exact />
-                <Route element={<Cadastrar />} path='/cadastrar'/>
+                <Route element={<Cadastrar />} path='/cadastrar' />
                 <Route element={<Home />} path='/home' exact />
                 <Route element={<Produtos />} path='/produtos' exact />
-                <Route element={<Conteudo />} path='/conteudo' exact />
             </Routes>
         </BrowserRouter>
     )
