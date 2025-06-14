@@ -1,12 +1,4 @@
-body,
-html {
-    background-color: hsl(175, 40%, 17%);
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;
-    font-family: "JetBrains Mono", monospace;
-}
-
-.container {
+.login-container {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -14,7 +6,7 @@ html {
     align-items: center;
 }
 
-.container_inner {
+.login-wrapper {
     background-color: white;
     width: 900px;
     height: 550px;
@@ -22,17 +14,15 @@ html {
     grid-template-columns: 1fr 1fr;
 }
 
-.slogan {
-    background-color: #32726e;
-}
-
-.container-form-login {
+.login-form {
     color: black;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.entrar-button-login {
+.login-button-submit {
     height: 50px;
     width: 260px;
     background-color: #32726e;
@@ -40,51 +30,30 @@ html {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 25px;
 }
 
-.entrar-button-login:hover {
+.login-button-submit:hover {
     background-color: #32726ee0;
-    transform: translateY(-1px);
     box-shadow: rgba(45, 35, 66, 0.4);
 }
 
-.footer-login {
-    display: flex;
-    justify-content: space-between;
+.login-footer {
+    a {
+        color: black;
+    }
+
+    a:hover {
+        color: #000000a8;
+    }
 }
 
-.button-registrar {
-    background-color: #fcfcfd;
-    border-width: 0;
-    cursor: pointer;
-    font-family: "JetBrains Mono", monospace;
-    font-weight: bolder;
-    font-size: 18px;
-}
-
-.button-registrar:hover {
-    color: #32726e;
-}
-
-.floating-label-group-login {
-    margin-bottom: 25px;
-}
-
-.floating-label-group-login .floating-label-login {
+.login-form-fields {
     font-size: 13px;
     color: #32726e;
-    pointer-events: none;
-    transition: all 0.1s ease;
-}
 
-.floating-label-group-login input:focus ~ .floating-label-login,
-.floating-label-group-login input:not(:focus):valid ~ .floating-label-login {
-    font-size: 11px;
-    opacity: 1;
-    color: #404040;
-}
-
-.form-control-login {
-    width: 250px;
-    height: 30px;
+    input {
+        width: 250px;
+        height: 30px;
+    }
 }

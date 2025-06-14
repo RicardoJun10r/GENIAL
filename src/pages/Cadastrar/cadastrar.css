@@ -1,26 +1,39 @@
-.container-cadastro-all {
-    display: grid;
-    justify-content: center;
-}
-
-.container_innerCadastro {
-    background-color: #32726e;
-    width: 900px;
-    height: 550px;
+.sign-up-container {
+    height: 100vh;
     display: flex;
-}
-
-.formulario-cad {
-    width: 50%;
-    background-color: white;
-    color: black;
-    display: grid;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
 }
 
-.entrar-button-cadastro {
+.sign-up-wrapper {
+    background-color: white;
+    width: 900px;
+    height: 550px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.sign-up-form {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sign-up-form-fields {
+    font-size: 13px;
+    color: #32726e;
+
+    input {
+        width: 250px;
+        height: 30px;
+    }
+}
+
+.sign-up-submit {
+    margin-top: 20px;
     height: 50px;
     width: 260px;
     background-color: #32726e;
@@ -30,56 +43,17 @@
     cursor: pointer;
 }
 
-.entrar-button-cadastro:hover {
+.sign-up-submit:hover {
     background-color: #32726ee0;
-    transform: translateY(-1px);
     box-shadow: rgba(45, 35, 66, 0.4);
 }
 
-.button-voltar {
-    align-items: center;
-    font-weight: bolder;
-    background-color: #32726e;
-    border-radius: 4px;
-    border-width: 0;
-    cursor: pointer;
-    font-family: "JetBrains Mono", monospace;
-    height: 40px;
-    padding-left: 16px;
-    padding-right: 16px;
-    font-size: 18px;
-}
+.sign-up-footer {
+    a {
+        color: black;
+    }
 
-.button-voltar:hover {
-    color: white;
-}
-
-.floating-label-group-cadastro {
-    position: relative;
-    margin-bottom: 25px;
-}
-
-.floating-label-group-cadastro .floating-label-cadastro {
-    font-size: 13px;
-    color: #32726e;
-    position: absolute;
-    pointer-events: none;
-    top: 9px;
-    left: 12px;
-    transition: all 0.1s ease;
-}
-.floating-label-group-cadastro input:focus ~ .floating-label-cadastro,
-.floating-label-group-cadastro
-    input:not(:focus):valid
-    ~ .floating-label-cadastro {
-    top: -15px;
-    bottom: 0px;
-    left: 0px;
-    font-size: 11px;
-    opacity: 1;
-    color: #404040;
-}
-.form-control-cadastro {
-    width: 250px;
-    height: 30px;
+    a:hover {
+        color: #000000a8;
+    }
 }

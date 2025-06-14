@@ -1,65 +1,62 @@
 import './home.css';
-import { useState, useEffect } from 'react';
+import React from 'react';
+import { useState } from 'react';
 import Row from '../../components/Cards/Row';
-import NavBar from '../../components/Navbar/Navbar';
+import { NavBar } from '../../components/Navbar/navbar';
 import ModalSimples from '../../components/Modal/ModalSimples/ModalSimples';
 import Forms from '../../components/Formularios/Forms';
-import { useCallback } from 'react';
-import axios from 'axios';
+import { UserContext } from '../../hooks/user-hook';
 
-function Home()
-{
+const Dialog = ({children, onClose}) => {
+  return(
+    <dialog style={{backgroundColor: 'black'}} onClose={onClose}>
+      <div>X</div>
+      {children}
+    </dialog>
+  )
+}
 
+function Home() {
+
+  const { user } = React.useContext(UserContext);
   const [modal, setModal] = useState(false);
+  const [criarDialog, setCriarDialog] = React.useState(false);
+  const [deletarDialog, setDeletarDialog] = React.useState(false);
+  const [configuracoesDialog, setConfiguracoesDialog] = React.useState(false);
   const [index, setIndex] = useState(0);
   const [storage, setStorage] = useState([]);
 
-  const OPCAO = 'armazem';
+  console.log(user)
 
-  useEffect( () => {
+  function refreshPage() {
+    setTimeout(() => { window.location.reload(false); }, 350000);
+  }
 
-    fetchData()
-
-  }, [storage] )
-
-  const fetchData = useCallback(async () => {
-    try {
-        //fetch and set users or axios.get
-        const result = await axios.get(
-          'http://localhost:8080/storage',
-          {
-              headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}
-          }
-      )
-        setStorage(result.data);
-    } catch (err) {
-      console.log(err.message);
-    }
-});
-
-function refreshPage() {
-  setTimeout(() => { window.location.reload(false); }, 350000);
-
-}
-
-  return(
+  return (
     <div className="containerHome" onLoad={refreshPage}>
       <div className="header">
-        <NavBar setModal={setModal} modal={modal} setIndex={setIndex} opcao={OPCAO}/>
+        <NavBar setCriarDialog={setCriarDialog} setDeletarDialog={setDeletarDialog} setConfiguracoesDialog={setConfiguracoesDialog} />
       </div>
-      <div className="wrapper">
-        {modal === true ? <div className='wrapper-modal'><ModalSimples setModal={setModal} opcao={OPCAO} formulario={<Forms opcao={OPCAO} setModal={setModal} modal={modal} index={index}/>} /></div> : null}
+      <div className="container">
+        {criarDialog === true ? (
+          <div>
+            <Dialog>
+              <>
+                ola
+              </>
+            </Dialog>
+          </div>) : null}
         {storage?.map((inventario) => {
-          return(
-          <Row 
-            key={inventario.id}
-            inventario={inventario}
-          />)
+          return (
+            <Row
+              key={inventario.id}
+              inventario={inventario}
+            />)
         })}
       </div>
     </div>
   )
 }
 
-  
+
 export default Home;

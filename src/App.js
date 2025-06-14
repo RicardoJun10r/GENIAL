@@ -1,8 +1,13 @@
+import { User } from "./hooks/user-hook";
 import Rotas from "./routes/routes";
 
 function App() {
   return (
-    <Rotas />
+    <main>
+      <User>
+        <Rotas />
+      </User>
+    </main>
   );
 }
 

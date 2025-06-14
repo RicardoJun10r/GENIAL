@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Button, Table } from 'react-bootstrap';
 import "bootstrap-icons/font/bootstrap-icons.css";
-import NavBar from '../../components/Navbar/Navbar';
+import { NavBar } from '../../components/Navbar/navbar';
 import ModalSimples from '../../components/Modal/ModalSimples/ModalSimples';
 import Forms from '../../components/Formularios/Forms';
 import axios from 'axios';

@@ -1,12 +1,13 @@
-import React from 'react';
 import './login.css';
+import React from 'react';
 import armazenLogo from "../../assets/warehouse.png";
 import { Link, useNavigate } from 'react-router-dom';
 import { login } from '../../services/api';
+import { UserContext } from '../../hooks/user-hook';
 
 function Login() {
 
-    const [user, setUser] = React.useState(null);
+    const { user, setUser } = React.useContext(UserContext);
     const emailRef = React.useRef();
     const passwordRef = React.useRef();
 
@@ -31,47 +32,47 @@ function Login() {
     }, [user])
 
     return (
-        <div className='container'>
+        <div className='login-container'>
             <div>
-                <h2 style={{ color: 'white', fontWeight: 'bolder', fontSize: '2em' }}><img src={armazenLogo} alt='ArmazenLogo' className='ArmaLogo' />GENIAL</h2>
+                <h2 style={{ color: 'white', fontWeight: 'bolder', fontSize: '2em' }}><img src={armazenLogo} alt='ArmazenLogo' />GENIAL</h2>
             </div>
-            <div className='container_inner'>
-                <div className='slogan'>
+            <div className='login-wrapper'>
+                <div style={{ backgroundColor: '#32726e' }}>
                     <h1 style={{ fontWeight: "350", paddingLeft: '55px', fontSize: '45px', color: 'white' }}>
                         Armazenar é
                         <br></br> Bom,<br></br> Organizar é <br></br> <strong><em>Genial</em></strong>
                     </h1>
                 </div>
-
-                <div className='container-form-login'>
+                <div className='login-form'>
                     <h1>Log in</h1>
                     <br />
                     <form onSubmit={onSubmit}>
-                        <div className="floating-label-group-login">
+                        <div className="login-form-fields">
+                            <label htmlFor='email'>
+                                <p>E-mail</p>
+                            </label>
                             <input
                                 type="text"
-                                id="username"
-                                className="form-control-login"
+                                id="email"
                                 ref={emailRef}
                                 autoFocus required />
-                            <label className="floating-label-login">Email</label>
                         </div>
-                        <div className="floating-label-group-login">
+                        <div className="login-form-fields">
+                            <label htmlFor='password'>
+                                <p>Password</p>
+                            </label>
                             <input
                                 type="password"
                                 id="password"
-                                className="form-control-login"
                                 ref={passwordRef}
                                 autoComplete="off"
                                 required />
-                            <label className="floating-label-login">Password</label>
                         </div>
-                        <button className='entrar-button-login' type='submit'>ENTRAR</button>
+                        <button className='login-button-submit' type='submit'>Entrar</button>
                     </form>
                     <br />
-                    <div className='footer-login'>
-                        <p>Não tem uma conta?</p>
-                        <Link to={'/cadastrar'}>Registre-se</Link>
+                    <div className='login-footer'>
+                        <p>Não tem uma conta? <Link style={{ textDecoration: 'none' }} className='link-to-sign-up' to={'/cadastrar'}>Registre-se</Link></p>
                     </div>
                 </div>
             </div>

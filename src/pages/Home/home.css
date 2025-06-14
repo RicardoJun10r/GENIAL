@@ -1,21 +1,20 @@
-
-.containerHome{
-    color: #33736F;
-    background-color: #DBDBDB;
-    margin: 0 0 0 0;
+.containerHome {
+  color: #33736F;
+  background-color: #DBDBDB;
+  margin: 0 0 0 0;
 }
 
 .wrapper {
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;  
+  justify-content: space-between;
   align-items: center;
   height: 80vh;
   background-color: hsl(175, 40%, 17%);
 }
 
-.wrapper-modal{
+.wrapper-modal {
   position: absolute;
   display: flex;
   top: 0;
@@ -28,11 +27,11 @@
   background-color: rgba(26, 61, 58, 1.0);
 }
 
-.header{
+.header {
   background-color: #33736F;
 }
 
-.header::after{
+.header::after {
   content: '';
   display: table;
   clear: both;

@@ -6,18 +6,20 @@ const api = axios.create({
 
 /* USUARIO */
 
-export async function login({ email, password }) {
-    await api.post('/usuarios/login', {
-        email: email,
-        password: password
-    }).then(res => {
-        return res.data
-    }).catch(err => console.log(err))
+export async function login(email, password) {
+    try {
+        const res = await api.post('/usuarios/login', { email, password });
+        return res.data;
+    } catch (err) {
+        console.error("Erro ao fazer login:", err);
+        throw err;
+    }
 }
 
-export async function registrar({ name, email, password, confirmedPassword }) {
+export async function registrar(name, email, password, confirmedPassword) {
     if (password === confirmedPassword) {
-        await api.post('/usuarios/resgistrar', {
+        console.log(email, name, password)
+        await api.post('/usuarios/registrar', {
             email: email,
             name: name,
             password: password
