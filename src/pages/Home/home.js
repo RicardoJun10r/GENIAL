@@ -3,6 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import { UserContext } from '../../hooks/user-hook';
 import { buscar } from '../../services/api';
+import { Card } from '../../components/Card/card';
 
 function Home() {
 
@@ -10,7 +11,6 @@ function Home() {
   const [storages, setStorages] = useState([]);
 
   console.log(user)
-
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -30,10 +30,8 @@ function Home() {
       <h1>Seus Armazéns</h1>
       <div className='painel'>
         {storages.length > 0 ? (
-          storages.map((inventario) => (
-            <div key={inventario.id}>
-              <p style={{ color: 'black' }}>{inventario.name}</p>
-            </div>
+          storages.map((inventario, index) => (
+            <Card key={index} titulo={inventario.name} content={inventario.description} foot={Date.now()} />
           ))
         ) : (
           <p>Você ainda não tem nenhum armazém cadastrado.</p>
