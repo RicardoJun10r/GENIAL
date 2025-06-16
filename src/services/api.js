@@ -31,22 +31,34 @@ export async function registrar(name, email, password, confirmedPassword) {
     }
 }
 
+export async function buscar(email) {
+    if (email !== null && email !== undefined) {
+        try {
+            console.log('bucando informacoes')
+            const res = await api.get(`/usuarios/buscar?email=${email}`);
+            console.log(res.data)
+            return res.data.storages
+        } catch (err) {
+            console.log('Erro: ', err)
+        }
+    }
+}
+
 /* ARMAZEM */
 
-export const createStorage = async (nome, description, image) => {
-    return await api.post(
-        '/storage',
-        {
-            name: nome,
-            description: description,
-            image: image
-        },
-        {
-            headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
-        }
-    )
-        .then(response => { console.log(response.data) })
-        .catch(error => { console.log(error.message) })
+export async function addStorageOnUser(id_user, name, description) {
+    try {
+        const res = await api.post(
+            `/estoque/${id_user}`,
+            {
+                name: name,
+                description: description,
+            },
+        );
+        return res.data;
+    } catch (err) {
+        console.log("Erro ao tentar adicionar Armazem: ", err)
+    }
 }
 
 export const listStorage = async () => {

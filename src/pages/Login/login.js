@@ -1,7 +1,7 @@
 import './login.css';
 import React from 'react';
 import armazenLogo from "../../assets/warehouse.png";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router';
 import { login } from '../../services/api';
 import { UserContext } from '../../hooks/user-hook';
 
@@ -28,7 +28,9 @@ function Login() {
     }
 
     React.useEffect(() => {
-        if (user) return navigate('/home');
+        if (user) {
+            return navigate('/')
+        };
     }, [user])
 
     return (

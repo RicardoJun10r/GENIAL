@@ -1,38 +1,11 @@
-.containerHome {
-  color: #33736F;
-  background-color: #DBDBDB;
-  margin: 0 0 0 0;
-}
-
-.wrapper {
-  position: relative;
+.home-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  height: 80vh;
-  background-color: hsl(175, 40%, 17%);
-}
-
-.wrapper-modal {
-  position: absolute;
-  display: flex;
-  top: 0;
-  left: 0;
-  z-index: 10;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80vh;
-  margin-left: 35%;
-  background-color: rgba(26, 61, 58, 1.0);
+  height: 100vh;
 }
 
-.header {
-  background-color: #33736F;
-}
-
-.header::after {
-  content: '';
-  display: table;
-  clear: both;
+.painel {
+  display: grid;
 }

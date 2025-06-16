@@ -1,7 +1,7 @@
 import './cadastrar.css';
 import React from 'react';
 import armazenLogo from "../../assets/warehouse.png";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router';
 import { registrar } from "../../services/api";
 
 const Cadastrar = () => {
@@ -22,7 +22,7 @@ const Cadastrar = () => {
             passwordRef.current.value,
             confirmarRef.current.value
         )
-        navigate('/');
+        navigate('/login');
     }
 
     return (

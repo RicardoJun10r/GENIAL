@@ -1,58 +1,43 @@
 import './home.css';
 import React from 'react';
 import { useState } from 'react';
-import Row from '../../components/Cards/Row';
-import { NavBar } from '../../components/Navbar/navbar';
-import ModalSimples from '../../components/Modal/ModalSimples/ModalSimples';
-import Forms from '../../components/Formularios/Forms';
 import { UserContext } from '../../hooks/user-hook';
-
-const Dialog = ({children, onClose}) => {
-  return(
-    <dialog style={{backgroundColor: 'black'}} onClose={onClose}>
-      <div>X</div>
-      {children}
-    </dialog>
-  )
-}
+import { buscar } from '../../services/api';
 
 function Home() {
 
   const { user } = React.useContext(UserContext);
-  const [modal, setModal] = useState(false);
-  const [criarDialog, setCriarDialog] = React.useState(false);
-  const [deletarDialog, setDeletarDialog] = React.useState(false);
-  const [configuracoesDialog, setConfiguracoesDialog] = React.useState(false);
-  const [index, setIndex] = useState(0);
-  const [storage, setStorage] = useState([]);
+  const [storages, setStorages] = useState([]);
 
   console.log(user)
 
-  function refreshPage() {
-    setTimeout(() => { window.location.reload(false); }, 350000);
-  }
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      const res = await buscar(user.email);
+      if (Array.isArray(res)) {
+        console.log("DADOS: ", res)
+        setStorages(res)
+      }
+    }
+    fetchData()
+  }, [user?.email])
+
+  console.log('storages:', storages)
 
   return (
-    <div className="containerHome" onLoad={refreshPage}>
-      <div className="header">
-        <NavBar setCriarDialog={setCriarDialog} setDeletarDialog={setDeletarDialog} setConfiguracoesDialog={setConfiguracoesDialog} />
-      </div>
-      <div className="container">
-        {criarDialog === true ? (
-          <div>
-            <Dialog>
-              <>
-                ola
-              </>
-            </Dialog>
-          </div>) : null}
-        {storage?.map((inventario) => {
-          return (
-            <Row
-              key={inventario.id}
-              inventario={inventario}
-            />)
-        })}
+    <div className="home-container">
+      <h1>Seus Armazéns</h1>
+      <div className='painel'>
+        {storages.length > 0 ? (
+          storages.map((inventario) => (
+            <div key={inventario.id}>
+              <p style={{ color: 'black' }}>{inventario.name}</p>
+            </div>
+          ))
+        ) : (
+          <p>Você ainda não tem nenhum armazém cadastrado.</p>
+        )}
       </div>
     </div>
   )
