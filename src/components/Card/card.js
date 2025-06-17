@@ -1,8 +1,8 @@
 import './card.css'
 
-export const Card = ({ titulo, content, foot }) => {
+export const Card = ({ titulo, content, foot, handleFunction }) => {
     return (
-        <section className="card">
+        <section onClick={handleFunction} className="card">
             <div className="card-header">
                 <h1>{titulo}</h1>
             </div>

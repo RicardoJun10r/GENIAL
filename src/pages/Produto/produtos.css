@@ -1,19 +1,12 @@
-.conteiner-produtos{
-    position: relative;
+.produtos-container {
+    height: 100vh;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;  
+    justify-content: center;
     align-items: center;
-    height: 10vh;
-    background-color: hsl(175, 40%, 17%);
-    font-size: 1em;
-    column-width: 5px;
+    color: black;
 }
 
-.tableT {
+.produtos-header {
+    justify-content: space-between;
     width: 100%;
-    border: 2px solid;
-    text-align: center;
-    border-collapse: separate;
-    border-spacing: 0 8px;
 }

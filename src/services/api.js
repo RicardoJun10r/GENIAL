@@ -61,18 +61,13 @@ export async function addStorageOnUser(id_user, name, description) {
     }
 }
 
-export const listStorage = async () => {
-    return await api.get(
-        '/storage',
-        {
-            headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
-        }
-    )
-        .then(response => {
-            // console.log(response.data)
-            return response.data
-        })
-        .catch(error => { console.log(error.message) })
+export const getStorage = async (email, name) => {
+    try {
+        const res = await api.get(`/estoque/${email}/buscar?name=${name}`);
+        return res.data;
+    } catch (err) {
+        console.log('Erro ao buscar Estoque: ', err)
+    }
 }
 
 export const deleteStorage = async (nome) => {
