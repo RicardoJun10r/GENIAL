@@ -8,7 +8,7 @@ const Produtos = () => {
 
     const params = useParams();
     const { user } = React.useContext(UserContext);
-    const [storage, setStorage] = React.useState([]);
+    const [storage, setStorage] = React.useState({});
     React.useEffect(() => {
         const fetchProducts = async () => {
             const res = await getStorage(user.email, params.name);
@@ -25,10 +25,28 @@ const Produtos = () => {
                 <h1>
                     Produtos
                 </h1>
-                <Link to={'/'}>Voltar</Link>
+                <Link style={{backgroundColor: 'white', padding: '8px 4px 8px 4px', borderRadius: '5px', textDecoration: 'none', color: 'black'}} to={'/'}>Voltar</Link>
             </div>
-            <div>
-                
+            <div className="produtos-content">
+                <div>
+                    <h1>{storage.name}</h1>
+                    <p>{storage.description}</p>
+                </div>
+                <div>
+                    <table>
+                        <thead>
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                NOME
+                            </th>
+                            <th>
+                                DESCRIÇÃO
+                            </th>
+                        </thead>
+                    </table>
+                </div>
             </div>
         </div>
     )
