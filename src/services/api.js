@@ -70,87 +70,49 @@ export const getStorage = async (email, name) => {
     }
 }
 
-export const deleteStorage = async (nome) => {
-    return await api.delete(
-        `/storage/${nome}`,
-        {
-            headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
-        }
-    )
-        .then(response => { console.log(response.data) })
-        .catch(error => { console.log(error.message) })
+export const getStorageById = async (id) => {
+    try {
+        const res = await api.get(`/estoque/buscar?id=${id}`);
+        return res.data;
+    } catch (err) {
+        console.log('Erro ao buscar Estoque: ', err)
+    }
 }
 
 /* PRODUTO */
 
-export const createProduct = async (id, name, description, sector, value, quantidade) => {
-    await api.post(
-        '/product',
-        {
-            storage: {
-                id: id,
+export async function addProduct(id_storage, name, description, sector, value, quantidade) {
+    try {
+        const res = await api.post(
+            `/produtos/${id_storage}`,
+            {
+                name: name,
+                description: description,
+                sector: sector,
+                value: value,
+                quantidade: quantidade,
             },
-            name: name,
-            description: description,
-            sector: sector,
-            value: value,
-            quantidade: quantidade
-        },
-        {
-            headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
-        }
-    )
-        .then(response => { console.log(response.data) })
-        .catch(error => { console.log(error.message) })
+        )
+        return res;
+    } catch (err) {
+        console.log('Erro ao tentat adicionar Produto: ' + err)
+    }
 }
 
-export const listProduct = async (storage) => {
-    return await api.get(
-        `/product/${storage}`,
-        {
-            headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
-        }
-    )
-        .then(response => { console.log(response.data) })
-        .catch(error => { console.log(error.message) })
+export async function updateProduct(dto) {
+    try {
+        const res = await api.put(`/produtos/atualizar`, dto);
+        return res.data;
+    } catch (error) {
+        console.log('Erro ao atualizar produto: ', error);
+    }
 }
 
-export const listProductByName = async (name) => {
-    return await api.get(
-        `/product/search/byName?name=${name}`,
-        {
-            headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
-        }
-    )
-        .then(response => { console.log(response.data) })
-        .catch(error => { console.log(error.message) })
-}
-
-export const editProduct = async (nameProduct, name, description, sector, value, quantidade) => {
-    return await api.put(
-        `/product/${nameProduct}`,
-        {
-            name: name,
-            description: description,
-            sector: sector,
-            value: value,
-            quantidade: quantidade
-        },
-        {
-            headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
-        }
-    )
-        .then(response => { console.log(response.data) })
-        .catch(error => { console.log(error.message) })
-}
-
-export const deleteProduct = async (storage) => {
-    return await api.delete(
-        `/product/${storage}`,
-        {
-            headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
-        }
-    )
-        .then(response => { console.log(response.data) })
-        .catch(error => { console.log(error.message) })
+export async function deleteProduct(id) {
+    try {
+        const res = await api.delete(`/produtos/${id}`);
+        return res.data;
+    } catch (error) {
+        console.log('Erro ao excluir produto: ', error);
+    }
 }

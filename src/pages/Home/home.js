@@ -39,7 +39,7 @@ function Home() {
       <div className='painel'>
         {storages.length > 0 ? (
           storages.map((inventario, index) => (
-            <Card key={index} handleFunction={() => navigate(`/produtos/${(inventario.name)}`)} titulo={inventario.name} content={inventario.description} foot={Date.now()} />
+            <Card key={index} handleFunction={() => navigate(`/produtos/${(inventario.id)}`)} titulo={inventario.name} content={inventario.description} foot={Date.now()} />
           ))
         ) : (
           <p style={{ position: 'absolute' }}>Você ainda não tem nenhum armazém cadastrado.</p>

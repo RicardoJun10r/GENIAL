@@ -14,7 +14,7 @@ function Rotas() {
                 <Route element={<Cadastrar />} path='/cadastrar' />
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Home />} />
-                    <Route element={<Produtos />} path='produtos/:name' />
+                    <Route element={<Produtos />} path='produtos/:id' />
                 </Route>
             </Routes>
         </BrowserRouter>
