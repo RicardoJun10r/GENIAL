@@ -2,6 +2,7 @@
   width: 320px;
   min-height: 200px;
   margin: 1rem;
+  padding: 0;
 
   display: flex;
   flex-direction: column;
@@ -13,11 +14,18 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  text-align: left;
 }
 
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card:focus-visible {
+  outline: 3px solid #2a7c76;
+  outline-offset: 3px;
 }
 
 .card-header {
@@ -26,7 +34,7 @@
   background-color: #fafafa;
 }
 
-.card-header h1 {
+.card-header h2 {
   margin: 0;
   font-size: 1.4rem;
   color: #2c3e50;

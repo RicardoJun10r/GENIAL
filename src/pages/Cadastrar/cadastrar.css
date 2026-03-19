@@ -43,6 +43,11 @@
     cursor: pointer;
 }
 
+.sign-up-submit:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
 .sign-up-submit:hover {
     background-color: #32726ee0;
     box-shadow: rgba(45, 35, 66, 0.4);
@@ -56,4 +61,15 @@
     a:hover {
         color: #000000a8;
     }
+}
+
+.form-error-message {
+    margin-top: 10px;
+    color: #7f1d1d;
+    background-color: #fee2e2;
+    border: 1px solid #fecaca;
+    border-radius: 6px;
+    padding: 10px;
+    width: 240px;
+    text-align: center;
 }

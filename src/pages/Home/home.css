@@ -1,13 +1,16 @@
 .home-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   overflow: auto;
+  padding: 150px 16px 24px;
+  box-sizing: border-box;
 }
 
 .painel {
+  width: 100%;
+  max-width: 1200px;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }

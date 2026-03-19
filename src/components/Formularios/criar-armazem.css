@@ -69,6 +69,16 @@
     text-align: center;
 }
 
+.success-message {
+    color: #14532d;
+    background-color: #dcfce7;
+    border: 1px solid #86efac;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
 .form-actions {
     margin-top: 16px;
     display: flex;
@@ -86,6 +96,11 @@
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
     width: 100%;
+}
+
+.button-criar:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
 }
 
 .button-criar:hover {

@@ -1,118 +1,214 @@
-import axios from "axios";
+import axios from 'axios';
+import { clearSessionStorage, getStoredToken } from './session';
 
-const api = axios.create({
-    baseURL: 'http://localhost:8080'
-})
+export const AUTH_UNAUTHORIZED_EVENT = 'genial:auth-unauthorized';
 
-/* USUARIO */
+const DEFAULT_API_BASE_URL = 'http://localhost:8080/api/v1';
+
+export const api = axios.create({
+  baseURL: process.env.REACT_APP_API_BASE_URL || DEFAULT_API_BASE_URL,
+});
+
+function decodeBase64Url(value) {
+  const base64 = value.replace(/-/g, '+').replace(/_/g, '/');
+  const padded = base64 + '='.repeat((4 - (base64.length % 4)) % 4);
+
+  if (typeof atob === 'function') {
+    return atob(padded);
+  }
+
+  return Buffer.from(padded, 'base64').toString('binary');
+}
+
+function decodeJwtPayloadSegment(segment) {
+  const binary = decodeBase64Url(segment);
+
+  try {
+    const escaped = Array.from(binary)
+      .map((char) => `%${char.charCodeAt(0).toString(16).padStart(2, '0')}`)
+      .join('');
+
+    return decodeURIComponent(escaped);
+  } catch {
+    return binary;
+  }
+}
+
+function extractUserFromToken(token) {
+  if (!token || !token.includes('.')) {
+    return null;
+  }
+
+  try {
+    const payload = JSON.parse(decodeJwtPayloadSegment(token.split('.')[1]));
+
+    const possibleId = payload.id || payload.userId || payload.uid || null;
+    const possibleSub = payload.sub || null;
+    const possibleEmail = payload.email || (typeof possibleSub === 'string' && possibleSub.includes('@') ? possibleSub : null);
+
+    return {
+      id: possibleId || (possibleSub && !possibleSub.includes('@') ? possibleSub : null),
+      email: possibleEmail,
+      name: payload.name || payload.preferred_username || null,
+    };
+  } catch {
+    return null;
+  }
+}
+
+export function normalizeApiError(error) {
+  const status = error?.response?.status || 0;
+  const data = error?.response?.data;
+
+  const message =
+    data?.detail ||
+    data?.message ||
+    error?.message ||
+    'Falha inesperada na comunicação com a API.';
+
+  const normalized = new Error(message);
+  normalized.status = status;
+  normalized.data = data;
+
+  return normalized;
+}
+
+api.interceptors.request.use((config) => {
+  const token = getStoredToken();
+
+  if (token) {
+    const headers = config.headers || {};
+    headers.Authorization = `Bearer ${token}`;
+    config.headers = headers;
+  }
+
+  return config;
+});
+
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error?.response?.status === 401) {
+      clearSessionStorage();
+
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new CustomEvent(AUTH_UNAUTHORIZED_EVENT));
+      }
+    }
+
+    return Promise.reject(normalizeApiError(error));
+  },
+);
+
+function normalizeAuthPayload(data) {
+  const token = data?.token || data?.accessToken || data?.access_token || data?.jwt || null;
+
+  if (!token) {
+    throw new Error('Resposta de login sem token de autenticação.');
+  }
+
+  const user = data?.user || extractUserFromToken(token) || null;
+
+  return { token, user };
+}
+
+/* AUTENTICAÇÃO / USUÁRIO */
 
 export async function login(email, password) {
-    try {
-        const res = await api.post('/usuarios/login', { email, password });
-        return res.data;
-    } catch (err) {
-        console.error("Erro ao fazer login:", err);
-        throw err;
-    }
+  const { data } = await api.post('/auth/login', { email, password });
+  return normalizeAuthPayload(data);
 }
 
-export async function registrar(name, email, password, confirmedPassword) {
-    if (password === confirmedPassword) {
-        console.log(email, name, password)
-        await api.post('/usuarios/registrar', {
-            email: email,
-            name: name,
-            password: password
-        }).then(res => {
-            return res.data
-        }).catch(err => console.log(err))
-    } else {
-        console.log("Erro: Senhas devem ser iguais");
-    }
+export async function registrar(name, email, password) {
+  const { data } = await api.post('/users', { name, email, password });
+  return data;
 }
 
-export async function buscar(email) {
-    if (email !== null && email !== undefined) {
-        try {
-            console.log('bucando informacoes')
-            const res = await api.get(`/usuarios/buscar?email=${email}`);
-            console.log(res.data)
-            return res.data.storages
-        } catch (err) {
-            console.log('Erro: ', err)
-        }
-    }
+export async function getUserById(id) {
+  if (!id) {
+    throw new Error('ID de usuário não informado.');
+  }
+
+  const { data } = await api.get(`/users/${id}`);
+  return data;
 }
 
-/* ARMAZEM */
-
-export async function addStorageOnUser(id_user, name, description) {
-    try {
-        const res = await api.post(
-            `/estoque/${id_user}`,
-            {
-                name: name,
-                description: description,
-            },
-        );
-        return res.data;
-    } catch (err) {
-        console.log("Erro ao tentar adicionar Armazem: ", err)
-    }
+export async function getUserStorages(id) {
+  const user = await getUserById(id);
+  return Array.isArray(user?.storages) ? user.storages : [];
 }
 
-export const getStorage = async (email, name) => {
-    try {
-        const res = await api.get(`/estoque/${email}/buscar?name=${name}`);
-        return res.data;
-    } catch (err) {
-        console.log('Erro ao buscar Estoque: ', err)
-    }
+/* ARMAZÉM */
+
+export async function addStorageOnUser(idUser, name, description) {
+  const payload = {
+    name,
+    description,
+  };
+
+  if (idUser) {
+    payload.userId = idUser;
+  }
+
+  const { data } = await api.post('/storages', payload);
+  return data;
 }
 
-export const getStorageById = async (id) => {
-    try {
-        const res = await api.get(`/estoque/buscar?id=${id}`);
-        return res.data;
-    } catch (err) {
-        console.log('Erro ao buscar Estoque: ', err)
-    }
+export async function getStorage(name) {
+  const { data } = await api.get('/storages', {
+    params: { name },
+  });
+
+  return data;
+}
+
+export async function getStorageById(id) {
+  const { data } = await api.get(`/storages/${id}`);
+  return data;
 }
 
 /* PRODUTO */
 
-export async function addProduct(id_storage, name, description, sector, value, quantidade) {
-    try {
-        const res = await api.post(
-            `/produtos/${id_storage}`,
-            {
-                name: name,
-                description: description,
-                sector: sector,
-                value: value,
-                quantidade: quantidade,
-            },
-        )
-        return res;
-    } catch (err) {
-        console.log('Erro ao tentat adicionar Produto: ' + err)
-    }
+export async function addProduct(idStorage, name, description, sector, value, quantidade) {
+  const payload = {
+    name,
+    description,
+    sector,
+    value: Number(value),
+    quantidade: Number(quantidade),
+  };
+
+  const { data } = await api.post(`/products/storages/${idStorage}`, payload);
+  return data;
 }
 
 export async function updateProduct(dto) {
-    try {
-        const res = await api.put(`/produtos/atualizar`, dto);
-        return res.data;
-    } catch (error) {
-        console.log('Erro ao atualizar produto: ', error);
-    }
+  if (!dto?.id) {
+    throw new Error('Produto sem ID para atualização.');
+  }
+
+  const payload = {
+    id: dto.id,
+    name: dto.name,
+    description: dto.description,
+    sector: dto.sector,
+    value: Number(dto.value),
+    quantidade: Number(dto.quantidade),
+  };
+
+  const { data } = await api.put(`/products/${dto.id}`, payload);
+  return data;
 }
 
 export async function deleteProduct(id) {
-    try {
-        const res = await api.delete(`/produtos/${id}`);
-        return res.data;
-    } catch (error) {
-        console.log('Erro ao excluir produto: ', error);
-    }
+  const { data } = await api.delete(`/products/${id}`);
+  return data;
+}
+
+// Legado: mantido para compatibilidade em partes antigas
+export async function buscar(email) {
+  if (!email) return [];
+
+  const storage = await getStorage(email);
+  return Array.isArray(storage) ? storage : [];
 }
