@@ -19,39 +19,46 @@ export const NavBar = () => {
 
   return (
     <>
-      <nav className="nav-container">
-        <h1 style={{ left: 0, color: 'white' }}>
-          <img alt="Logo Genial" src={armazenLogo} />
-          GENIAL
-        </h1>
-        <ul>
-          <li>
-            <button className="button-30" onClick={() => setCriarArmazem(true)} role="button" type="button">
-              Criar Armazém
-            </button>
-          </li>
-          <li>
-            <button className="button-30" disabled role="button" type="button">
-              Deletar Armazém
-            </button>
-          </li>
-          <li className="dropdown">
-            <button className="button-30" role="button" type="button">
-              Configurações
-            </button>
-            <div className="dropdown-content">
-              <button className="button-15" type="button">
-                Configurar Conta
+      <nav className="nav-container glass-panel">
+        <div className="container-navbar">
+          <h1 className="nav-brand">
+            <img alt="Logo Genial" src={armazenLogo} />
+            <span>GENIAL</span>
+          </h1>
+
+          <ul className="nav-actions">
+            <li>
+              <button
+                className="button-30 glass-button"
+                onClick={() => setCriarArmazem(true)}
+                type="button"
+              >
+                Criar Armazém
               </button>
-              <button className="button-15" onClick={logOut} type="button">
-                Log out
+            </li>
+            <li>
+              <button className="button-30 glass-button" disabled type="button">
+                Deletar Armazém
               </button>
-            </div>
-          </li>
-        </ul>
+            </li>
+            <li className="dropdown">
+              <button className="button-30 glass-button" type="button">
+                Configurações
+              </button>
+              <div className="dropdown-content glass-panel">
+                <button className="button-15 glass-button" type="button">
+                  Configurar Conta
+                </button>
+                <button className="button-15 glass-button" onClick={logOut} type="button">
+                  Log out
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
       </nav>
 
-      <Modal open={criarArmazem} close={() => setCriarArmazem(false)}>
+      <Modal close={() => setCriarArmazem(false)} open={criarArmazem}>
         <Forms.Criar onSuccess={() => setCriarArmazem(false)} />
       </Modal>
     </>

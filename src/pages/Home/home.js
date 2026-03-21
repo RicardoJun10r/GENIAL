@@ -70,9 +70,9 @@ function Home() {
 
   return (
     <div className="home-container">
-      <h1>Seus Armazéns</h1>
+      <h1 className="home-title">Seus Armazéns</h1>
 
-      {isLoading && <p>Carregando armazéns...</p>}
+      {isLoading && <p className="home-hint">Carregando armazéns...</p>}
 
       {error && (
         <p aria-live="polite" className="form-error-message" role="alert">
@@ -81,20 +81,20 @@ function Home() {
       )}
 
       <div className="painel">
-        {!isLoading && !error && storages.length > 0 ? (
-          storages.map((inventario) => (
-            <Card
-              content={inventario.description}
-              foot={formatStorageDate(inventario)}
-              handleFunction={() => navigate(`/produtos/${inventario.id}`)}
-              key={inventario.id}
-              titulo={inventario.name}
-            />
-          ))
-        ) : null}
+        {!isLoading && !error && storages.length > 0
+          ? storages.map((inventario) => (
+              <Card
+                content={inventario.description}
+                foot={formatStorageDate(inventario)}
+                handleFunction={() => navigate(`/produtos/${inventario.id}`)}
+                key={inventario.id}
+                titulo={inventario.name}
+              />
+            ))
+          : null}
 
         {!isLoading && !error && storages.length === 0 ? (
-          <p style={{ position: 'absolute' }}>Você ainda não tem nenhum armazém cadastrado.</p>
+          <p className="home-empty">Você ainda não tem nenhum armazém cadastrado.</p>
         ) : null}
       </div>
     </div>

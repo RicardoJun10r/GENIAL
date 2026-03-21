@@ -8,30 +8,30 @@ Com isso, clientes de quaisquer vertentes podem utilizar do sistema para fazer a
 
 ---
 
-### Workflow de Build e Validação (NPM/Node.js)
+### Workflow de Build e Validação (Bun/Node.js)
 
-O projeto gerencia dependências e o ciclo de vida via **NPM**. A IA deve assumir os seguintes comandos definidos no `package.json` como padrão para testar, validar e executar o código:
+O projeto gerencia dependências e o ciclo de vida via **Bun**. A IA deve assumir os seguintes comandos definidos no `package.json` como padrão para testar, validar e executar o código:
 
 **PARA RODAR OS COMANDOS, CERTIFIQUE-SE DE ESTAR NA RAIZ DO PROJETO FRONTEND**
 
 1. **Validação Estrita (O Padrão Ouro):**
-   - Comandos: `npm run lint` e `npm run format`
+   - Comandos: `bun run lint` e `bun run format`
    - *Quando usar:* Sempre que finalizar uma refatoração ou antes de aprovar um código. Estes comandos garantem que o código não possui erros lógicos (ESLint) e está perfeitamente formatado (Biome).
 
 2. **Testes Unitários e de Integração (TDD/UI):**
-   - Comando: `npm run test`
+   - Comando: `bun run test` (ou apenas `bun test`)
    - *Quando usar:* Durante a criação ou refatoração de componentes e hooks para garantir que a lógica e a renderização do DOM (via Testing Library) funcionem corretamente.
 
 3. **Testes End-to-End (E2E):**
-   - Comando: `npm run test:e2e` ou `npm run test:e2e:ui`
+   - Comando: `bun run test:e2e` ou `bun run test:e2e:ui`
    - *Quando usar:* Para validar fluxos críticos (Login, Criação de Produto, etc.) simulando um usuário real no navegador via Playwright.
 
 4. **Execução Local:**
-   - Comando: `npm start`
+   - Comando: `bun run start` (ou `bun start`)
    - *Quando usar:* Para subir a aplicação localmente de forma interativa. A IA deve assumir que o backend (`localhost:8080`) já está rodando.
 
 5. **Empacotamento (Build de Produção):**
-   - Comando: `npm run build`
+   - Comando: `bun run build`
    - *Quando usar:* Para gerar o bundle final otimizado na pasta `build/` ou `dist/`.
 
 ---

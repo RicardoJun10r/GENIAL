@@ -72,7 +72,13 @@ export const CriarProduto = ({ storageId: propStorageId, onSuccess }) => {
         <form className="criar-armazem-form" onSubmit={onSubmit}>
           <div className="form-group">
             <label htmlFor="name">Nome do Produto</label>
-            <input className="form-input" id="name" onChange={handleChange} required value={form.name} />
+            <input
+              className="form-input"
+              id="name"
+              onChange={handleChange}
+              required
+              value={form.name}
+            />
           </div>
           <div className="form-group">
             <label htmlFor="description">Descrição do Produto</label>
@@ -86,7 +92,13 @@ export const CriarProduto = ({ storageId: propStorageId, onSuccess }) => {
           </div>
           <div className="form-group">
             <label htmlFor="sector">Setor do Produto</label>
-            <input className="form-input" id="sector" onChange={handleChange} required value={form.sector} />
+            <input
+              className="form-input"
+              id="sector"
+              onChange={handleChange}
+              required
+              value={form.sector}
+            />
           </div>
           <div className="form-group">
             <label htmlFor="value">Valor do Produto</label>

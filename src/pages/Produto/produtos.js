@@ -67,31 +67,26 @@ const Produtos = () => {
       <div className="produtos-header">
         <h1>Produtos</h1>
         <div>
-          <button onClick={() => setModal(true)} type="button">
+          <button
+            className="produtos-action glass-button"
+            onClick={() => setModal(true)}
+            type="button"
+          >
             Adicionar produto
           </button>
-          <Link
-            style={{
-              backgroundColor: 'white',
-              padding: '8px 4px 8px 4px',
-              borderRadius: '5px',
-              textDecoration: 'none',
-              color: 'black',
-            }}
-            to="/"
-          >
+          <Link className="produtos-back-link glass-button" to="/">
             Voltar
           </Link>
         </div>
       </div>
 
       <div className="produtos-content">
-        <div>
+        <div className="storage-summary glass-panel">
           <h2>{storage.name || 'Armazém'}</h2>
           <p>{storage.description}</p>
         </div>
 
-        {isLoading && <p>Carregando produtos...</p>}
+        {isLoading && <p className="produtos-hint">Carregando produtos...</p>}
 
         {error && (
           <p aria-live="polite" className="form-error-message" role="alert">
@@ -99,11 +94,11 @@ const Produtos = () => {
           </p>
         )}
 
-        <Modal open={modal} close={() => setModal(false)}>
+        <Modal close={() => setModal(false)} open={modal}>
           <Forms.AdicionarProduto onSuccess={handleStorageUpdated} storageId={id} />
         </Modal>
 
-        <Modal open={verProduto} close={() => closeVerProduto()}>
+        <Modal close={() => closeVerProduto()} open={verProduto}>
           <Forms.VisualizarProduto
             onDeleted={handleStorageUpdated}
             onUpdated={handleStorageUpdated}
@@ -112,40 +107,46 @@ const Produtos = () => {
         </Modal>
 
         {!isLoading && storage.products.length === 0 ? (
-          <p>Nenhum produto cadastrado neste armazém.</p>
+          <p className="produtos-hint">Nenhum produto cadastrado neste armazém.</p>
         ) : null}
 
         {!isLoading && storage.products.length > 0 ? (
-          <table>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>NOME</th>
-                <th>DESCRIÇÃO</th>
-                <th>SETOR</th>
-                <th>VALOR</th>
-                <th>QUANTIDADE</th>
-                <th>AÇÃO</th>
-              </tr>
-            </thead>
-            <tbody>
-              {storage.products.map((product) => (
-                <tr key={product.id}>
-                  <td>{product.id}</td>
-                  <td>{product.name}</td>
-                  <td>{product.description}</td>
-                  <td>{product.sector}</td>
-                  <td>{currencyBRL(product.value)}</td>
-                  <td>{product.quantidade}</td>
-                  <td>
-                    <button onClick={() => openVerProduto(product)} type="button">
-                      Visualizar
-                    </button>
-                  </td>
+          <div className="products-table-wrapper glass-panel">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nome</th>
+                  <th>Descrição</th>
+                  <th>Setor</th>
+                  <th>Valor</th>
+                  <th>Quantidade</th>
+                  <th>Ação</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {storage.products.map((product) => (
+                  <tr key={product.id}>
+                    <td>{product.id}</td>
+                    <td>{product.name}</td>
+                    <td>{product.description}</td>
+                    <td>{product.sector}</td>
+                    <td>{currencyBRL(product.value)}</td>
+                    <td>{product.quantidade}</td>
+                    <td>
+                      <button
+                        className="produtos-action produtos-action-small glass-button"
+                        onClick={() => openVerProduto(product)}
+                        type="button"
+                      >
+                        Visualizar
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         ) : null}
       </div>
     </div>

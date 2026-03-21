@@ -44,7 +44,9 @@ function extractUserFromToken(token) {
 
     const possibleId = payload.id || payload.userId || payload.uid || null;
     const possibleSub = payload.sub || null;
-    const possibleEmail = payload.email || (typeof possibleSub === 'string' && possibleSub.includes('@') ? possibleSub : null);
+    const possibleEmail =
+      payload.email ||
+      (typeof possibleSub === 'string' && possibleSub.includes('@') ? possibleSub : null);
 
     return {
       id: possibleId || (possibleSub && !possibleSub.includes('@') ? possibleSub : null),
@@ -61,10 +63,7 @@ export function normalizeApiError(error) {
   const data = error?.response?.data;
 
   const message =
-    data?.detail ||
-    data?.message ||
-    error?.message ||
-    'Falha inesperada na comunicação com a API.';
+    data?.detail || data?.message || error?.message || 'Falha inesperada na comunicação com a API.';
 
   const normalized = new Error(message);
   normalized.status = status;

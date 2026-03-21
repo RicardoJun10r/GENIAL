@@ -1,3 +1,4 @@
+import './criar-armazem.css';
 import React from 'react';
 import { deleteProduct, updateProduct } from '../../services/api';
 
@@ -89,79 +90,101 @@ export const VerProduto = ({ produto, onUpdated, onDeleted }) => {
   }
 
   if (!produto) {
-    return <p>Nenhum produto selecionado.</p>;
+    return <p className="product-view-empty">Nenhum produto selecionado.</p>;
   }
 
   return (
-    <section>
-      <h3>Detalhes do Produto</h3>
-      <div>
-        <form onSubmit={handleUpdate}>
-          <div>
-            <label htmlFor="name">Nome do Produto</label>
-            <input id="name" onChange={handleChange} required type="text" value={produtoSelecionado.name} />
-          </div>
-          <div>
-            <label htmlFor="description">Descrição do Produto</label>
-            <input
-              id="description"
-              onChange={handleChange}
-              required
-              type="text"
-              value={produtoSelecionado.description}
-            />
-          </div>
-          <div>
-            <label htmlFor="sector">Setor do Produto</label>
-            <input id="sector" onChange={handleChange} required type="text" value={produtoSelecionado.sector} />
-          </div>
-          <div>
-            <label htmlFor="value">Valor do Produto</label>
-            <input
-              id="value"
-              min="0"
-              onChange={handleChange}
-              required
-              step="0.01"
-              type="number"
-              value={produtoSelecionado.value}
-            />
-          </div>
-          <div>
-            <label htmlFor="quantidade">Quantidade do Produto</label>
-            <input
-              id="quantidade"
-              min="0"
-              onChange={handleChange}
-              required
-              step="1"
-              type="number"
-              value={produtoSelecionado.quantidade}
-            />
-          </div>
-
-          {error && (
-            <p aria-live="polite" className="error-message" role="alert">
-              {error}
-            </p>
-          )}
-
-          {successMessage && (
-            <p aria-live="polite" className="success-message" role="status">
-              {successMessage}
-            </p>
-          )}
-
-          <div>
-            <button disabled={isSubmitting} type="submit">
-              {isSubmitting ? 'Salvando...' : 'Editar'}
-            </button>
-            <button disabled={isSubmitting} onClick={handleDelete} type="button">
-              Excluir
-            </button>
-          </div>
-        </form>
+    <section className="criar-armazem-container">
+      <div className="criar-armazem-header">
+        <h1>Detalhes do Produto</h1>
       </div>
+      <form className="criar-armazem-form" onSubmit={handleUpdate}>
+        <div className="form-group">
+          <label htmlFor="name">Nome do Produto</label>
+          <input
+            className="form-input"
+            id="name"
+            onChange={handleChange}
+            required
+            type="text"
+            value={produtoSelecionado.name}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="description">Descrição do Produto</label>
+          <input
+            className="form-input"
+            id="description"
+            onChange={handleChange}
+            required
+            type="text"
+            value={produtoSelecionado.description}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="sector">Setor do Produto</label>
+          <input
+            className="form-input"
+            id="sector"
+            onChange={handleChange}
+            required
+            type="text"
+            value={produtoSelecionado.sector}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="value">Valor do Produto</label>
+          <input
+            className="form-input"
+            id="value"
+            min="0"
+            onChange={handleChange}
+            required
+            step="0.01"
+            type="number"
+            value={produtoSelecionado.value}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="quantidade">Quantidade do Produto</label>
+          <input
+            className="form-input"
+            id="quantidade"
+            min="0"
+            onChange={handleChange}
+            required
+            step="1"
+            type="number"
+            value={produtoSelecionado.quantidade}
+          />
+        </div>
+
+        {error && (
+          <p aria-live="polite" className="error-message" role="alert">
+            {error}
+          </p>
+        )}
+
+        {successMessage && (
+          <p aria-live="polite" className="success-message" role="status">
+            {successMessage}
+          </p>
+        )}
+
+        <div className="form-actions">
+          <button className="button-editar" disabled={isSubmitting} type="submit">
+            {isSubmitting ? 'Salvando...' : 'Editar'}
+          </button>
+          <button
+            className="button-excluir"
+            disabled={isSubmitting}
+            onClick={handleDelete}
+            type="button"
+          >
+            Excluir
+          </button>
+        </div>
+      </form>
     </section>
   );
 };

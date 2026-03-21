@@ -1,7 +1,3 @@
 export const DeletarArmazem = () => {
-    return (
-        <>
-            Deletar
-        </>
-    )
-}
+  return <>Deletar</>;
+};

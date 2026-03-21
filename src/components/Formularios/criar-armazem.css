@@ -1,108 +1,161 @@
 .criar-armazem-container {
-    padding: 24px;
-    background-color: #fff;
-    color: #333;
-    width: 450px;
+  padding: 24px;
+  color: var(--text-primary);
+  width: min(100%, 560px);
+  margin: 0 auto;
+  border-radius: var(--radius-main);
+  background: rgba(255, 255, 255, 0.08);
+  border: var(--glass-border-soft);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
 }
 
 .criar-armazem-header {
-    margin-bottom: 24px;
-    text-align: center;
-    border-bottom: 1px solid #e0e0e0;
-    padding-bottom: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: var(--glass-border-soft);
+  padding-bottom: 12px;
 }
 
 .criar-armazem-header h1 {
-    font-size: 1.75rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #f4fbff;
+  margin: 0;
 }
 
 .criar-armazem-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .form-group {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
 }
 
 .form-group label {
-    font-size: 0.9rem;
-    font-weight: 500;
-    margin-bottom: 8px;
-    color: #555;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #d7edf7;
 }
 
 .form-input,
 .form-textarea {
-    font-family: inherit;
-    font-size: 1rem;
-    padding: 12px 16px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 11px 14px;
+  border: var(--glass-border-soft);
+  border-radius: var(--radius-soft);
+  background: var(--glass-input-bg);
+  color: #f1fcff;
+  transition: all 0.3s ease-in-out;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: rgba(223, 242, 250, 0.7);
 }
 
 .form-input:focus,
 .form-textarea:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+  outline: none;
+  border-color: rgba(150, 236, 255, 0.85);
+  box-shadow: 0 0 0 3px rgba(76, 184, 226, 0.28);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .form-textarea {
-    resize: vertical;
-    min-height: 80px;
+  resize: vertical;
+  min-height: 82px;
 }
 
-.error-message {
-    color: #d93025;
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
-    border-radius: 8px;
-    padding: 10px 15px;
-    font-size: 0.9rem;
-    text-align: center;
+.error-message,
+.form-error-message {
+  color: #ffe8e8;
+  background: rgba(127, 29, 29, 0.45);
+  border: 1px solid rgba(252, 165, 165, 0.5);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 0.85rem;
+  text-align: center;
 }
 
 .success-message {
-    color: #14532d;
-    background-color: #dcfce7;
-    border: 1px solid #86efac;
-    border-radius: 8px;
-    padding: 10px 15px;
-    font-size: 0.9rem;
-    text-align: center;
+  color: #e8fff0;
+  background: rgba(22, 101, 52, 0.45);
+  border: 1px solid rgba(110, 231, 183, 0.5);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 0.85rem;
+  text-align: center;
 }
 
 .form-actions {
-    margin-top: 16px;
-    display: flex;
-    justify-content: flex-end;
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
 }
 
-.button-criar {
-    padding: 12px 24px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
+.button-criar,
+.button-editar,
+.button-excluir {
+  padding: 11px 18px;
+  border: var(--glass-border-soft);
+  border-radius: 12px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  color: #f4fbff;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.12));
+}
+
+.button-criar,
+.button-editar {
+  min-width: 120px;
+}
+
+.button-criar:hover:not(:disabled),
+.button-editar:hover:not(:disabled),
+.button-excluir:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 22px rgba(5, 36, 54, 0.35);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.16));
+}
+
+.button-excluir {
+  background: linear-gradient(145deg, rgba(248, 113, 113, 0.4), rgba(153, 27, 27, 0.45));
+}
+
+.button-criar:disabled,
+.button-editar:disabled,
+.button-excluir:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.product-view-empty {
+  color: var(--text-muted);
+  margin: 0;
+  padding: 0.4rem;
+}
+
+@media (max-width: 640px) {
+  .criar-armazem-container {
+    padding: 16px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .button-criar,
+  .button-editar,
+  .button-excluir {
     width: 100%;
-}
-
-.button-criar:disabled {
-    cursor: not-allowed;
-    opacity: 0.8;
-}
-
-.button-criar:hover {
-    background-color: #218838;
+  }
 }

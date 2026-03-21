@@ -1,75 +1,131 @@
 .sign-up-container {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.auth-brand {
+  margin: 0;
+  color: #f2fbff;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.9rem;
+}
+
+.auth-brand img {
+  width: 42px;
+  height: 42px;
 }
 
 .sign-up-wrapper {
-    background-color: white;
-    width: 900px;
-    height: 550px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  width: min(100%, 980px);
+  min-height: 560px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  border-radius: 24px;
 }
 
 .sign-up-form {
-    color: black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  color: #f4fbff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.sign-up-form h1 {
+  margin: 0 0 1rem;
+}
+
+.sign-up-form form {
+  width: min(100%, 280px);
 }
 
 .sign-up-form-fields {
-    font-size: 13px;
-    color: #32726e;
+  font-size: 0.82rem;
+  color: #d7edf7;
+  margin-bottom: 0.8rem;
+}
 
-    input {
-        width: 250px;
-        height: 30px;
-    }
+.sign-up-form-fields label {
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.sign-up-form-fields input {
+  width: 100%;
+  min-height: 42px;
+  border-radius: 12px;
+  border: var(--glass-border-soft);
+  background: var(--glass-input-bg);
+  color: #f4fbff;
+  padding: 0 12px;
+}
+
+.sign-up-form-fields input:focus {
+  outline: none;
+  border-color: rgba(150, 236, 255, 0.85);
+  box-shadow: 0 0 0 3px rgba(76, 184, 226, 0.28);
 }
 
 .sign-up-submit {
-    margin-top: 20px;
-    height: 50px;
-    width: 260px;
-    background-color: #32726e;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.sign-up-submit:disabled {
-    cursor: not-allowed;
-    opacity: 0.8;
-}
-
-.sign-up-submit:hover {
-    background-color: #32726ee0;
-    box-shadow: rgba(45, 35, 66, 0.4);
+  margin-top: 10px;
+  min-height: 48px;
+  width: 100%;
+  border-radius: 12px;
+  border: var(--glass-border-soft);
+  color: #effaff;
 }
 
 .sign-up-footer {
-    a {
-        color: black;
-    }
-
-    a:hover {
-        color: #000000a8;
-    }
+  margin-top: 1rem;
+  font-size: 0.88rem;
 }
 
-.form-error-message {
-    margin-top: 10px;
-    color: #7f1d1d;
-    background-color: #fee2e2;
-    border: 1px solid #fecaca;
-    border-radius: 6px;
-    padding: 10px;
-    width: 240px;
-    text-align: center;
+.sign-up-footer a {
+  color: #bff2ff;
+  text-decoration: none;
+}
+
+.sign-up-footer a:hover {
+  color: #e8fbff;
+  text-decoration: underline;
+}
+
+.auth-hero {
+  background: linear-gradient(165deg, rgba(151, 243, 255, 0.25), rgba(5, 53, 76, 0.35));
+  border-right: var(--glass-border-soft);
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.auth-hero h1 {
+  margin: 0;
+  font-weight: 350;
+  font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+}
+
+.auth-hero-reverse {
+  border-left: var(--glass-border-soft);
+  border-right: none;
+}
+
+@media (max-width: 860px) {
+  .sign-up-wrapper {
+    grid-template-columns: 1fr;
+    min-height: unset;
+  }
+
+  .auth-hero-reverse {
+    border-left: none;
+    border-top: var(--glass-border-soft);
+  }
 }

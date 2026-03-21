@@ -4,8 +4,24 @@
   align-items: center;
   min-height: 100vh;
   overflow: auto;
-  padding: 150px 16px 24px;
-  box-sizing: border-box;
+  padding: 130px 16px 28px;
+}
+
+.home-title {
+  margin: 0 0 18px;
+  font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+  text-shadow: 0 6px 18px rgba(2, 23, 35, 0.45);
+}
+
+.home-hint,
+.home-empty {
+  width: min(100%, 800px);
+  text-align: center;
+  background: rgba(255, 255, 255, 0.11);
+  border: var(--glass-border-soft);
+  border-radius: 12px;
+  padding: 0.8rem;
+  color: var(--text-muted);
 }
 
 .painel {
@@ -13,4 +29,5 @@
   max-width: 1200px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
 }

@@ -37,20 +37,17 @@ const Cadastrar = () => {
 
   return (
     <div className="sign-up-container">
-      <div>
-        <h2 style={{ color: 'white', fontSize: '2em' }}>
-          <img alt="Logo Genial" src={armazenLogo} />
-          GENIAL
-        </h2>
-      </div>
-      <div className="sign-up-wrapper">
+      <h2 className="auth-brand">
+        <img alt="Logo Genial" src={armazenLogo} />
+        GENIAL
+      </h2>
+
+      <div className="sign-up-wrapper glass-panel">
         <div className="sign-up-form">
           <h1>Cadastre-se</h1>
           <form onSubmit={onSubmit}>
             <div className="sign-up-form-fields">
-              <label className="floating-label-cadastro" htmlFor="username">
-                <p>Nome</p>
-              </label>
+              <label htmlFor="username">Nome</label>
               <input
                 autoFocus
                 id="username"
@@ -61,9 +58,7 @@ const Cadastrar = () => {
               />
             </div>
             <div className="sign-up-form-fields">
-              <label className="floating-label-cadastro" htmlFor="email">
-                <p>E-mail</p>
-              </label>
+              <label htmlFor="email">E-mail</label>
               <input
                 id="email"
                 onChange={(event) => setEmail(event.target.value)}
@@ -73,9 +68,7 @@ const Cadastrar = () => {
               />
             </div>
             <div className="sign-up-form-fields">
-              <label className="floating-label-cadastro" htmlFor="password">
-                <p>Senha</p>
-              </label>
+              <label htmlFor="password">Senha</label>
               <input
                 autoComplete="new-password"
                 id="password"
@@ -86,9 +79,7 @@ const Cadastrar = () => {
               />
             </div>
             <div className="sign-up-form-fields">
-              <label className="floating-label-cadastro" htmlFor="confirm-password">
-                <p>Confirmar Senha</p>
-              </label>
+              <label htmlFor="confirm-password">Confirmar Senha</label>
               <input
                 autoComplete="new-password"
                 id="confirm-password"
@@ -105,18 +96,20 @@ const Cadastrar = () => {
               </p>
             )}
 
-            <button className="sign-up-submit" disabled={isSubmitting} type="submit">
-              {isSubmitting ? 'Cadastrando...' : 'CADASTRAR'}
+            <button className="sign-up-submit glass-button" disabled={isSubmitting} type="submit">
+              {isSubmitting ? 'Cadastrando...' : 'Cadastrar'}
             </button>
           </form>
+
           <div className="sign-up-footer">
             <p>
-              Ja possui conta ? <Link style={{ textDecoration: 'none' }} to="/login">Voltar</Link>
+              Já possui conta? <Link to="/login">Voltar</Link>
             </p>
           </div>
         </div>
-        <div style={{ backgroundColor: '#32726e' }}>
-          <h1 style={{ marginLeft: '55px', fontWeight: '350', color: 'white', fontSize: '45px' }}>
+
+        <div className="auth-hero auth-hero-reverse">
+          <h1>
             Armazenar é
             <br />
             Bom,

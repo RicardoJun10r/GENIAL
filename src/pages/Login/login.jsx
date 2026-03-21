@@ -39,15 +39,14 @@ function Login() {
 
   return (
     <div className="login-container">
-      <div>
-        <h2 style={{ color: 'white', fontWeight: 'bolder', fontSize: '2em' }}>
-          <img alt="Logo Genial" src={armazenLogo} />
-          GENIAL
-        </h2>
-      </div>
-      <div className="login-wrapper">
-        <div style={{ backgroundColor: '#32726e' }}>
-          <h1 style={{ fontWeight: '350', paddingLeft: '55px', fontSize: '45px', color: 'white' }}>
+      <h2 className="auth-brand">
+        <img alt="Logo Genial" src={armazenLogo} />
+        GENIAL
+      </h2>
+
+      <div className="login-wrapper glass-panel">
+        <div className="auth-hero">
+          <h1>
             Armazenar é
             <br />
             Bom,
@@ -59,14 +58,13 @@ function Login() {
             </strong>
           </h1>
         </div>
+
         <div className="login-form">
           <h1>Log in</h1>
-          <br />
+
           <form onSubmit={onSubmit}>
             <div className="login-form-fields">
-              <label htmlFor="email">
-                <p>E-mail</p>
-              </label>
+              <label htmlFor="email">E-mail</label>
               <input
                 autoComplete="email"
                 autoFocus
@@ -78,9 +76,7 @@ function Login() {
               />
             </div>
             <div className="login-form-fields">
-              <label htmlFor="password">
-                <p>Senha</p>
-              </label>
+              <label htmlFor="password">Senha</label>
               <input
                 autoComplete="current-password"
                 id="password"
@@ -97,15 +93,19 @@ function Login() {
               </p>
             )}
 
-            <button className="login-button-submit" disabled={isSubmitting} type="submit">
+            <button
+              className="login-button-submit glass-button"
+              disabled={isSubmitting}
+              type="submit"
+            >
               {isSubmitting ? 'Entrando...' : 'Entrar'}
             </button>
           </form>
-          <br />
+
           <div className="login-footer">
             <p>
               Não tem uma conta?{' '}
-              <Link className="link-to-sign-up" style={{ textDecoration: 'none' }} to="/cadastrar">
+              <Link className="link-to-sign-up" to="/cadastrar">
                 Registre-se
               </Link>
             </p>
